@@ -1,19 +1,8 @@
 function check()
 {
-    var input = document.getElementByName("filiere");
-	alert(input);
-   /* // si un mot de passe a été entré
-    if ( password != null )
-    {
-    	// on le compare à celui attendu
-    	if ( password == "bravo" )
-    	{
-    	    // mot de passe valide, on ouvre la page secrète
-    	    document.location.href = "http://google.fr";
-        }
-        else
-        {
-            alert( "Mot de passe incorrecte!", "Erreur" );
-        }
-    }*/
+    var password = document.forms["inscription"]["mot de passe"].value;
+	var confirm = document.forms["inscription"]["mdp verification"].value;
+	if(password != confirm){
+		alert("Votre mot de passe ne correspond pas à la confirmation");
+	}
 }

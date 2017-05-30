@@ -4,7 +4,7 @@
 <script src="javascript.js"></script>
 		<div class="centre">
 			<h2>Inscrivez-vous</h2>
-			<form method="post" action="traitement.php">
+			<form name="inscription" method="post" action="traitement.php">
 					<p>
 						<input type="varchar" name="nom" placeholder="Entrez votre nom" required>
 						</br>
@@ -25,7 +25,7 @@
 							<option value="ancien">Ancien</option>
 						</select>
 						</br>
-						<select name="filiere" onmouseover="javascript:check();">
+						<select name="filiere" >
 							<option value="textile">Ingénieur textile et fibres</option>
 							<option value="mecanique">Ingénieur mécanique</option>
 							<option value="automatique">Ingénieur automatique et systèmes embarqués</option>
@@ -37,8 +37,7 @@
 							<option value="master cge">Master CGE ingénierie textile</option>
 						</select>
 						</br>
-						<input type="password" name="mot de passe" placeholder="Entrez votre mot de passe" required>
-						
+						<input type="password" name="mot de passe" placeholder="Entrez votre mot de passe" onmouseover="javascript:filiere();" required>
 						</br>
 						<input type="password" name="mdp verification" placeholder="Vérifiez votre mot de passe" required>
 						</br>
@@ -46,11 +45,7 @@
 						<input type="checkbox" name="cgu" required>
 						<label for="cgu">J'ai lu et accepte les conditions générales d'utilisation</label>
 						</br>
-						<script>
-							var input = document.getElementById("cgu");
-							alert(input.value);
-						</script>
-						<input type="submit" value="Inscription" name="envoyer" />
+						<input type="submit" value="Inscription" name="envoyer" onmouseover="javascript:check();"/>
 					</p>
 			</form>
 		</div>

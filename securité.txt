@@ -1,0 +1,70 @@
+-<?php
+ -// On démarre la session (ceci est indispensable dans toutes les pages)
+ -session_start ();
+ -
+ -// On récupère nos variables de session si elles existent
+ -if (isset($_SESSION['login']))) {
+ -
+ -//ce qui se passe si on est co
+ -}
+ -else {echo '<html>';
+ -//ce qui ce passe si on est pas co, avec un exemple de formulaire liant à un fichier qui fera le login
+ -	echo '<p>Page de notre section membre</p>';
+ -	echo '</head>';
+ -
+ -	echo '<body>';
+ -	<form action="login.php" method="post">
+ -    Votre login : <input type="text" name="login">
+ -    <br />
+ -    Votre mot de passe : <input type="password" name="pwd"><br />
+ -    <input type="submit" value="Connexion">
+ -    </form>
+ -    
+ -}
+ -?>
+ -
+ -
+ -
+ -
+ -#####################################
+ -
+ -<?php
+ -//dans le login.php qui vérifiera si les infos sont bonnes
+ -
+ -if (isset($_POST['login']) && isset($_POST['pwd'])) {
+ -
+ -	// on vérifie les informations du formulaire, à savoir si le pseudo saisi est bien un pseudo autorisé, de même pour le mot de passe
+ -	if ($_POST['login'] est dans la base de données d'identifiants) {
+ -		
+ -        if (password_verify ( $_POST['pwd'] , le mot de passe de id dans la base de données )) {
+ -            // dans ce cas, tout est ok, on peut démarrer notre session
+ -		    // on la démarre :)
+ -		    session_start ();
+ -		    // on enregistre les paramètres de notre visiteur comme variables de session ($login) 
+ -		    $_SESSION['login'] = $_POST['login'];
+ -
+ -		    // on redirige notre visiteur vers une page de notre section membre
+ -		    header ('location: page_membre.php');
+ -            
+ -            }
+ -            else {
+ -            
+ -            mot de passe non reconnu
+ -            }
+ -	   }
+ -	else {
+ -		// Le visiteur n'a pas été reconnu comme étant membre de notre site. On utilise alors un petit javascript lui signalant ce fait
+ -		echo '<body onLoad="alert(\'Membre non reconnu...\')">';
+ -		// puis on le redirige vers la page d'accueil
+ -		echo '<meta http-equiv="refresh" content="0;URL=index.htm">';
+ -	}
+ -}
+ -else {
+ -	echo 'Les variables du formulaire ne sont pas déclarées.';
+ -}
+ -?>
+ -
+ -####################################
+ -
+ -
+ -pour enregistrer des vals, il faudra appliquer string password_hash ( string $password ,PASSWORD_BCRYPT ) et envoyer le résultat sur la BDD

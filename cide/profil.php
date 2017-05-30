@@ -10,7 +10,7 @@
 				</div>
 				<div id="pdroit">
 				<p>
-					".$donnees["nom"]."
+					Nom
 					</br>
 					</br>
 					Prénom

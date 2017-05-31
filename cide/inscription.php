@@ -38,6 +38,13 @@
 							<option value="master mecanique">Master mécanique</option>
 							<option value="master cge">Master CGE ingénierie textile</option>
 						</select>
+						</br>
+						<select name="annee" >
+							<option value="">Annee</option>
+							<option value="1A">1A</option>
+							<option value="2A">2A</option>
+							<option value="3A">3A</option>
+						</select>
 						<script>
 							/*var statut = document.forms["inscription"]["statut"].value;
 							if(statut == "etudiant"){

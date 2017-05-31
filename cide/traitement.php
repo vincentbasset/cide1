@@ -17,13 +17,18 @@
 							if(!empty($_POST["statut"])){
 								$statut = $_POST["statut"];
 								if(!empty($_POST["filiere"])){
-									$filiere = $_POST["filiere"];}
+									$filiere = $_POST["filiere"];
+									}
 								else{
 									$filiere = "NULL";
 								}
-								
+								if(!empty($_POST["annee"])){
+									$annee = $_POST["annee"];
+								}else{
+									$annee = "NULL";
+								}
 								if($_POST["cgu"]) {
-									$insertion = $bdd->prepare("INSERT INTO utilisateur VALUES(NULL,\"".$nom."\",\"".$prenom."\",\"".$mail."\",\"".password_hash($mdp , PASSWORD_BCRYPT)."\",\"image/profil.jpg\",\"".$statut."\",\"".$filiere."\",NULL,\"".$date."\",NULL)");
+									$insertion = $bdd->prepare("INSERT INTO utilisateur VALUES(NULL,\"".$nom."\",\"".$prenom."\",\"".$mail."\",\"".password_hash($mdp , PASSWORD_BCRYPT)."\",\"image/profil.jpg\",\"".$statut."\",\"".$filiere."\",\"".$annee."\",\"".$date."\",NULL)");
 									$insertion->execute();
 								}
 							}
@@ -37,4 +42,4 @@
 ?>
 		</div>
 	</body>
-</htlm>
+</html>

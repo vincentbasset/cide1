@@ -11,7 +11,7 @@ h1{
 	width:75%;
 }
 
-h2{
+header h2{
 	text-align:left;
 	display:inline-block;
 	width:10%;
@@ -120,4 +120,64 @@ span a{
 	width:100%;
 	text-align:right;
 	font-size: 10px;
+}
+form p{
+	line-height:2;
+}
+
+.centreprofil{
+	width:70%;
+	padding-right:1%;
+	padding-left:1%;
+	border-left: 3px double rgb(255,221,1);
+	border-right: 3px double rgb(255,221,1);
+	border-bottom: 3px double rgb(255,221,1);
+	padding-right:2%;
+	padding-left:2%;
+	background-color:rgb(140,166,215);
+	
+}
+.centreprofil p{
+	margin-top: 2%;
+	margin-bottom: 2%;
+	padding: 2%;
+	font-size:20px;
+	color:white;
+}
+
+#pgauche{
+	display:inline-block;
+	font-size:15px;
+}
+
+#pdroit{
+	display:inline-block;
+	font-size:30px;
+	padding-top:5%;
+}
+
+.centreprofil a{
+	margin-top: 2%;
+	margin-bottom: 2%;
+	padding: 2%;
+	font-size:20px;
+	color:rgb(255,221,1);
+	text-align:center;
+	width:100%;
+	font-size:15px;
+}
+
+
+.centreprofil span{
+	width:100%;
+	font-size:10px;
+	text-align:center;
+}
+
+button.link { 
+	background:none;border:none; 
+}
+
+.test{
+	color:white;
 }

@@ -13,7 +13,6 @@
 					if(!empty($_POST["date"])){
 						$date = $_POST["date"];
 						if(!empty($_POST["mdp"])){
-							echo "<p>blou</p>";
 							$mdp = $_POST["mdp"];
 							if(!empty($_POST["statut"])){
 								$statut = $_POST["statut"];
@@ -24,7 +23,6 @@
 								}
 								
 								if($_POST["cgu"]) {
-									echo "<p>vrhfy</p>";
 									$insertion = $bdd->prepare("INSERT INTO utilisateur VALUES(NULL,\"".$nom."\",\"".$prenom."\",\"".$mail."\",\"".password_hash($mdp , PASSWORD_BCRYPT)."\",\"image/profil.jpg\",\"".$statut."\",\"".$filiere."\",NULL,\"".$date."\",NULL)");
 									$insertion->execute();
 								}

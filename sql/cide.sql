@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 31 Mai 2017 à 10:24
+-- Généré le :  Mer 31 Mai 2017 à 10:37
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.19
 
@@ -50,7 +50,9 @@ CREATE TABLE `appartient` (
 INSERT INTO `appartient` (`idUtil`, `idGroupe`, `droit`) VALUES
 (1, 1, 'membre'),
 (2, 1, 'membre'),
-(3, 1, 'admin');
+(3, 1, 'admin'),
+(1, 2, 'membre'),
+(1, 3, 'admin');
 
 -- --------------------------------------------------------
 
@@ -86,7 +88,7 @@ CREATE TABLE `groupe` (
   `nom` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `type` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `icone` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL
+  `icone` varchar(150) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'image/icon.jpg'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -94,7 +96,10 @@ CREATE TABLE `groupe` (
 --
 
 INSERT INTO `groupe` (`id`, `nom`, `type`, `description`, `icone`) VALUES
-(1, 'info-1A', 'default', 'filière informatique première année', NULL);
+(1, 'info-1A', 'default', 'filière informatique première année', 'image/icon.jpg'),
+(2, 'BDE', 'defaut', 'Bureau Des Eleves', 'image/icon.jpg'),
+(3, 'IARISS', 'officiel', 'Junior de l\'ENSISA', 'image/icon.jpg'),
+(4, 'BDS', 'officiel', 'Bureau Des Sport', 'image/icon.jpg');
 
 -- --------------------------------------------------------
 
@@ -149,7 +154,8 @@ CREATE TABLE `utilisateur` (
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `adresse`, `motdepasse`, `photo`, `statut`, `filiere`, `annee`, `datenaissance`, `cv`) VALUES
 (1, 'Basset', 'Vincent', 'vincent.basset@uha.fr', 'jacquesetsunsalopard', 'image/profil.jpg', 'etudiant', 'info', '1A', '1995-07-01', NULL),
 (2, 'Vernay', 'Jacques', 'jacques.vernay@uha.fr', 'vincentestmondieu', 'image/profil.jpg', 'etudiant', 'info', '1A', '1995-01-30', NULL),
-(3, 'Planes', 'Louis', 'louis.planes@uha.fr', 'ichwill', 'image/profil-louis-planes.jpg', 'etudiant', 'info', '1A', '1996-09-04', NULL);
+(3, 'Planes', 'Louis', 'louis.planes@uha.fr', 'ichwill', 'image/profil-louis-planes.jpg', 'etudiant', 'info', '1A', '1996-09-04', NULL),
+(4, 'Fanny', 'Ringler', 'fanny.ringler@uha.fr', 'jesuisdaccordavecvincent', 'image/profil.jpg', 'etudiant', 'info', '1A', '1996-01-30', NULL);
 
 --
 -- Index pour les tables exportées
@@ -202,7 +208,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `groupe`
 --
 ALTER TABLE `groupe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `post`
 --
@@ -212,7 +218,7 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	try{
 	$bdd = new PDO("mysql:host=localhost; dbname=cide; charset=utf8","root","");
 	}catch(Exception $e){
@@ -18,12 +19,30 @@
 	<body>
 		<header>	
 		<!-- header = entête de la page -->
-			<h2><a href="https://cas.uha.fr/cas/login?service=http://www.e-services.uha.fr"><img src="image/ensisa.jpg" title="Ecole Nationale Supérieure d'Ingénieurs Sud Alsace" alt="ENSISA" width="300px" height="150px"/></a></h2>
+			<h2><a href="https://cas.uha.fr/cas/login?service=http://www.e-services.uha.fr"><img src="image/ensisa.jpg" title="Ecole Nationale Supérieure d'Ingénieurs Sud Alsace" alt="ENSISA" width="150px" height="100px"/></a></h2>
 			<h1><a href="index.php"><img src="image/logo.jpg" title="Le Cercle des Ingénieurs de l'ENSISA" alt="C.I.D.E." width="200px" height="150px" /></a></h1>
-			<p><a href="inscription.php">Inscription</a></p>
+			<p><?php
+				if (isset($_SESSION['id'])) {
+					//ce qui ce passe si on est pas co, avec un exemple de formulaire liant à un fichier qui fera le login
+						echo '<p>connecté</p>';
+					//ce qui se passe si on est co
+					}
+					else {
+					//ce qui ce passe si on est pas co, avec un exemple de formulaire liant à un fichier qui fera le login
+						echo '
+						<form action="login.php" method="post">
+						Votre login : <input type="varchar" name="login">
+						<br />
+						Votre mot de passe : <input type="password" name="pwd"><br />
+						<input type="submit" value="Connexion" name="connect">
+						</form>
+						<a href="inscription.php">Inscription</a>';
+						
+					}
+			?></p>
+			
 		</header>
 		
 		<div class="gauche">
 			<?php include("navigation.php"); ?>
 		</div>
-		

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 31 Mai 2017 à 09:58
+-- Généré le :  Mer 31 Mai 2017 à 10:24
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.19
 
@@ -191,7 +191,8 @@ ALTER TABLE `post`
 -- Index pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `adresse` (`adresse`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 31 Mai 2017 à 09:50
+-- Généré le :  Mer 31 Mai 2017 à 09:58
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.19
 
@@ -86,14 +86,14 @@ CREATE TABLE `groupe` (
   `nom` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `type` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `icon` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL
+  `icone` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Contenu de la table `groupe`
 --
 
-INSERT INTO `groupe` (`id`, `nom`, `type`, `description`, `icon`) VALUES
+INSERT INTO `groupe` (`id`, `nom`, `type`, `description`, `icone`) VALUES
 (1, 'info-1A', 'default', 'filière informatique première année', NULL);
 
 -- --------------------------------------------------------

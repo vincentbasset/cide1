@@ -19,9 +19,11 @@
 	<body>
 		<header>	
 		<!-- header = entête de la page -->
-			<h2><a href="https://cas.uha.fr/cas/login?service=http://www.e-services.uha.fr"><img src="image/ensisa.jpg" title="Ecole Nationale Supérieure d'Ingénieurs Sud Alsace" alt="ENSISA" width="150px" height="100px"/></a></h2>
-			<h1><a href="index.php"><img src="image/logo.jpg" title="Le Cercle des Ingénieurs de l'ENSISA" alt="C.I.D.E." width="200px" height="150px" /></a></h1>
-			<p><?php
+			<h2><a href="https://cas.uha.fr/cas/login?service=http://www.e-services.uha.fr"><img src="image/ensisa.jpg" title="Ecole Nationale Supérieure d'Ingénieurs Sud Alsace" alt="ENSISA" width="300px" height="200px"/></a></h2>
+			<h1><a href="index.php"><img src="image/logo.jpg" title="Le Cercle des Ingénieurs de l'ENSISA" alt="C.I.D.E." width="300px" height="200px" /></a></h1>
+			<p>
+			<div id=hconnect>
+			<?php
 				if (isset($_SESSION['id'])) {
 					//ce qui ce passe si on est pas co, avec un exemple de formulaire liant à un fichier qui fera le login
 						echo '<p>connecté</p>
@@ -34,15 +36,16 @@
 					//ce qui ce passe si on est pas co, avec un exemple de formulaire liant à un fichier qui fera le login
 						echo '
 						<form action="login.php" method="post">
-						Votre login : <input type="varchar" name="login">
+						<input type="varchar" name="login" placeholder="Votre login">
 						<br />
-						Votre mot de passe : <input type="password" name="pwd"><br />
+						<input type="password" name="pwd" placeholder="Votre mot de passe"><br />
 						<input type="submit" value="Connexion" name="connect">
-						</form>
-						<a href="inscription.php">Inscription</a>';
-						
+						<a href="inscription.php">Inscription</a>
+						</form>';	
 					}
-			?></p>
+			?>
+			</div>
+			</p>
 			
 		</header>
 		

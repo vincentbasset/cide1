@@ -1,51 +1,11 @@
 <?php
-	include("header.php");
-	$reponse = $bdd -> query("SELECT * FROM utilisateur WHERE id=1");
-	$reponse2 = $bdd -> query("SELECT * FROM utilisateur inner join appartient on appartient.idUtil=utilisateur.id inner join groupe on appartient.idGroupe=groupe.id  WHERE utilisateur.id=1 ORDER BY groupe.nom LIMIT 3");
-	?>
-	<div class="centreprofil">
-		<h2>Mon profil</h2>
-		<p>
-			<div id="pgauche">
-					<?php
-					while($pdonnees=$reponse->fetch()){
-					echo'
-					<img src="'.$pdonnees["photo"].'" title="'.$pdonnees["nom"].' '.$pdonnees["prenom"].'" alt="'.$pdonnees["nom"].' '.$pdonnees["prenom"].'" />
-					</br>			
-					</div>
-					<div id="pdroit">
-						<p>
-						<h3>'.$pdonnees["nom"].'</h3>
-						</br>
-						<h3>'.$pdonnees["prenom"].'</h3>
-					</div>
-					</p>
-					<p>
-						date de naissance: '.$pdonnees["datenaissance"].'
-						</br>
-						</br>
-						statut: '.$pdonnees["statut"].'
-						</br>
-						</br>
-						adresse mail: '.$pdonnees["adresse"].'
-						</br>
-						</br>';
+    include("header.php");
+    if (isset($_SESSION['id'])) {
+                        //ce qui se passe si on est co
+                        include("profilconnecte.php");
 					}
-					?>
-				changer de mot de passe
-				</br>
-				</br>
-					groupe:
-					<ul>
-					<?php
-					while($pdonnee=$reponse2->fetch()){
-					echo'<li>'.$pdonnee["nom"].'</li></br>';
+					else {
+					   //ce qui ce passe si on est pas co, avec un exemple de formulaire liant à un fichier qui fera le login
+						echo '<a href="inscription.php">Pour avoir accès à ce contenue, inscrivez vous ;)</a>';
 					}
-					?>
-					</ul>
-				</br>
-			</p>
-		</div>
-
-	</body>
-</html>
+?>

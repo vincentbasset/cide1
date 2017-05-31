@@ -1,52 +1,51 @@
 <?php
 	include("header.php");
-?>
+	$reponse = $bdd -> query("SELECT * FROM utilisateur WHERE id=1");
+	$reponse2 = $bdd -> query("SELECT * FROM utilisateur inner join appartient on appartient.idUtil=utilisateur.id inner join groupe on appartient.idGroupe=groupe.id  WHERE utilisateur.id=1 ORDER BY groupe.nom LIMIT 3");
+	?>
 	<div class="centreprofil">
+		<h2>Mon profil</h2>
 		<p>
 			<div id="pgauche">
-					<img src="image/profil.jpg" title="photo de profil" alt="profil" width="200px" height="200Px" />
-					</br>
-					changer de photo
-				</div>
-				<div id="pdroit">
-				<p>
-					Nom
-					</br>
-					</br>
-					Prénom
-				</div>
+					<?php
+					while($pdonnees=$reponse->fetch()){
+					echo'
+					<img src="'.$pdonnees["photo"].'" title="'.$pdonnees["nom"].' '.$pdonnees["prenom"].'" alt="'.$pdonnees["nom"].' '.$pdonnees["prenom"].'" />
+					</br>			
+					</div>
+					<div id="pdroit">
+						<p>
+						<h3>'.$pdonnees["nom"].'</h3>
+						</br>
+						<h3>'.$pdonnees["prenom"].'</h3>
+					</div>
+					</p>
+					<p>
+						date de naissance: '.$pdonnees["datenaissance"].'
+						</br>
+						</br>
+						statut: '.$pdonnees["statut"].'
+						</br>
+						</br>
+						adresse mail: '.$pdonnees["adresse"].'
+						</br>
+						</br>';
+					}
+					?>
+				changer de mot de passe
+				</br>
+				</br>
+					groupe:
+					<ul>
+					<?php
+					while($pdonnee=$reponse2->fetch()){
+					echo'<li>'.$pdonnee["nom"].'</li></br>';
+					}
+					?>
+					</ul>
 				</br>
 			</p>
-			<p>
-				</br>
-					date de naissance: 01/07/1995
-				</br>
-				</br>
-					status: Etudiant
-				</br>
-				</br>
-					adresse mail: vincent.basset@uha.fr
-				</br>
-				</br>
-					changer de mot de passe
-				</br>
-				</br>
-					groupe: 
-				</br>
-					-IARISS
-				</br>
-					-XID
-				</br>
-				<span>
-				<button class="link" onclick="myFunction()">Try it</button>
-				</span>
-				
-			</p>
-			
-
 		</div>
-		
-			
 
 	</body>
 </html>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 31 Mai 2017 à 10:37
+-- Généré le :  Mer 31 Mai 2017 à 10:39
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.19
 
@@ -143,7 +143,7 @@ CREATE TABLE `utilisateur` (
   `statut` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `filiere` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `annee` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `datenaissance` date NOT NULL,
+  `datenaissance` char(15) COLLATE utf8_unicode_ci NOT NULL,
   `cv` varchar(150) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

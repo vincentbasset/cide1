@@ -17,7 +17,7 @@
 						</br>
 						<a href="photo.php">Ajoutez une photo</a>
 						</br>
-						<select name="statut" required>
+						<select name="statut" onchange="javascript:checkStatut();" required>
 							<option value="">Statut</option>
 							<option value="administration">Administration</option>
 							<option value="professeur">Professeur</option>
@@ -46,10 +46,11 @@
 							<option value="3A">3A</option>
 						</select>
 						<script>
-							/*var statut = document.forms["inscription"]["statut"].value;
-							if(statut == "etudiant"){
+							var statut = document.forms["inscription"]["statut"].value
+							if(statut != etudiant){
 								document.forms["inscription"]["filiere"].style.display='none';
-							}*/
+								document.forms["inscription"]["annee"].style.display='none';
+							}
 						</script>
 						</br>
 						<input type="password" name="mdp" placeholder="Entrez votre mot de passe" required>

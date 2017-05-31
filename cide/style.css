@@ -20,7 +20,7 @@ header h2{
 header{
 	vertical-align:center;
 	width:100%;
-	background-color: rgb(1,93,170);
+	background-color: rgb(43,87,160);
 	height:200px;
 }
 
@@ -247,4 +247,16 @@ button.link {
 	background-color: rgb(1,93,170);
 }
 
-
+.inscription{
+	color: white;
+	display:inline-block;
+	font-size: 40px;
+	vertical-align:center;
+	text-decoration: none;
+	text-align:center;
+	width:100%;
+}
+.inscription:hover{
+	text-decoration: underline;
+	color:rgb(255,221,1);
+}

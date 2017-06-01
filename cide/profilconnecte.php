@@ -1,7 +1,7 @@
 <?php
 	$reponse = $bdd -> query("SELECT * FROM utilisateur WHERE id=".$_SESSION['id']."");
 	$reponse2 = $bdd -> query("SELECT * FROM utilisateur inner join appartient on appartient.idUtil=utilisateur.id inner join groupe on appartient.idGroupe=groupe.id  WHERE utilisateur.id=".$_SESSION['id']." ORDER BY groupe.nom LIMIT 3");
-	?>
+?>
 	<div class="centreprofil">
 		<h2>Mon profil</h2>
 		<p>
@@ -31,7 +31,7 @@
 						</br>';
 					}
 					?>
-				changer de mot de passe
+				<a href="changermdp.php">changer de mot de passe</a>
 				</br>
 				</br>
 					groupe:

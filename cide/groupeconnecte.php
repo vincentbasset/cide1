@@ -10,7 +10,7 @@
 				echo '
 				
 				<p>
-				<a href="groupe?id='.$donnees["id"].'.php">
+				<a href="murgroupe.php">
 					<span>
 						<img src="'.$donnees["icone"].'" title="'.$donnees["nom"].'" alt="'.$donnees["nom"].'" width="50px" height="50px" />
 							'.$donnees["nom"].'

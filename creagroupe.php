@@ -5,7 +5,7 @@
 			<p>
 				<h2>Création d'un groupe</h2>
 				
-					<form method="post" action="creergroupe">
+					<form method="post" action="creergroupe.php">
 						<p>
 						<label for="nom">Nom du groupe:<br/>>></label>
 						<input type="varchar" name="nom" required>

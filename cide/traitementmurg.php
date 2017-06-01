@@ -3,11 +3,6 @@
 	include("header.php");
 ?>
 
-<script>
-	alert('Hello world!');
-</script>
-
-
 <?php
 	try{
 	$bdd = new PDO("mysql:host=localhost; dbname=cide; charset=utf8","root","");
@@ -30,6 +25,7 @@
 			$insertion->execute();
 		}
 	}
+	echo '<meta http-equiv="refresh" content="0;URL=murgroupe.php">';
 ?>
 	</body>
 </html>

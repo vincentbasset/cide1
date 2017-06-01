@@ -49,7 +49,7 @@ header p{
 #hconnect{
 	position:absolute;
 	right:10px;
-	top:90px;
+	top:140px;
 }
 
 header a{
@@ -259,4 +259,22 @@ button.link {
 .inscription:hover{
 	text-decoration: underline;
 	color:rgb(255,221,1);
+}
+#recherche{
+	width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('image/loupe.jpg');
+	background-size:20% 100%;
+    background-position: 0; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+#recherche:focus{
+	width: 100%;
 }

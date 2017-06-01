@@ -2,6 +2,7 @@
 	<a href="index.php">Accueil</a>
 	<a href="groupe.php">Mes Groupes</a>
 	<a href="profil.php">Mon profil</a>
+	</br></br></br></br></br>
 	<form>
 		<input id="recherche" type="text" name="search" placeholder="Search..">
 	</form>
@@ -33,4 +34,6 @@
 			echo $donnees2["nom"]."<br />";
 		}
 	?>
+	</br></br></br></br></br>
+	<a id="navcrea" href="creagroupe.php">Créer un groupe</a>
 </nav>

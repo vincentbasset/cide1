@@ -1,8 +1,8 @@
 <?php
-	$reponse = $bdd -> query("SELECT * FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE post.idGroupe=1 order by datepost desc");
-	$reponse2 = $bdd -> query("SELECT * FROM post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id WHERE post.idUtil=utilisateur.id AND groupe.nom in(SELECT groupe.nom FROM appartient inner join groupe on appartient.idGroupe=groupe.id WHERE groupe.id=1) ORDER BY datepost DESC ");
-	$reponse3 = $bdd -> query("SELECT * FROM groupe WHERE groupe.id=1");
-	$reponse4 = $bdd -> query("SELECT * FROM appartient WHERE idGroupe=1 AND idUtil=".$_SESSION['id']." ");
+	$reponse = $bdd -> query("SELECT * FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE post.idGroupe=".$_GET['id']." order by datepost desc");
+	$reponse2 = $bdd -> query("SELECT * FROM post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id WHERE post.idUtil=utilisateur.id AND groupe.nom in(SELECT groupe.nom FROM appartient inner join groupe on appartient.idGroupe=groupe.id WHERE groupe.id=".$_GET['id'].") ORDER BY datepost DESC ");
+	$reponse3 = $bdd -> query("SELECT * FROM groupe WHERE groupe.id=".$_GET['id']."");
+	$reponse4 = $bdd -> query("SELECT * FROM appartient WHERE idGroupe=".$_GET['id']." AND idUtil=".$_SESSION['id']." ");
 	
 ?>
 			<?php
@@ -31,19 +31,21 @@
 			</form>
 		";
 				while($donnees=$reponse->fetch()){
-					echo "<p>
-						<span>
-						<img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"50px\" height=\"50px\" />
-						<a href=\"profil.php\">".$donnees["nom"]." ".$donnees["prenom"]."</a>      <!--lien vers le profil de la personne-->
-						</span></br>
-						".$donnees["message"]."
-						<span class=\"date\">Posté le ".$donnees["datepost"]."</span>
-						</p>
-						";
+					if (!$reponse4->rowcount()==0 || $donnees["visibilite"]==1){
+                        echo "<p>
+                            <span>
+                            <img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"50px\" height=\"50px\" />
+                            <a href=\"profil.php\">".$donnees["nom"]." ".$donnees["prenom"]."</a>      <!--lien vers le profil de la personne-->
+                            </span></br>
+                            ".$donnees["message"]."
+                            <span class=\"date\">Posté le ".$donnees["datepost"]."</span>
+                            </p>
+                            ";
+                    }
 				}
 				echo "</div><div class=\"droit\">";
 				while($donnees=$reponse2->fetch()){
-					if($donnees["importance"] && $donnees["droit"]!="membre"){
+					if($donnees["importance"]){
 						echo "<p>
 						<span>
 						<img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"50px\" height=\"50px\" />

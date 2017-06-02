@@ -1,5 +1,4 @@
 <?php
-    include("header.php");
     if (isset($_SESSION['id'])) {
                         //ce qui se passe si on est co
                         include("murgroupeconnecte.php");

@@ -1,8 +1,12 @@
 <?php
-	$reponse = $bdd -> query("SELECT * FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE post.idGroupe=".$_GET['id']." order by datepost desc");
-	$reponse2 = $bdd -> query("SELECT * FROM post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id WHERE post.idUtil=utilisateur.id AND groupe.nom in(SELECT groupe.nom FROM appartient inner join groupe on appartient.idGroupe=groupe.id WHERE groupe.id=".$_GET['id'].") ORDER BY datepost DESC ");
-	$reponse3 = $bdd -> query("SELECT * FROM groupe WHERE groupe.id=".$_GET['id']."");
-	$reponse4 = $bdd -> query("SELECT * FROM appartient WHERE idGroupe=".$_GET['id']." AND idUtil=".$_SESSION['id']." ");
+	$reponse = $bdd -> prepare("SELECT * FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE post.idGroupe = :idgroupe order by datepost desc");
+    $reponse->execute(['idgroupe' =>$_GET['id']]);
+	$reponse2 = $bdd -> prepare("SELECT * FROM post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id WHERE post.idUtil=utilisateur.id AND groupe.nom in(SELECT groupe.nom FROM appartient inner join groupe on appartient.idGroupe=groupe.id WHERE groupe.id=:idgroupe) ORDER BY datepost DESC ");
+    $reponse2->execute(['idgroupe' =>$_GET['id']]);
+	$reponse3 = $bdd -> prepare("SELECT * FROM groupe WHERE groupe.id=:idgroupe");
+    $reponse3->execute(['idgroupe' =>$_GET['id']]);
+	$reponse4 = $bdd -> prepare("SELECT * FROM appartient WHERE idGroupe=:idgroupe AND idUtil=:idutil ");
+    $reponse4->execute(['idgroupe' =>$_GET['id'], 'idutil' => $_SESSION['id']]);
 	
 ?>
 			<?php

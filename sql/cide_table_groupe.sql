@@ -22,4 +22,9 @@ INSERT INTO `groupe` (`id`, `nom`, `type`, `description`, `icone`) VALUES
 (2, 'BDE', 'defaut', 'Bureau Des Eleves', 'image/icone.jpg'),
 (3, 'IARISS', 'officiel', 'Junior de l\'ENSISA', 'image/icone.jpg'),
 (4, 'BDS', 'officiel', 'Bureau Des Sport', 'image/icone.jpg'),
-(6, 'salit', 'public', 'salut', 'image/icone.jpg');
+(7, 'croustibat', 'prive', 'qui peut te battre', 'image/icone.jpg'),
+(6, 'salit', 'public', 'salut', 'image/icone.jpg'),
+(8, 'moihahaha', 'prive', 'mon groupe a moi', 'image/icone.jpg'),
+(9, 'informatique-1A', 'officiel', 'filière informatique et réseaux première années', 'image/icone.jpg'),
+(10, 'professeur', 'defaut', 'prof', 'image/icone.jpg'),
+(11, 'prepa', 'defaut', 'prepa integrer', 'image/icone.jpg');

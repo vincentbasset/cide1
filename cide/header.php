@@ -5,7 +5,7 @@
 	}catch(Exception $e){
 		die("Erreur : ".$e->getMessage());
 	}
-	$dbConnection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+	$bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 ?>
 <! doctype html>
 <html lang = "fr">

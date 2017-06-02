@@ -21,19 +21,19 @@
 		<header>	
 		<!-- header = entête de la page -->
 			<h2><a href="https://cas.uha.fr/cas/login?service=http://www.e-services.uha.fr"><img src="image/ensisa.jpg" title="Ecole Nationale Supérieure d'Ingénieurs Sud Alsace" alt="ENSISA" width="300px" height="200px"/></a></h2>
-			<h1><a href="index.php"><img src="image/logo.jpg" title="Le Cercle des Ingénieurs de l'ENSISA" alt="C.I.D.E." width="300px" height="200px" /></a></h1>
+			<h1><a href="index.php"><img src="image/logo.jpg" title="Le Cercle d'Ingénieurs de l'ENSISA" alt="C.I.D.E." width="300px" height="200px" /></a></h1>
 			<p>
 			<div id=hconnect>
 			<?php
 				if (isset($_SESSION['id'])) {
-					//ce qui ce passe si on est pas co, avec un exemple de formulaire liant à un fichier qui fera le login
+						//ce qui se passe si on est co
 						echo '<p>connecté</p>
 						<form action="logout.php" method="post">
 						<input type="submit" value="Déconnexion">
 						</form>';
 					//ce qui se passe si on est co
-					}
-					else {
+				}
+				else {
 					//ce qui ce passe si on est pas co, avec un exemple de formulaire liant à un fichier qui fera le login
 						echo '
 						<form action="login.php" method="post">

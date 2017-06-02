@@ -87,10 +87,17 @@ nav a{
 	border-bottom:1px solid rgb(255,221,1);
 	border-right:1px solid rgb(255,221,1);
 	background-image:linear-gradient(60deg, rgb(140,166,215), rgb(1,93,170));
+	transition-property: padding-bottom,padding-top, padding-left;
+	transition-duration:  .3s, .3s, .5s;
+	transition-timing-function:   ease-out,ease-out, ease-out;
+
 
 }
 
-nav a:hover{
+nav a:hover,nav a:hover{
+	padding-left:20px;
+	padding-top:4px;
+	padding-bottom:4px;
 	color:rgb(255,221,1);
 	background-image:linear-gradient(60deg, rgb(1,93,170), rgb(1,93,170));
 	border-bottom:1px solid rgb(255,221,1);
@@ -265,9 +272,11 @@ button.link {
 	padding: 2%;
 	border-radius: 10px;
 	box-shadow: 1px 1px 12px #555;
+		transition-property: background-color;
+	transition-duration: 1.5s;
 }
 
-.centregroupeinf a:hover{
+.centregroupeinf a:hover, .centregroupeinf a:focus{
 	background-color: rgb(1,93,170);
 }
 

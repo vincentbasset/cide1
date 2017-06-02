@@ -4,24 +4,10 @@
 --
 
 --
--- Index pour la table `affiche`
---
-ALTER TABLE `affiche`
-  ADD PRIMARY KEY (`idGroupe`,`idPost`),
-  ADD UNIQUE KEY `idPost` (`idPost`);
-
---
 -- Index pour la table `appartient`
 --
 ALTER TABLE `appartient`
   ADD PRIMARY KEY (`idUtil`,`idGroupe`);
-
---
--- Index pour la table `ecrit`
---
-ALTER TABLE `ecrit`
-  ADD PRIMARY KEY (`idUtil`,`idPost`),
-  ADD UNIQUE KEY `idPost` (`idPost`);
 
 --
 -- Index pour la table `groupe`
@@ -50,7 +36,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `groupe`
 --
 ALTER TABLE `groupe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT pour la table `post`
 --

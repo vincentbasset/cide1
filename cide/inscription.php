@@ -4,7 +4,7 @@
 <script src="javascript.js"></script>
 		<div class="centre" >
 			<h2>Inscrivez-vous</h2>
-			<form name="inscription" method="post" action="traitement.php" >
+			<form name="inscription" method="post" action="traitement.php" enctype="multipart/form-data">
 					<p>
 						<input type="varchar" name="nom" placeholder="Entrez votre nom" required>
 						</br>
@@ -15,7 +15,9 @@
 						</br>
 						<input type="email" name="mail" placeholder="Entrez votre e-mail" required>
 						</br>
-						<a href="photo.php">Ajoutez une photo</a>
+						<label for="photo">Ajouter une photo de profil:</label>
+						<input type="hidden" name="MAX_FILE_SIZE" value="100000">
+						<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
 						</br>
 						<select name="statut" onchange="javascript:checkStatut();" required>
 							<option value="">Statut</option>
@@ -46,11 +48,8 @@
 							<option value="3A">3A</option>
 						</select>
 						<script>
-							var statut = document.forms["inscription"]["statut"].value
-							if(statut != etudiant){
-								document.forms["inscription"]["filiere"].style.display='none';
-								document.forms["inscription"]["annee"].style.display='none';
-							}
+							document.forms["inscription"]["filiere"].style.display='none';
+							document.forms["inscription"]["annee"].style.display='none';
 						</script>
 						</br>
 						<input type="password" name="mdp" placeholder="Entrez votre mot de passe" required>
@@ -62,19 +61,6 @@
 						<label for="cgu">J'ai lu et accepte les conditions générales d'utilisation</label>
 						</br>
 						<input type="submit" value="Inscription" name="envoyer" onmouseover="javascript:check();" />
-						<script>
-							function filiere(){
-								alert("bonjour");
-								/*var statut = document.forms["inscription"]["statut"].value;
-								if(statut != "etudiant"){
-									document.forms["inscription"]["filiere"].style.display='none';
-								}
-								else{
-									document.forms["inscription"]["filiere"].style.display='block';
-								}*/
-									
-							}
-						</script>
 					</p>
 			</form>
 		</div>

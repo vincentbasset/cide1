@@ -44,7 +44,19 @@
                             ";
                     }
 				}
-				echo "</div><div class=\"droit\">";
+				echo "</div><div class=\"droit\"></br>";
+				if($reponse4->rowcount()==0){
+					echo"
+					<form method=\"post\" action=\"traitementrejoindreg.php?id=".$_GET['id']."\">
+						<input id=\"rejoindreg\" type=\"submit\"  value=\"Rejoindre\" name=\"rejoindre\">
+					</form><br>";
+				}
+				else{
+					echo"
+					<form method=\"post\" action=\"traitementquitterg.php?id=".$_GET['id']."\">
+						<input id=\"rejoindreg\" type=\"submit\"  value=\"  Quitter  \" name=\"quitter\">
+					</form><br>";
+				}
 				while($donnees=$reponse2->fetch()){
 					if((!$reponse4->rowcount()==0 || $donnees["visibilite"]==1) && $donnees["importance"]){
 						echo "<p>

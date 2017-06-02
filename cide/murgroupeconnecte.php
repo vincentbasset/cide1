@@ -1,8 +1,7 @@
 <?php
-	$reponse = $bdd -> query("SELECT * FROM post inner join ecrit on post.id=ecrit.idPost inner join utilisateur on ecrit.idUtil=utilisateur.id WHERE utilisateur.id=".$_SESSION['id']." order by datepost desc");
-	$reponse2 = $bdd -> query("SELECT * FROM post inner join ecrit on post.id=ecrit.idPost inner join utilisateur on ecrit.idUtil=utilisateur.id inner join appartient on utilisateur.id=appartient.idUtil inner join groupe on appartient.idGroupe=groupe.id WHERE groupe.nom in(SELECT groupe.nom FROM appartient inner join groupe on appartient.idGroupe=groupe.id WHERE appartient.idUtil=".$_SESSION['id'].") ORDER BY datepost DESC ");
+	$reponse = $bdd -> query("SELECT * FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE post.idGroupe=1 order by datepost desc");
+	$reponse2 = $bdd -> query("SELECT * FROM post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id WHERE post.idUtil=utilisateur.id AND groupe.nom in(SELECT groupe.nom FROM appartient inner join groupe on appartient.idGroupe=groupe.id WHERE groupe.id=1) ORDER BY datepost DESC ");
 	$reponse3 = $bdd -> query("SELECT * FROM groupe WHERE groupe.id=1");
-	$reponse4 = $bdd -> query("SELECT * FROM appartient WHERE idGroupe=1 AND idUtil=".$_SESSION['id']." ");
 	
 ?>
 			<?php
@@ -19,9 +18,9 @@
 					while($donnees=$reponse4->fetch()){
 						if($donnees["droit"]=="admin"){
 							echo "
-							<input type=\"checkbox\" name=\"important\" required>
+							<input type=\"checkbox\" name=\"important\" />
 							<label for=\"important\">important</label>
-							<input type=\"checkbox\" name=\"public\" required>
+							<input type=\"checkbox\" name=\"public\" />
 							<label for=\"public\">public</label>";
 						}
 					}

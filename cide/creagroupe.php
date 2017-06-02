@@ -5,7 +5,7 @@
 			<p>
 				<h2>Création d'un groupe</h2>
 				
-					<form method="post" action="creergroupe.php">
+					<form method="post" action="creergroupe.php" enctype="multipart/form-data">
 						<p>
 						<label for="nom">Nom du groupe:<br/>>></label>
 						<input type="varchar" name="nom" required>
@@ -13,7 +13,9 @@
 						<label for="description">Description du groupe:<br/></label>
 						<textarea name="description" rows="10" cols="70" required></textarea>
 						<br/>
-						<a href="photo.php">Ajouter votre icone</a>
+						<label for="photo">Ajouter une photo de profil:</label>
+						<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+						<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
 						<br/>
 						<select name="type">
 							<option value="prive">Privé</option>

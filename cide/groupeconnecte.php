@@ -29,7 +29,7 @@
 			while($donnees=$reponse2->fetch()){
 				echo '
 				<p>
-				<a href="murgroupe.php">
+				<a href="groupe.php?id='.$donnees["id"].'">
 					<span>
 						<img src="'.$donnees["icone"].'" title="'.$donnees["nom"].'" alt="'.$donnees["nom"].'" width="50px" height="50px" />
 							'.$donnees["nom"].'

@@ -45,7 +45,7 @@
 				}
 				echo "</div><div class=\"droit\">";
 				while($donnees=$reponse2->fetch()){
-					if($donnees["importance"]){
+					if((!$reponse4->rowcount()==0 || $donnees["visibilite"]==1) && $donnees["importance"]){
 						echo "<p>
 						<span>
 						<img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"50px\" height=\"50px\" />

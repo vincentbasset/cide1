@@ -1,9 +1,8 @@
 <?php
 	$date = $bdd -> query("select getdate() as currentdatetime");
-	$reponse = $bdd -> query("SELECT * FROM post inner join ecrit on post.id=ecrit.idPost inner join utilisateur on ecrit.idUtil=utilisateur.id WHERE utilisateur.id=".$_SESSION['id']." order by datepost desc");
-	$reponse2 = $bdd -> query("SELECT * FROM post inner join ecrit on post.id=ecrit.idPost inner join utilisateur on ecrit.idUtil=utilisateur.id inner join appartient on utilisateur.id=appartient.idUtil inner join groupe on appartient.idGroupe=groupe.id WHERE groupe.nom in(SELECT groupe.nom FROM appartient inner join groupe on appartient.idGroupe=groupe.id WHERE appartient.idUtil=".$_SESSION['id'].") ORDER BY datepost DESC ");
-?>
-			
+	$reponse = $bdd -> query("SELECT * FROM post inner join utilisateur on post.idUtil=utilisateur.id  order by datepost desc");
+	$reponse2 = $bdd -> query("SELECT * FROM post inner join utilisateur on post.idUtil=utilisateur.id inner join appartient on utilisateur.id=appartient.idUtil inner join groupe on appartient.idGroupe=groupe.id WHERE groupe.nom in(SELECT groupe.nom FROM appartient inner join groupe on appartient.idGroupe=groupe.id ) ORDER BY datepost DESC ");
+?>		
 			<?php
 			echo "<div class=\"centre\">";
 				while($donnees=$reponse->fetch()){

@@ -94,7 +94,7 @@ nav a{
 
 }
 
-nav a:hover,nav a:hover{
+nav a:hover,nav a:focus{
 	padding-left:20px;
 	padding-top:4px;
 	padding-bottom:4px;
@@ -121,21 +121,35 @@ nav a:hover,nav a:hover{
 }
 
 .droit{
-	width:22%;
+	width:24%;
 	padding-right:1%;
 	padding-left:1%;
 	text-align:center;
-	
+
 }
+
 .droit p{
+	float:right;
 	width:100%;
 	border: 1px solid rgb(255,221,1);
-	margin-left:3%;
+	margin-left:5%;
 	margin-top: 4%;
-	padding: 2% 5%;
+	padding-top: 2% ;
 	background-color:rgb(140,166,215);
 	box-shadow: 1px 1px 12px #555;
+	transition-property: padding-bottom,padding-top, padding-right,border;
+	transition-duration:  .3s, .3s, .5s,.3s;
+	transition-timing-function:   ease-out,ease-out, ease-out, ease-out;
 }
+
+.droit p:hover, .droit p:focus{
+	padding-right:50px;
+	padding-top:10px;
+	padding-bottom:10px;
+	border: 2px solid rgb(255,221,1);
+}
+
+
 .centre p{
 	background-color: rgb(200,200,255) ;
 	margin-top: 2%;
@@ -210,10 +224,6 @@ form p{
 	padding-left:5%;
 	font-size:20px;
 	
-}
-
-button.link { 
-	background:none;border:none; 
 }
 
 .centregroupe{

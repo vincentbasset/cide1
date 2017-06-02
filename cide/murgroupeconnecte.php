@@ -7,29 +7,30 @@
 ?>
 			<?php
 			echo "<div class=\"centre\">
-			<form method=\"post\" action=\"traitementmurg.php?id=".$_GET['id']."\">
-				<p>";
-					while($donnees=$reponse3->fetch()){
-					echo "
-					<img src=\"".$donnees["icone"]."\" title=\"".$donnees["nom"]."\" alt=\"".$donnees["nom"]."\" width=\"60px\" height=\"60px\" />
-					<span id=\"mgroupe\">".$donnees["nom"]."</span></br>";}			
-					echo "
-					<label for=\"message\"></label> 
-					<textarea name=\"message\" cols=\"108\" rows=\"6\" placeholder=\"Poste un message pour le groupe\"></textarea>";				
-					while($donnees=$reponse4->fetch()){
-						if($donnees["droit"]=="admin"){
-							echo "
-							<input type=\"checkbox\" name=\"important\" />
-							<label for=\"important\">important</label>
-							<input type=\"checkbox\" name=\"public\" />
-							<label for=\"public\">public</label>";
+			if (!$reponse4->rowcount()==0){
+				<form method=\"post\" action=\"traitementmurg.php?id=".$_GET['id']."\">
+					<p>";
+						while($donnees=$reponse3->fetch()){
+						echo "
+						<img src=\"".$donnees["icone"]."\" title=\"".$donnees["nom"]."\" alt=\"".$donnees["nom"]."\" width=\"60px\" height=\"60px\" />
+						<span id=\"mgroupe\">".$donnees["nom"]."</span></br>";}			
+						echo "
+						<label for=\"message\"></label> 
+						<textarea name=\"message\" cols=\"108\" rows=\"6\" placeholder=\"Poste un message pour le groupe\"></textarea>";				
+						while($donnees=$reponse4->fetch()){
+							if($donnees["droit"]=="admin"){
+								echo "
+								<input type=\"checkbox\" name=\"important\" />
+								<label for=\"important\">important</label>
+								<input type=\"checkbox\" name=\"public\" />
+								<label for=\"public\">public</label>";
+							}
 						}
-					}
-					echo"
-					<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>	
-				</p>
-			</form>
-		";
+						echo"
+						<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>	
+					</p>
+				</form>";
+			}
 				while($donnees=$reponse->fetch()){
 					if (!$reponse4->rowcount()==0 || $donnees["visibilite"]==1){
                         echo "<p>

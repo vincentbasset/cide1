@@ -36,7 +36,7 @@
                         echo "<p>
                             <span>
                             <img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"50px\" height=\"50px\" />
-                            <a href=\"profil.php\">".$donnees["nom"]." ".$donnees["prenom"]."</a>      <!--lien vers le profil de la personne-->
+                            <a href=\"murprofil.php.php\">".$donnees["nom"]." ".$donnees["prenom"]."</a>      <!--lien vers le profil de la personne-->
                             </span></br>
                             ".$donnees["message"]."
                             <span class=\"date\">Posté le ".$donnees["datepost"]."</span>
@@ -62,7 +62,7 @@
 						echo "<p>
 						<span>
 						<img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"50px\" height=\"50px\" />
-						<a href=\"profil.php\">".$donnees["nom"]." ".$donnees["prenom"]."</a>      <!--lien vers le profil de la personne-->
+						<a href=\"murprofil.php\">".$donnees["nom"]." ".$donnees["prenom"]."</a>      <!--lien vers le profil de la personne-->
 						</span></br>
 						".$donnees["message"]."
 						<span class=\"date\">Posté le ".$donnees["datepost"]."</span>

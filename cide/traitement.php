@@ -15,9 +15,9 @@
 				$prenom = $_POST["prenom"];
 
 				if(!empty($_POST["mail"])){
-                    $reponse=$bdd->query("SELECT * FROM utilisateur WHERE adresse=\"".$_POST['mail']."\"");
-	                $donnees=$reponse->fetch();
-		          
+                    $reponse=$bdd->prepare('SELECT * FROM utilisateur WHERE adresse=:mail');
+                    $reponse->execute(['mail' =>$_POST['login']]);
+		            $donnees=$reponse->fetch();
 		            if ($_POST['mail']==$donnees['adresse']) {
                         echo '<body onLoad="alert(\'Addresse e-mail déjà utilisée\')">';
                     }
@@ -37,11 +37,11 @@
                                         $filiere = "NULL";
                                     }
                                     if(!empty($_POST["annee"])){
-                                        $annee = '"'.$_POST["annee"].'"';
+                                        $annee = $_POST["annee"];
                                     }else{
                                         $annee = "NULL";
                                     }
-									if(empty($_FILES['photo']['name'])){
+                                    if(empty($_FILES['photo']['name'])){
 										$photo = "image/profil.jpg";
 									}
 									else{
@@ -50,18 +50,16 @@
 										move_uploaded_file($_FILES["photo"]["tmp_name"],$dossier.$fichier);
 										$photo= $dossier.$fichier;
 									}
+                                    
                                     try{
-                                        echo "<p>INSERT INTO utilisateur VALUES(NULL,\"".$nom."\",\"".$prenom."\",\"".$mail."\",\"".password_hash($mdp , PASSWORD_BCRYPT)."\",\"image/profil.jpg\",\"".$statut."\",\"".$filiere."\",".$annee.",\"".$date."\",NULL)</p>";
-                                        $insertion = $bdd->prepare("INSERT INTO utilisateur VALUES(NULL,\"".$nom."\",\"".$prenom."\",\"".$mail."\",\"".password_hash($mdp , PASSWORD_BCRYPT)."\",\"".$photo."\",\"".$statut."\",\"".$filiere."\",".$annee.",\"".$date."\",NULL)");
-                                        $insertion->execute(); 
-                                        echo "<p>SELECT * FROM utilisateur WHERE adresse=\"".$mail."\"</p>";
-                                        $reponse2=$bdd->query("SELECT * FROM utilisateur WHERE adresse=\"".$mail."\"");
-                                        $donnees2=$reponse2->fetch();
-
-                                        if ($mail==$donnees2['adresse']) {
-                                            $_SESSION['id'] = $donnees['id'];
-                                            header ('location: index.php');
-                                        }
+                                       
+                                        $insertion = $bdd->prepare("INSERT INTO utilisateur VALUES(NULL, :nom, :prenom, :mail, :pwd, :image, :statut, :filiere,:annee,:date,:cv)");
+                                        
+                                        $insertion->execute(['nom'=>$nom, 'prenom'=>$prenom,'mail'=>$mail, 'pwd'=>password_hash($mdp , PASSWORD_BCRYPT), 'image'=>$photo, 'statut'=>$statut, 'filiere'=>$filiere, 'annee'=>$annee, "date"=>$date, "cv"=>null]); 
+                                        
+                                        
+                                        header ('location: index.php');
+                                        
                                     }
                                     catch(PDOException $erreur) {
                                         if ($verbose) {

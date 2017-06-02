@@ -34,19 +34,19 @@
                                         $filiere = $_POST["filiere"];
                                         }
                                     else{
-                                        $filiere = "NULL";
+                                        $filiere = NULL;
                                     }
                                     if(!empty($_POST["annee"])){
                                         $annee = $_POST["annee"];
                                     }else{
-                                        $annee = "NULL";
+                                        $annee = NULL;
                                     }
                                     if(empty($_FILES['photo']['name'])){
-										$photo = "image/profil.jpg";
-									}
-									else{
-										$dossier = "image/";
-										$fichier = "photo".$mail;
+					                    $photo = "image/profil.jpg";
+					                }
+						            else{
+								        $dossier = "image/";
+                                        $fichier = "photo".$mail;
 										move_uploaded_file($_FILES["photo"]["tmp_name"],$dossier.$fichier);
 										$photo= $dossier.$fichier;
 									}

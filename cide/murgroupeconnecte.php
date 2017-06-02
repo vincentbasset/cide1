@@ -7,7 +7,7 @@
 ?>
 			<?php
 			echo "<div class=\"centre\">
-			<form method=\"post\" action=\"traitementmurg.php\">
+			<form method=\"post\" action=\"traitementmurg.php?id=".$_GET['id']."\">
 				<p>";
 					while($donnees=$reponse3->fetch()){
 					echo "

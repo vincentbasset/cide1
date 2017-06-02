@@ -3,13 +3,7 @@
 	include("header.php");
 ?>
 
-
 <?php
-	try{
-	$bdd = new PDO("mysql:host=localhost; dbname=cide; charset=utf8","root","");
-	}catch(Exception $e){
-		die("Erreur : ".$e->getMessage());
-	}
 	$visible=0;
 	$important=0;
 
@@ -22,11 +16,11 @@
 				$important=1;	
 			}
 			$message = $_POST["message"];
-			$insertion = $bdd->prepare("INSERT INTO post VALUES(NULL,\"".$_SESSION['id']."\",1,\"".$visible."\",\"".$important."\",\"".$message."\",NULL)");
+			$insertion = $bdd->prepare("INSERT INTO post VALUES(NULL,\"".$_SESSION['id']."\",".$_GET['id'].",\"".$visible."\",\"".$important."\",\"".$message."\",NULL)");
 			$insertion->execute();
 		}
 	}
-	echo '<meta http-equiv="refresh" content="0;URL=murgroupe.php">';
+	echo '<meta http-equiv="refresh" content="0;URL=groupe.php?id='.$donnees["id"].'">';
 ?>
 	</body>
 </html>

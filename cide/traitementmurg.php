@@ -16,7 +16,7 @@
 				$important=1;	
 			}
 			$message = $_POST["message"];
-			$insertion = $bdd->prepare("INSERT INTO post VALUES(NULL,\"".$_SESSION['id']."\",".$_GET['id'].",\"".$visible."\",\"".$important."\",\"".$message."\",CURRENT_TIMESTAMP)");
+			$insertion = $bdd->prepare("INSERT INTO post VALUES(NULL,\"".$_SESSION['id']."\",".$_GET['id'].",0,\"".$visible."\",\"".$important."\",\"".$message."\",CURRENT_TIMESTAMP)");
 			$insertion->execute();
 		}
 	}

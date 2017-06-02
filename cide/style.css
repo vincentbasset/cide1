@@ -137,16 +137,17 @@ nav a:hover,nav a:focus{
 	padding-top: 2% ;
 	background-color:rgb(140,166,215);
 	box-shadow: 1px 1px 12px #555;
-	transition-property: padding-bottom,padding-top, padding-right,border;
+	transition-property: padding-bottom,padding-top, padding-right,border,font-size;
 	transition-duration:  .3s, .3s, .5s,.3s;
-	transition-timing-function:   ease-out,ease-out, ease-out, ease-out;
+	transition-timing-function:   ease-out,ease-out, ease-out, ease-out,ease-out;
 }
 
 .droit p:hover, .droit p:focus{
-	padding-right:50px;
-	padding-top:10px;
-	padding-bottom:10px;
+	padding-right:60px;
+	padding-top:20px;
+	padding-bottom:20px;
 	border: 2px solid rgb(255,221,1);
+	font-size:20px;
 }
 
 
@@ -201,6 +202,7 @@ form p{
 .centreprofil h2{
 	margin-left:22px;
 	margin-top:22px;
+	color:white;
 }
 
 #pgauche{
@@ -259,6 +261,12 @@ form p{
 	background-color: rgb(1,93,170);
 }
 
+.centregroupe h2{
+	margin-left:22px;
+	margin-top:22px;
+	color:white;
+}
+
 .centregroupeinf{
 	width:70%;
 	padding-right:1%;
@@ -270,6 +278,12 @@ form p{
 	margin-left:13.3%;
 	background-color:rgb(140,166,215);
 	
+}
+
+.centregroupeinf h2{
+	margin-left:22px;
+	margin-top:22px;
+	color:white;
 }
 
 .centregroupeinf a{
@@ -318,3 +332,30 @@ form p{
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
+
+.centredeco p{
+	background-color: rgb(200,200,255) ;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	padding: 2%;
+	border-radius: 10px;
+	box-shadow: 1px 1px 12px #555;
+	font-size:40px;
+	color:white;
+}
+
+.centredeco{
+	width:70%;
+	padding-right:1%;
+	padding-left:1%;
+	border-left: 3px double rgb(255,221,1);
+	border-right: 3px double rgb(255,221,1);
+	border-bottom: 3px double rgb(255,221,1);
+	padding-right:2%;
+	padding-left:2%;
+	background-color:rgb(140,166,215);
+	text-align:center;
+	
+}
+
+

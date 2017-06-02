@@ -10,13 +10,6 @@ function check()
 }
 
 
-function checkoldpw(oldpw){
-	var password = document.forms["inscription"]["ancienmdp"].value;
-	if(password != oldpw){
-		alert("Ce mot de passe ne correspont pas à l'ancien");
-	}
-}
-
 function checkStatut(){
 	var statut = document.forms["inscription"]["statut"].value;
 	if(statut != "etudiant"){

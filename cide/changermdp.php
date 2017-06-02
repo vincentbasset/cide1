@@ -5,7 +5,7 @@
 <script src="javascript.js"></script>
 		<div class="centreprofil">
 			<p>
-				Changer de mot de passse
+				Changer de mot de passe
 				<form name="inscription" method="post" action="mdpchange.php">
 					<input type="password" name="ancienmdp" placeholder="Ancien mot de passe" required>
 					</br>

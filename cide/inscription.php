@@ -16,7 +16,7 @@
 						<input type="email" name="mail" placeholder="Entrez votre e-mail" required>
 						</br>
 						<label for="photo">Ajouter une photo de profil:</label>
-						<input type="hidden" name="MAX_FILE_SIZE" value="100000">
+						<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
 						<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
 						</br>
 						<select name="statut" onchange="javascript:checkStatut();" required>

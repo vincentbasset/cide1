@@ -31,6 +31,13 @@
 						</br>';
 					}
 					?>
+				<form method="post" action="traitementphoto.php" enctype="multipart/form-data">
+					<label for="photo">Ajouter une photo de profil:</label>
+					<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+					<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
+					</br>
+					<input type="submit" name="envoyer" value="Changer la photo"/>
+				</form>
 				<a href="changermdp.php">changer de mot de passe</a>
 				</br>
 				</br>

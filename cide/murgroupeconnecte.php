@@ -6,9 +6,9 @@
 	
 ?>
 			<?php
-			echo "<div class=\"centre\">
+			echo "<div class=\"centre\">";
 			if (!$reponse4->rowcount()==0){
-				<form method=\"post\" action=\"traitementmurg.php?id=".$_GET['id']."\">
+				echo "<form method=\"post\" action=\"traitementmurg.php?id=".$_GET['id']."\">
 					<p>";
 						while($donnees=$reponse3->fetch()){
 						echo "

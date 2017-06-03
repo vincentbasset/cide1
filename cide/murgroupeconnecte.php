@@ -24,7 +24,7 @@
 						<label for=\"message\"></label> 
 						<textarea name=\"message\" cols=\"108\" rows=\"6\" placeholder=\"Poste un message pour le groupe\"></textarea>";				
 						while($donnees=$reponse4->fetch()){
-							if($donnees["droit"]=="admin"){
+							if($donnees["droit"]!="membre"){
 								echo "
 								<input type=\"checkbox\" name=\"important\" />
 								<label for=\"important\">important</label>

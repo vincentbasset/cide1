@@ -137,15 +137,16 @@ nav a:hover,nav a:focus{
 	padding-top: 2% ;
 	background-color:rgb(140,166,215);
 	box-shadow: 1px 1px 12px #555;
-	transition-property: padding-bottom,padding-top, padding-right,border,font-size;
-	transition-duration:  .3s, .3s, .5s,.3s;
-	transition-timing-function:   ease-out,ease-out, ease-out, ease-out,ease-out;
+	transition-property: padding-bottom,padding-top, padding-right, padding-right,border,font-size;
+	transition-duration:  .3s, .3s, .3s, .5s,.3s;
+	transition-timing-function:   ease-out,ease-out,ease-out, ease-out, ease-out,ease-out;
 }
 
 .droit p:hover, .droit p:focus{
 	padding-right:60px;
 	padding-top:20px;
 	padding-bottom:20px;
+	padding-left:10px;
 	border: 2px solid rgb(255,221,1);
 	font-size:20px;
 }

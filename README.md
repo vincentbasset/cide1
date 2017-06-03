@@ -1,2 +1,3 @@
-# NE PAS TOUCHER A MURPROFILCONNECTE
-# ni traitementmurg et traitementmurp
+# FAUT METTRE A JOUR VOTRE BASE DE DONNEES
+# ajout d'une colonne dans la table post: idPost:
+# id idUtil idGroupe idPost visibilite ...

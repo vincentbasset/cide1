@@ -52,6 +52,9 @@
 				</br>
 				<a href="cgu.php" target="_blank">Conditions générales d'utilisation</a><br/>
 				<a href="about.php" target="_blank">A propos</a><br/>
+				<form method="post" action="desinscription.php">
+					<input type="submit" name="envoyer" value="Se désinscrire" />
+				<form>
 			</p>
 		</div>
 

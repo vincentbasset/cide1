@@ -56,7 +56,7 @@
 								<a href=\"murprofil.php?id=".$donnee["id"]."\">".$donnee["nom"]." ".$donnee["prenom"]."</a>      <!--lien vers le profil de la personne-->
 							</span>
 							</br>".$donnee["message"]."
-							<span class=\"date\">TRUC
+							<span class=\"date\">
 								Posté le ".$donnee["datepost"]."
 							</span>
 							</section>";

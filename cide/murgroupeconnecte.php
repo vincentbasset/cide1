@@ -18,7 +18,7 @@
 					<p class=\"centrep\">";
 						while($donnees=$reponse3->fetch()){
 						echo "
-						<img src=\"".$donnees["icone"]."\" title=\"".$donnees["nom"]."\" alt=\"".$donnees["nom"]."\" width=\"60px\" height=\"60px\" />
+						<img src=\"".$donnees["icone"]."\" title=\"".$donnees["nom"]."\" alt=\"".$donnees["nom"]."\" width=\"90px\" height=\"90px\" />
 						<span id=\"mgroupe\">".$donnees["nom"]."</span></br>";}			
 						echo "
 						<label for=\"message\"></label> 
@@ -37,35 +37,46 @@
 					</p>
 				</form>";
 			}
-						$don=$reponse5->fetchAll();
+				$don=$reponse5->fetchAll();
 				while($donnees=$reponse->fetch()){
 					if (!$reponse4->rowcount()==0 || $donnees["visibilite"]==1){
-                echo "
-					<p>
-					</br><section class=\"pcentre\">
-                    <span>
-                    <img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"50px\" height=\"50px\" />
-                    <a href=\"murprofil.php?id=".$donnees["id"]."\">".$donnees["nom"]." ".$donnees["prenom"]."</a>      <!--lien vers le profil de la personne-->
-                    </span></br>
-                    ".$donnees["message"]."
-                    <span class=\"date\">Posté le ".$donnees["datepost"]."</span>";
+						echo "
+							<p>
+							</br><section class=\"pcentre\">
+							<div class=\"entetepost\">
+								<div class=\"enteteg\">
+									<img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"60px\" height=\"60px\" />
+								</div>
+								<div class=\"enteted\">
+									<a href=\"murprofil.php?id=".$donnees["id"]."\">".$donnees["nom"]." ".$donnees["prenom"]."</a>    
+									</br>
+								</div>
+							</div></br>
+							<span class=\"message\">".$donnees["message"]."</span>
+							<span class=\"date\">Posté le ".$donnees["datepost"]."</span>";
 				
 				foreach($don as $donnee){
 				echo"<span class=\"rep\">";
 					if($donnees["postid"]==$donnee["idPost"]){
 						echo "
 							<section class=\"rep2\">
-							<span>
-								<img src=\"".$donnee["photo"]."\" title=\"".$donnee["nom"]." ".$donnee["prenom"]."\" alt=\"".$donnee["nom"]." ".$donnee["prenom"]."\" width=\"50px\" height=\"50px\" />
-								<a href=\"murprofil.php?id=".$donnee["id"]."\">".$donnee["nom"]." ".$donnee["prenom"]."</a>      <!--lien vers le profil de la personne-->
-							</span>
-							</br>".$donnee["message"]."
-							<span class=\"date\">
-								Posté le ".$donnee["datepost"]."
-							</span>
+								<div class=\"entetepost\">
+									<div class=\"enteteg\">
+										<img src=\"".$donnee["photo"]."\" title=\"".$donnee["nom"]." ".$donnee["prenom"]."\" alt=\"".$donnee["nom"]." ".$donnee["prenom"]."\" width=\"50px\" height=\"50px\" />
+									</div>
+									<div class=\"enteted\">
+										<a href=\"murprofil.php?id=".$donnee["id"]."\">".$donnee["nom"]." ".$donnee["prenom"]."</a>      <!--lien vers le profil de la personne-->
+									</div>
+								</div>
+								</br>
+								<span class=\"message\">".$donnee["message"]."</span>
+								<span class=\"date\">
+									Posté le ".$donnee["datepost"]."
+								</span>
 							</section>";
 					}
 				}
+					
 				echo"<form method=\"post\" action=\"traitementrep.php?id=".$donnees["postid"]."\">
 						<label for=\"message\"></label> 
 						<textarea name=\"message\" cols=\"108\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea>						

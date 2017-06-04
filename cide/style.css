@@ -126,6 +126,50 @@ nav a:hover,nav a:focus{
 	background-color:rgb(140,166,215);
 }
 
+
+
+
+
+/*Post centraux*/
+
+
+.entetepost{
+	margin-bottom:7px;
+	text-decoration:none;
+	color:black;
+}
+
+.enteted{
+	padding-left:2px;
+	padding-top:14px;
+	font-size:22px;
+	line-height:20px;
+}
+
+.enteted a{
+	text-decoration:none;
+	color:black;
+}
+
+.entetedd{
+	font-size:15px;
+	padding-left:10px;
+}
+
+.message{
+	font-size:19px;
+}
+
+
+
+
+
+
+
+
+
+
+
 .droit{
 	width:24%;
 	padding-right:1%;
@@ -167,27 +211,29 @@ nav a:hover,nav a:focus{
 	box-shadow: 1px 1px 12px #555;
 }
 
-span{
-	text-align:left;
-	line-height:35px;
-	font-size: 20px;
+
+
+/*post entete groupe*/
+
+#mgroupe{
+	color: white;
+	text-align:top;
+	font-size:40px;
+	vertical-align:75%;
 }
 
-span a{
-	color: black;
-	text-decoration: none;
-}
+
 
 .date{
 	display:inline-block;
 	width:100%;
 	text-align:right;
 	font-size: 10px;
+	padding-right:1px;
 }
 
-form p{
-	line-height:2;
-}
+
+/*page du profil*/
 
 .centreprofil{
 	width:70%;
@@ -234,6 +280,9 @@ form p{
 	font-size:20px;
 	
 }
+
+
+/*page des choix des groupes*/
 
 .centregroupe{
 	width:70%;
@@ -311,6 +360,8 @@ form p{
 	background-color: rgb(1,93,170);
 }
 
+/*formulaire d'incription*/
+
 .inscription{
 	color: white;
 	display:inline-block;
@@ -324,6 +375,9 @@ form p{
 	text-decoration: underline;
 	color:rgb(255,221,1);
 }
+
+/*champ de recherche (nav)*/
+
 #recherche{
 	width: 100%;
     box-sizing: border-box;
@@ -339,6 +393,9 @@ form p{
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
+
+
+/*page pas connecté */
 
 .centredeco p{
 	background-color: rgb(200,200,255) ;
@@ -365,6 +422,7 @@ form p{
 	
 }
 
+/*reponse des com'*/
 
 .pcentre{
 	background-color: rgb(200,200,255) ;

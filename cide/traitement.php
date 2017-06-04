@@ -41,21 +41,12 @@
                                     }else{
                                         $annee = NULL;
                                     }
-                                    if(empty($_FILES['photo']['name'])){
-					                    $photo = "image/profil.jpg";
-					                }
-						            else{
-								        $dossier = "image/";
-                                        $fichier = "photo".$mail;
-										move_uploaded_file($_FILES["photo"]["tmp_name"],$dossier.$fichier);
-										$photo= $dossier.$fichier;
-									}
                                     
                                     try{
                                        
-                                        $insertion = $bdd->prepare("INSERT INTO utilisateur VALUES(NULL, :nom, :prenom, :mail, :pwd, :image, :statut, :filiere,:annee,:date,:cv)");
+                                        $insertion = $bdd->prepare("INSERT INTO utilisateur VALUES(NULL, :nom, :prenom, :mail, :pwd, \"image/profil.jpg\", :statut, :filiere,:annee,:date,:cv)");
                                         
-                                        $insertion->execute(['nom'=>$nom, 'prenom'=>$prenom,'mail'=>$mail, 'pwd'=>password_hash($mdp , PASSWORD_BCRYPT), 'image'=>$photo, 'statut'=>$statut, 'filiere'=>$filiere, 'annee'=>$annee, "date"=>$date, "cv"=>null]); 
+                                        $insertion->execute(['nom'=>$nom, 'prenom'=>$prenom,'mail'=>$mail, 'pwd'=>password_hash($mdp , PASSWORD_BCRYPT), 'statut'=>$statut, 'filiere'=>$filiere, 'annee'=>$annee, "date"=>$date, "cv"=>null]); 
                                         
 					$id=$bdd->lastInsertId();
                                         if (is_null($filiere) && is_null($annee)){
@@ -68,7 +59,18 @@
                                         }
                                         $insertion=$bdd->prepare("INSERT INTO appartient VALUES(:idutil, :idgroupe, \"membre\")");
                                         $insertion->execute(['idutil'=>$id,'idgroupe'=>$groupeid['id']]);
-                                        
+										
+                                        if(empty($_FILES['photo']['name'])){
+											$photo = "image/profil.jpg";
+										}
+										else{
+											$dossier = "image/";
+											$fichier = "photo_id=".$id;
+											move_uploaded_file($_FILES["photo"]["tmp_name"],$dossier.$fichier);
+											$photo= $dossier.$fichier;
+										}
+										$insertion = $bdd->prepare("UPDATE utilisateur SET photo=:photo WHERE id=:id");
+										$insertion->execute(["photo"=>$photo,"id"=>$id]); 
                                         header ('location: index.php');
                                         
                                     }

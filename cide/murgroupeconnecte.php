@@ -54,6 +54,7 @@
 				echo"<span class=\"rep\">";
 					if($donnees["postid"]==$donnee["idPost"]){
 						echo "
+							<section class=\"rep2\">
 							<span>
 								<img src=\"".$donnee["photo"]."\" title=\"".$donnee["nom"]." ".$donnee["prenom"]."\" alt=\"".$donnee["nom"]." ".$donnee["prenom"]."\" width=\"50px\" height=\"50px\" />
 								<a href=\"murprofil.php?id=".$donnee["id"]."\">".$donnee["nom"]." ".$donnee["prenom"]."</a>      <!--lien vers le profil de la personne-->
@@ -61,7 +62,8 @@
 							</br>".$donnee["message"]."
 							<span class=\"date\">
 								Posté le ".$donnee["datepost"]."
-							</span>";
+							</span>
+							</section>";
 					}
 				}
 				echo"<form method=\"post\" action=\"traitementrep.php?id=".$donnees["postid"]."\">

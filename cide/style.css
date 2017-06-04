@@ -65,6 +65,12 @@ header p{
 	top:140px;
 }
 
+#hok{
+	position:absolute;
+	right:10px;
+	top:110px;
+}
+
 header a{
 	color: white;
 	text-decoration: none;

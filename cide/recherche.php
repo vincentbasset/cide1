@@ -22,10 +22,10 @@
 			$recherchegroupe = $bdd -> query("SELECT * FROM groupe where nom like '%".$recherche."%'");
 		}
 		while($donnees = $rechercheutil->fetch()){
-			echo $donnees["nom"]." ".$donnees["prenom"]."<br />";
+		echo "<a href=\"murprofil.php?id=".$donnees["id"]."\"><img src=\"".$donnees["photo"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"50px\" height=\"50px\"/>".$donnees["nom"]." ".$donnees["prenom"]."</a><br />";
 		}
 		while($donnees2 = $recherchegroupe->fetch()){
-			echo "<a href=\"groupe.php?id=".$donnees2["id"]."\">".$donnees2["nom"]."</a><br />";
+			echo "<a href=\"groupe.php?id=".$donnees2["id"]."\"><img src=\"".$donnees2["icone"]."\" alt=\"".$donnees["nom"]."\" width=\"50px\" height=\"50px\"/>".$donnees2["nom"]."</a><br />";
 		}
 		echo "</p></div>";
 ?>

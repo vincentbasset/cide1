@@ -390,10 +390,15 @@ form p{
 	height:auto;
 
 }
-.pcentre .rep .rep2{
 
+.pcentre .rep .rep2{
 	background-image: linear-gradient(161deg, rgba(255,255,255,1) 0%,rgba(200,200,255,1) 50%);
 }
+
+.rep2 {
+	border-radius: 5px 5px 2px 2px;
+ 	padding:1%;
+ }
 
 
 

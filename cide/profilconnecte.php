@@ -9,7 +9,7 @@
 					<?php
 					while($pdonnees=$reponse->fetch()){
 					echo'
-					<img src="'.$pdonnees["photo"].'" title="'.$pdonnees["nom"].' '.$pdonnees["prenom"].'" alt="'.$pdonnees["nom"].' '.$pdonnees["prenom"].'" />
+					<img src="'.$pdonnees["photo"].'" title="'.$pdonnees["nom"].' '.$pdonnees["prenom"].'" alt="'.$pdonnees["nom"].' '.$pdonnees["prenom"].'" width="225px" height="225px" />
 					</br>			
 					</div>
 					<div id="pdroit">

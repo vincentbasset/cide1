@@ -70,7 +70,7 @@
 											$photo= $dossier.$fichier;
 										}
 										$insertion = $bdd->prepare("UPDATE utilisateur SET photo=:photo WHERE id=:id");
-										$insertion->execute(["photo"=>$photo,"id"=>$id]); 
+										$insertion->execute(["photo"=>$photo,"id"=>$id]);
                                         header ('location: index.php');
                                         
                                     }

@@ -50,6 +50,8 @@
 					?>
 					</ul>
 				</br>
+				<a href="cgu.php" target="_blank">Conditions générales d'utilisation</a><br/>
+				<a href="about.php" target="_blank">A propos</a><br/>
 			</p>
 		</div>
 

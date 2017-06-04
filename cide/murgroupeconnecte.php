@@ -102,14 +102,21 @@
 				}
 				while($donnees=$reponse2->fetch()){
 					if((!$reponse4->rowcount()==0 || $donnees["visibilite"]==1) && $donnees["importance"]){
-						echo "<p class=\"centrep\">
-						<span>
-						<img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"50px\" height=\"50px\" />
-						<a href=\"murprofil.php?id=".$donnees["id"]."\">".$donnees["nom"]." ".$donnees["prenom"]."</a>      <!--lien vers le profil de la personne-->
-						</span></br>
-						".$donnees["message"]."
-						<span class=\"date\">Posté le ".$donnees["datepost"]."</span>
-						</p>";
+						echo "
+						<div class=\"important\">
+							<div class=\"entetepost\">
+								<div class=\"enteteg\">
+									<img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"60px\" height=\"60px\" />
+								</div>
+								<div class=\"enteted\">								
+									<a href=\"murprofil.php?id=".$donnees["id"]."\">".$donnees["nom"]." ".$donnees["prenom"]."</a></br>
+								</div>
+							</div>
+							</br>
+							<span class=\"message2\">".$donnees["message"]."</span >
+							<span class=\"date2\">Posté le ".$donnees["datepost"]."</span>
+							</br>						
+						</div>";
 					}
 				}
 				echo "</div>";

@@ -124,10 +124,18 @@ nav a:hover,nav a:focus{
 	padding-right:2%;
 	padding-left:2%;
 	background-color:rgb(140,166,215);
+/*	background: linear-gradient(to right, rgba(147,178,234,1) 0%,#C4DEFF 50%,rgba(147,178,234,1) 100%);*********************************************************************************/
+	}
+
+
+.centre .centrep{
+	background-color: rgb(200,200,255) ;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	padding: 2%;
+	border-radius: 10px;
+	box-shadow: 1px 1px 12px #555;
 }
-
-
-
 
 
 /*Post centraux*/
@@ -178,45 +186,66 @@ nav a:hover,nav a:focus{
 
 }
 
-.droit p{
+.important{
+
 	float:right;
 	width:100%;
 	border: 1px solid rgb(255,221,1);
 	margin-left:5%;
 	margin-top: 4%;
-	padding-top: 2% ;
+	margin-bottom: 4%;
+	padding-top: 5% ;
+	padding-top: 5% ;
 	background-color:rgb(140,166,215);
 	box-shadow: 1px 1px 12px #555;
-	transition-property: padding-bottom,padding-top, padding-right, padding-right,border,font-size;
-	transition-duration:  .3s, .3s, .3s, .5s,.3s;
-	transition-timing-function:   ease-out,ease-out,ease-out, ease-out, ease-out,ease-out;
+	transition-property: padding-bottom,padding-top, padding-right, padding-right,border,margin-right;
+	transition-duration:  .3s, .3s, .3s, .5s,.3s,.3s,.3s;
+	transition-timing-function:  ease-out,ease-out, ease-out, ease-out,ease-out,ease-out,ease-out;
 }
 
-.droit p:hover, .droit p:focus{
-	padding-right:60px;
+.important:hover, .important:focus{
+
+	margin-right:60px;
 	padding-top:20px;
 	padding-bottom:20px;
-	padding-left:10px;
-	border: 2px solid rgb(255,221,1);
-	font-size:20px;
+	padding-left:20px;
+	padding-right:20px;
+	border: 2.5px double rgb(255,221,1);
+	background: linear-gradient(140deg, rgba(255,255,255,1) 0%,rgba(200,200,255,1) 50%);
 }
 
 
-.centre .centrep{
-	background-color: rgb(200,200,255) ;
-	margin-top: 2%;
-	margin-bottom: 2%;
-	padding: 2%;
-	border-radius: 10px;
-	box-shadow: 1px 1px 12px #555;
+
+
+.message2{
+	font-size:25px;
 }
+
+
+
+.date2{
+	font-size: 12px;
+	display:inline-block;
+	width:100%;
+	padding:3%;
+	padding-left:23%;
+	padding-top:6%	;
+}
+
+
+
+
+
+
+
+
 
 
 
 /*post entete groupe*/
 
 #mgroupe{
-	color: white;
+	color: black;
 	text-align:top;
 	font-size:40px;
 	vertical-align:75%;

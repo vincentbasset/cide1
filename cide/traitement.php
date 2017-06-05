@@ -73,7 +73,7 @@
 											//Début des vérifications de sécurité...
 											if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
 											{
-												 alert('Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...');
+												 alert('Vous devez uploader un fichier de type png, gif, jpg ou jpeg');
 											}
 											if($taille>$taille_maxi)
 											{

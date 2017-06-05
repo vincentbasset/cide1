@@ -10,7 +10,7 @@
 			$insertion->execute();
 		}
 	}
-	echo '<meta http-equiv="refresh" content="0;URL=murprofil.php?id='.$_GET["id"].'">';
+	echo '<meta http-equiv="refresh" content="0;URL=murprofil.php?id='.htmlspecialchars($_GET["id"]).'">';
 ?>
 	</body>
 </html>

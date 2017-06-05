@@ -22,10 +22,10 @@
 			$recherchegroupe = $bdd -> query("SELECT * FROM groupe where nom like '%".$recherche."%'");
 		}
 		while($donnees = $rechercheutil->fetch()){
-		echo "<a href=\"murprofil.php?id=".$donnees["id"]."\"><img src=\"".$donnees["photo"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"50px\" height=\"50px\"/>".$donnees["nom"]." ".$donnees["prenom"]."</a><br />";
+		echo "<a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\"><img src=\"".htmlspecialchars($donnees["photo"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"50px\" height=\"50px\"/>".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a><br />";
 		}
 		while($donnees2 = $recherchegroupe->fetch()){
-			echo "<a href=\"groupe.php?id=".$donnees2["id"]."\"><img src=\"".$donnees2["icone"]."\" alt=\"".$donnees["nom"]."\" width=\"50px\" height=\"50px\"/>".$donnees2["nom"]."</a><br />";
+			echo "<a href=\"groupe.php?id=".htmlspecialchars($donnees2["id"])."\"><img src=\"".htmlspecialchars($donnees2["icone"])."\" alt=\"".htmlspecialchars($donnees["nom"])."\" width=\"50px\" height=\"50px\"/>".htmlspecialchars($donnees2["nom"])."</a><br />";
 		}
 		echo "</p></div>";
 ?>

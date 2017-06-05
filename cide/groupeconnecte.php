@@ -9,13 +9,13 @@
 			while($donnees=$reponse->fetch()){
 				echo '
 				<p id="gnomliste">
-				<a href="groupe.php?id='.$donnees["id"].'">
+				<a href="groupe.php?id='.htmlspecialchars($donnees["id"]).'">
 					<span>
-						<img src="'.$donnees["icone"].'" title="'.$donnees["nom"].'" alt="'.$donnees["nom"].'" width="60px" height="60px" />
-							<span id="gnomliste2">'.$donnees["nom"].'</span>
+						<img src="'.htmlspecialchars($donnees["icone"]).'" title="'.htmlspecialchars($donnees["nom"]).'" alt="'.htmlspecialchars($donnees["nom"]).'" width="60px" height="60px" />
+							<span id="gnomliste2">'.htmlspecialchars($donnees["nom"]).'</span>
 					</span>
 					</br>
-					'.$donnees["description"].'				
+					'.htmlspecialchars($donnees["description"]).'				
 				</a>
 				</p>
 				';
@@ -28,13 +28,13 @@
 			while($donnees=$reponse2->fetch()){
 				echo '
 				<p>
-				<a href="groupe.php?id='.$donnees["id"].'">
+				<a href="groupe.php?id='.htmlspecialchars($donnees["id"]).'">
 					<span>
-						<img src="'.$donnees["icone"].'" title="'.$donnees["nom"].'" alt="'.$donnees["nom"].'" width="60px" height="60px" />
-							'.$donnees["nom"].'
+						<img src="'.htmlspecialchars($donnees["icone"]).'" title="'.htmlspecialchars($donnees["nom"]).'" alt="'.htmlspecialchars($donnees["nom"]).'" width="60px" height="60px" />
+							'.htmlspecialchars($donnees["nom"]).'
 					</span>
 					</br>
-					'.$donnees["description"].'				
+					'.htmlspecialchars($donnees["description"]).'				
 				</a>
 				</p>
 				';

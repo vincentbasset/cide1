@@ -24,10 +24,10 @@
 					</br><section class=\"pcentre\">
                     <div class=\"entetepost\">
 						<div class=\"enteteg\">
-							<img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"60px\" height=\"60px\" />
+							<img src=\"".$donnees["photo"]."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
 						</div>
 						<div class=\"enteted\">
-					<a href=\"murprofil.php?id=".$donnees["id"]."\">".$donnees["nom"]." ".$donnees["prenom"]."</a>    
+					<a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a>    
 					</br>
 					<span>";
 					if($donnees["idGroupe"]!=0){
@@ -45,8 +45,8 @@
 					</span>
 					</div>
 					</div></br>
-                    <span class=\"message\">".$donnees["message"]."</span>
-                    <span class=\"date\">Posté le ".$donnees["datepost"]."</span>";
+                    <span class=\"message\">".htmlspecialchars($donnees["message"])."</span>
+                    <span class=\"date\">Posté le ".htmlspecialchars($donnees["datepost"])."</span>";
 				
 				foreach($don as $donnee){
 				echo"<span class=\"rep\">";
@@ -55,22 +55,22 @@
 							<section class=\"rep2\">
 								<div class=\"entetepost\">
 									<div class=\"enteteg\">
-										<img src=\"".$donnee["photo"]."\" title=\"".$donnee["nom"]." ".$donnee["prenom"]."\" alt=\"".$donnee["nom"]." ".$donnee["prenom"]."\" width=\"50px\" height=\"50px\" />
+										<img src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" alt=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" width=\"50px\" height=\"50px\" />
 									</div>
 									<div class=\"enteted\">
-										<a href=\"murprofil.php?id=".$donnee["id"]."\">".$donnee["nom"]." ".$donnee["prenom"]."</a>      <!--lien vers le profil de la personne-->
+										<a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a>      <!--lien vers le profil de la personne-->
 									</div>
 								</div>
 								</br>
-								<span class=\"message\">".$donnee["message"]."</span>
+								<span class=\"message\">".htmlspecialchars($donnee["message"])."</span>
 								<span class=\"date\">
-									Posté le ".$donnee["datepost"]."
+									Posté le ".htmlspecialchars($donnee["datepost"])."
 								</span>
 							</section>";
 					}
 				}
 				
-				echo"<form method=\"post\" action=\"traitementrep.php?id=".$donnees["postid"]."\">
+				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["postid"])."\">
 						<label for=\"message\"></label> 
 						<textarea name=\"message\" cols=\"108\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea>						
 					<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>
@@ -86,18 +86,18 @@
 						<div class=\"important\">
 							<div class=\"entetepost\">
 								<div class=\"enteteg\">
-									<img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"60px\" height=\"60px\" />
+									<img src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
 								</div>
 								<div class=\"enteted\">								
-									<a href=\"murprofil.php?id=".$donnees["id"]."\">".$donnees["nom"]." ".$donnees["prenom"]."</a></br>"; 
+									<a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a></br>"; 
 									$reponse4->execute(['idg' =>$donnees["idGroupe"]]);
 									$rep4=$reponse4->fetch();			
-									echo"<span class=\"entetedd\">dans <a href=\"groupe.php?id=".$rep4["id"]."\">".$rep4["nom"]."</a></span>
+									echo"<span class=\"entetedd\">dans <a href=\"groupe.php?id=".$rep4["id"]."\">".htmlspecialchars($rep4["nom"])."</a></span>
 								</div>
 							</div>
 							</br>
-							<span class=\"message2\">".$donnees["message"]."</span >
-							<span class=\"date2\">Posté le ".$donnees["datepost"]."</span>
+							<span class=\"message2\">".htmlspecialchars($donnees["message"])."</span >
+							<span class=\"date2\">Posté le ".htmlspecialchars($donnees["datepost"])."</span>
 							</br>						
 						</div>";
 					}

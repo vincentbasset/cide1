@@ -9,24 +9,24 @@
 					<?php
 					while($pdonnees=$reponse->fetch()){
 					echo'
-					<img src="'.$pdonnees["photo"].'" title="'.$pdonnees["nom"].' '.$pdonnees["prenom"].'" alt="'.$pdonnees["nom"].' '.$pdonnees["prenom"].'" width="225px" height="225px" />
+					<img src="'.htmlspecialchars($pdonnees["photo"]).'" title="'.htmlspecialchars($pdonnees["nom"]).' '.htmlspecialchars($pdonnees["prenom"]).'" alt="'.htmlspecialchars($pdonnees["nom"]).' '.htmlspecialchars($pdonnees["prenom"]).'" width="225px" height="225px" />
 					</br>			
 					</div>
 					<div id="pdroit">
 						<p>
-						<h3>'.$pdonnees["nom"].'</h3>
+						<h3>'.htmlspecialchars($pdonnees["nom"]).'</h3>
 						</br>
-						<h3>'.$pdonnees["prenom"].'</h3>
+						<h3>'.htmlspecialchars($pdonnees["prenom"]).'</h3>
 					</div>
 					</p>
 					<p>
-						date de naissance: '.$pdonnees["datenaissance"].'
+						date de naissance: '.htmlspecialchars($pdonnees["datenaissance"]).'
 						</br>
 						</br>
-						statut: '.$pdonnees["statut"].'
+						statut: '.htmlspecialchars($pdonnees["statut"]).'
 						</br>
 						</br>
-						adresse mail: '.$pdonnees["adresse"].'
+						adresse mail: '.htmlspecialchars($pdonnees["adresse"]).'
 						</br>
 						</br>';
 					}
@@ -44,7 +44,7 @@
 					<ul>
 					<?php
 					while($pdonnee=$reponse2->fetch()){
-					echo'<li>'.$pdonnee["nom"].'</li></br>';
+					echo'<li>'.htmlspecialchars($pdonnee["nom"]).'</li></br>';
 					}
 					?>
 					</ul>

@@ -11,12 +11,11 @@
 			echo "<div class=\"centre\">";
 			while($donnees=$reponse->fetch()){
 				echo "
-
 				<p class=\"centrep\">
-				<img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"90px\" height=\"90px\" />
-				".$donnees["nom"]."
-				".$donnees["prenom"]."
-			</p>";
+					<img src=\"".$donnees["photo"]."\" title=\"".$donnees["nom"]." ".$donnees["prenom"]."\" alt=\"".$donnees["nom"]." ".$donnees["prenom"]."\" width=\"90px\" height=\"90px\" />
+					<span id=\"pentete\">".$donnees["nom"]."
+					".$donnees["prenom"]."</span>
+				</p>";
 			}
 			
 			echo "

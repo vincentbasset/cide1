@@ -7,6 +7,8 @@
 
 textarea{
 	width:100%;
+	resize: none;
+	overflow: auto;
 }
 
 h1{
@@ -81,11 +83,10 @@ header a:hover{
 	color:rgb(255,221,1);
 }
 
-
 nav a{
-	display:inline-block;
+	
 	text-align:center;
-	width:100%;
+	display:inline-block;
 	line-height:40px;
 	color: white;
 	text-decoration: none;
@@ -96,8 +97,12 @@ nav a{
 	transition-property: padding-bottom,padding-top, padding-left;
 	transition-duration:  .3s, .3s, .5s;
 	transition-timing-function:   ease-out,ease-out, ease-out;
-
-
+	width:65%;
+	
+	
+}
+nav{
+	position:fixed;
 }
 
 nav a:hover,nav a:focus{
@@ -113,7 +118,6 @@ nav a:hover,nav a:focus{
 .gauche{
 	width:11%;
 	margin-right: 2%;
-
 }
 
 .centre{
@@ -123,8 +127,8 @@ nav a:hover,nav a:focus{
 	border-bottom: 3px double rgb(255,221,1);
 	padding-right:2%;
 	padding-left:2%;
-	background-color:rgb(140,166,215);
-/*	background: linear-gradient(to right, rgba(147,178,234,1) 0%,#C4DEFF 50%,rgba(147,178,234,1) 100%);*********************************************************************************/
+/*	background-color:rgb(140,166,215);******************************************************************************************************/
+	background: linear-gradient(to right, rgba(147,178,234,1) 0%,#C4DEFF 50%,rgba(147,178,234,1) 100%);
 	}
 
 
@@ -135,6 +139,17 @@ nav a:hover,nav a:focus{
 	padding: 2%;
 	border-radius: 10px;
 	box-shadow: 1px 1px 12px #555;
+}
+
+
+#gnomliste{
+	line-height:20px;
+}
+
+#gnomliste2{
+
+	margin:20px;
+	font-size:35px;
 }
 
 
@@ -172,18 +187,11 @@ nav a:hover,nav a:focus{
 
 
 
-
-
-
-
-
-
 .droit{
 	width:24%;
 	padding-right:1%;
 	padding-left:1%;
 	text-align:center;
-
 }
 
 .important{
@@ -196,7 +204,7 @@ nav a:hover,nav a:focus{
 	margin-bottom: 4%;
 	padding-top: 5% ;
 	padding-top: 5% ;
-	background-color:rgb(140,166,215);
+	background: radial-gradient(ellipse at center, #93B2EA 10%,rgba(43,86,160,1) 85%);
 	box-shadow: 1px 1px 12px #555;
 	transition-property: padding-bottom,padding-top, padding-right, padding-right,border,margin-right;
 	transition-duration:  .3s, .3s, .3s, .5s,.3s,.3s,.3s;
@@ -242,9 +250,9 @@ nav a:hover,nav a:focus{
 
 
 
-/*post entete groupe*/
+/*post entete*/
 
-#mgroupe{
+#pentete{
 	color: black;
 	text-align:top;
 	font-size:40px;
@@ -408,9 +416,9 @@ nav a:hover,nav a:focus{
 /*champ de recherche (nav)*/
 
 #recherche{
-	width: 100%;
+	width:65%;
     box-sizing: border-box;
-    border: 2px solid #ccc;
+    border: 2px solid rgb(255,221,1);
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
@@ -463,7 +471,6 @@ nav a:hover,nav a:focus{
 }
 
 .pcentre .rep{
-	
 	visibility: hidden;
 	height:0;
 	width:100%;
@@ -472,7 +479,7 @@ nav a:hover,nav a:focus{
 	margin-bottom:1px;
 }
 
-.pcentre:hover .rep{
+.pcentre:hover .rep,.pcentre:focus .rep{
 	visibility:visible;
 	height:auto;
 

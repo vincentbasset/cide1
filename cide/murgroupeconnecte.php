@@ -19,7 +19,7 @@
 						while($donnees=$reponse3->fetch()){
 						echo "
 						<img src=\"".$donnees["icone"]."\" title=\"".$donnees["nom"]."\" alt=\"".$donnees["nom"]."\" width=\"90px\" height=\"90px\" />
-						<span id=\"mgroupe\">".$donnees["nom"]."</span></br>";}			
+						<span id=\"pentete\">".$donnees["nom"]."</span></br>";}			
 						echo "
 						<label for=\"message\"></label> 
 						<textarea name=\"message\" cols=\"108\" rows=\"6\" placeholder=\"Poste un message pour le groupe\"></textarea>";				

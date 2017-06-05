@@ -8,12 +8,11 @@
 			<?php
 			while($donnees=$reponse->fetch()){
 				echo '
-				
-				<p>
+				<p id="gnomliste">
 				<a href="groupe.php?id='.$donnees["id"].'">
 					<span>
-						<img src="'.$donnees["icone"].'" title="'.$donnees["nom"].'" alt="'.$donnees["nom"].'" width="50px" height="50px" />
-							'.$donnees["nom"].'
+						<img src="'.$donnees["icone"].'" title="'.$donnees["nom"].'" alt="'.$donnees["nom"].'" width="60px" height="60px" />
+							<span id="gnomliste2">'.$donnees["nom"].'</span>
 					</span>
 					</br>
 					'.$donnees["description"].'				
@@ -31,7 +30,7 @@
 				<p>
 				<a href="groupe.php?id='.$donnees["id"].'">
 					<span>
-						<img src="'.$donnees["icone"].'" title="'.$donnees["nom"].'" alt="'.$donnees["nom"].'" width="50px" height="50px" />
+						<img src="'.$donnees["icone"].'" title="'.$donnees["nom"].'" alt="'.$donnees["nom"].'" width="60px" height="60px" />
 							'.$donnees["nom"].'
 					</span>
 					</br>

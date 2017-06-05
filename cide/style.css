@@ -138,7 +138,7 @@ nav a:hover,nav a:focus{
 	margin-bottom: 2%;
 	padding: 2%;
 	border-radius: 10px;
-	box-shadow: 1px 1px 12px #555;
+	box-shadow: 1px 1px 12px rgba(43,86,160,1);
 }
 
 
@@ -205,7 +205,7 @@ nav a:hover,nav a:focus{
 	padding-top: 5% ;
 	padding-top: 5% ;
 	background: radial-gradient(ellipse at center, #93B2EA 10%,rgba(43,86,160,1) 85%);
-	box-shadow: 1px 1px 12px #555;
+	box-shadow: 1px 1px 12px rgba(43,86,160,1);
 	transition-property: padding-bottom,padding-top, padding-right, padding-right,border,margin-right;
 	transition-duration:  .3s, .3s, .3s, .5s,.3s,.3s,.3s;
 	transition-timing-function:  ease-out,ease-out, ease-out, ease-out,ease-out,ease-out,ease-out;
@@ -343,7 +343,7 @@ nav a:hover,nav a:focus{
 	margin-bottom: 2%;
 	padding: 2%;
 	border-radius: 10px;
-	box-shadow: 1px 1px 12px #555;
+	box-shadow: 1px 1px 12px rgba(43,86,160,1);
 	transition-property: background-color;
 	transition-duration: 1.5s;
 
@@ -388,7 +388,7 @@ nav a:hover,nav a:focus{
 	margin-bottom: 2%;
 	padding: 2%;
 	border-radius: 10px;
-	box-shadow: 1px 1px 12px #555;
+	box-shadow: 1px 1px 12px rgba(43,86,160,1);
 	transition-property: background-color;
 	transition-duration: 1.5s;
 }
@@ -467,7 +467,7 @@ nav a:hover,nav a:focus{
 	margin-bottom: 2%;
 	padding: 2%;
 	border-radius: 10px;
-	box-shadow: 1px 1px 12px #555;
+	box-shadow: 1px 1px 12px rgba(43,86,160,1);
 }
 
 .pcentre .rep{

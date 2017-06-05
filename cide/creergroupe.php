@@ -10,13 +10,26 @@
 			$id = $bdd->lastInsertId();
            		$insertion = $bdd->prepare("INSERT INTO appartient VALUES(".$_SESSION['id'].",".$id.",\"createur\")");
 			$insertion->execute();		
-			if(empty($_FILES['photo']['name'])){
+			if(empty($_FILES['photo']['name'])&& $_FILES['photo']['error']>0){
 				$photo = "image/icone.jpg";			
 			}
 			else{
-				$dossier = "image/";
-				$fichier = "icone_id=".$id;
-				
+				$dossier = 'image/';
+				$fichier = basename($_FILES['photo']['name']);
+				$taille_maxi = 5000000;
+				$taille = filesize($_FILES['photo']['tmp_name']);
+				$extensions = array('.png', '.gif', '.jpg', '.jpeg');
+				$extension = strrchr($_FILES['photo']['name'], '.'); 
+				//Début des vérifications de sécurité...
+				if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
+				{
+					 alert('Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...');
+				}
+				if($taille>$taille_maxi)
+				{
+					 alert('Le fichier est trop gros...');
+				}
+				$fichier = "icone_id=".$_SESSION['id'].$extension;
 				move_uploaded_file($_FILES["photo"]["tmp_name"],$dossier.$fichier);
 				$photo= $dossier.$fichier;
 			}

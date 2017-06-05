@@ -16,7 +16,6 @@
 						<input type="email" name="mail" placeholder="Entrez votre e-mail" required>
 						</br>
 						<label for="photo">Ajouter une photo de profil:</label>
-						<input type="hidden" name="MAX_FILE_SIZE" value="5000000">
 						<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
 						</br>
 						<select name="statut" onchange="javascript:checkStatut();" required>
@@ -56,7 +55,7 @@
 						</br>
 						<input type="password" name="mdp verification" placeholder="Vérifiez votre mot de passe" required>
 						</br>
-						<a href="cgu.php">Conditions générales d'utilisation</a>
+						<a href="cgu.php" target="_blank">Conditions générales d'utilisation</a>
 						<input type="checkbox" name="cgu" required>
 						<label for="cgu">J'ai lu et accepte les conditions générales d'utilisation</label>
 						</br>

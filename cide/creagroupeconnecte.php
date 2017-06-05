@@ -12,7 +12,6 @@
 						<textarea name="description" rows="10" cols="70" required></textarea>
 						<br/>
 						<label for="photo">Ajouter une photo de profil:</label>
-						<input type="hidden" name="MAX_FILE_SIZE" value="5000000">
 						<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
 						<br/>
 						<select name="type">

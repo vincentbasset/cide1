@@ -48,16 +48,24 @@
                                         
                                         $insertion->execute(['nom'=>$nom, 'prenom'=>$prenom,'mail'=>$mail, 'pwd'=>password_hash($mdp , PASSWORD_BCRYPT), 'statut'=>$statut, 'filiere'=>$filiere, 'annee'=>$annee, "date"=>$date, "cv"=>null]); 
                                         
-					$id=$bdd->lastInsertId();
-                                        if (is_null($filiere) && is_null($annee)){
+					                   $id=$bdd->lastInsertId();
+                                        if (empty($filiere) && empty($annee)){
                                             $groupe=$bdd->query("SELECT id FROM groupe WHERE nom=\"".$statut."\"");
                                             $groupeid=$groupe->fetch();
                                         }
-                                        else{
+                                        if (!empty($filiere) && empty($annee)){
+                                            $groupe=$bdd->query("SELECT id FROM groupe WHERE nom=\"".$filiere."\"");
+                                            $groupeid=$groupe->fetch();
+                                        }
+                                        if (!empty($filiere) && !empty($annee)){
                                             $groupe=$bdd->query("SELECT id FROM groupe WHERE nom=\"".$filiere."-".$annee."\"");
                                             $groupeid=$groupe->fetch();
                                         }
                                         $insertion=$bdd->prepare("INSERT INTO appartient VALUES(:idutil, :idgroupe, \"membre\")");
+                                        $insertion->execute(['idutil'=>$id,'idgroupe'=>$groupeid['id']]);
+                                        
+                                        $idgroupe=1;
+                                         $insertion=$bdd->prepare("INSERT INTO appartient VALUES(:idutil, :idgroupe, \"membre\")");
                                         $insertion->execute(['idutil'=>$id,'idgroupe'=>$groupeid['id']]);
 										
                                         if(empty($_FILES['photo']['name']) && $_FILES['photo']['error']>0){

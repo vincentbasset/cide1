@@ -20,24 +20,24 @@
 						</br>
 						<select name="statut" onchange="javascript:checkStatut();" required>
 							<option value="">Statut</option>
-							<option value="administration">Administration</option>
-							<option value="professeur">Professeur</option>
-							<option value="technique">Technique</option>
+							<option value="Administration">Administration</option>
+							<option value="Professeur">Professeur</option>
+							<option value="Technique">Technique</option>
 							<option value="etudiant">Etudiant</option>
-							<option value="ancien">Ancien</option>
+							<option value="Ancien">Ancien</option>
 						</select>
 						</br>
 						<select name="filiere" >
 							<option value="">Filière</option>
-							<option value="textile">Ingénieur textile et fibres</option>
-							<option value="mecanique">Ingénieur mécanique</option>
-							<option value="automatique">Ingénieur automatique et systèmes embarqués</option>
-							<option value="informatique">Ingénieur informatique et réseau</option>
-							<option value="fip">Ingénieur génie industriel - système de production</option>
-							<option value="prepa">Cycle post-bac intégré</option>
-							<option value="master automatique">Master automatique et informatique industrielle</option>
-							<option value="master mecanique">Master mécanique</option>
-							<option value="master cge">Master CGE ingénierie textile</option>
+							<option value="Textile">Ingénieur textile et fibres</option>
+							<option value="Mécanique">Ingénieur mécanique</option>
+							<option value="Automatique">Ingénieur automatique et systèmes embarqués</option>
+							<option value="Informatique">Ingénieur informatique et réseau</option>
+							<option value="Fip">Ingénieur génie industriel - système de production</option>
+							<option value="Prépa">Cycle post-bac intégré</option>
+							<option value="Master-automatique">Master automatique et informatique industrielle</option>
+							<option value="Master-mécanique">Master mécanique</option>
+							<option value="Master-cge">Master CGE ingénierie textile</option>
 						</select>
 						</br>
 						<select name="annee" >

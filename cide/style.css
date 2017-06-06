@@ -342,11 +342,63 @@ nav a:hover,nav a:focus{
 	border: 1px solid rgb(43,87,160);
 	box-shadow: 1px 1px 25px rgb(43,87,160);
 	font-weight:bold;
+	background-color:white;
 }
 
 #motdp:hover{
 	border: 2px solid rgb(43,87,160);
 	box-shadow: 1px 1px 25px rgb(255,221,1);
+}
+
+
+/*formulaire*/
+
+.centreform{
+	width:70%;
+	padding-right:1%;
+	padding-left:1%;
+	border-left: 3px double rgb(255,221,1);
+	border-right: 3px double rgb(255,221,1);
+	border-bottom: 3px double rgb(255,221,1);
+	padding-right:2%;
+	padding-left:2%;
+	background: linear-gradient(to right, rgba(147,178,234,1) 0%,#C4DEFF 50%,rgba(147,178,234,1) 100%);
+	color:rgb(43,87,160);
+}
+
+.centreform h2{
+	margin-left:22px;
+	margin-top:22px;
+	color:white;
+}
+
+.centreform .champinscr{
+	border-radius:6px;
+	color:rgb(43,87,160);
+	height:30px;
+	width:25%;
+	border: 1px solid rgb(43,87,160);
+	box-shadow: 1px 1px 12px rgb(43,87,160);
+}
+
+.centreform input[type="submit"]{
+	border-radius:6px;
+	color:rgb(43,87,160);
+	height:30px;
+	width:25%;
+	border: 1px solid rgb(43,87,160);
+	box-shadow: 1px 1px 25px rgb(43,87,160);
+	background-color:white;
+}
+
+.centreform input[type="submit"]:hover{
+	border: 2px solid rgb(43,87,160);
+	box-shadow: 1px 1px 30px rgb(255,221,1);
+}
+
+.centreform input[type="file"]{
+	box-shadow: 1px 1px 12px rgb(43,87,160);
+	height:22px;
 }
 
 
@@ -431,7 +483,7 @@ nav a:hover,nav a:focus{
 
 
 
-/*incription*/
+/*incription header*/
 
 .inscription{
 	color: white;

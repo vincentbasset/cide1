@@ -20,37 +20,39 @@
 					</div>
 					</p>
 					<p>
-						date de naissance: '.htmlspecialchars($pdonnees["datenaissance"]).'
+						<span id="bleu">date de naissance:</span> '.htmlspecialchars($pdonnees["datenaissance"]).'
 						</br>
 						</br>
-						statut: '.htmlspecialchars($pdonnees["statut"]).'
+						<span id="bleu">statut:</span> '.htmlspecialchars($pdonnees["statut"]).'</span>
 						</br>
 						</br>
-						adresse mail: '.htmlspecialchars($pdonnees["adresse"]).'
+						<span id="bleu">adresse mail:</span> '.htmlspecialchars($pdonnees["adresse"]).'
 						</br>
 						</br>';
 					}
 					?>
 				<form method="post" action="traitementphoto.php" enctype="multipart/form-data">
-					<label for="photo">Ajouter une photo de profil:</label>
+					<span id="bleu"><label for="photo">Ajouter une photo de profil:</label></span>
 					<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
 					</br>
 					<input type="submit" name="envoyer" value="Changer la photo"/>
 				</form>
+				</br>
 				<a href="changermdp.php">changer de mot de passe</a>
 				</br>
-				</br>
-					groupe:
-					<ul>
+				<p>
+					<span id="bleu">groupes:</span>
+					</br>
+					
 					<?php
 					while($pdonnee=$reponse2->fetch()){
-					echo'<li>'.htmlspecialchars($pdonnee["nom"]).'</li></br>';
+					echo'<span id="glisteprofil">'.htmlspecialchars($pdonnee["nom"]).'</span></br>';
 					}
 					?>
-					</ul>
+				</p>
 				</br>
-				<a href="cgu.php" target="_blank">Conditions générales d'utilisation</a><br/>
-				<a href="about.php" target="_blank">A propos</a><br/>
+				<a href="cgu.php" target="_blank">Conditions générales d'utilisation</a><br/><br/>
+				<a href="about.php" target="_blank">A propos</a><br/><br/>
 				<form method="post" action="desinscription.php">
 					<input type="submit" name="envoyer" value="Se désinscrire" />
 				<form>

@@ -119,6 +119,7 @@
 	}else{
         echo '<body onLoad="alert(\'envoyer\')">';
     }
+$_SESSION['id']=$id;
 echo '<meta http-equiv="refresh" content="0;URL=index.php">';
 	
 ?>

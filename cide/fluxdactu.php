@@ -48,7 +48,11 @@
                         $vid=preg_replace("/.*[=\/]/","",$donnees["url"]);
                         echo '<iframe width="420" height="315"
                         src="https://www.youtube.com/embed/'.$vid.'">
-                        </iframe>';
+                        </iframe></br>';
+                    } else if (preg_match("/.jpg$/",$donnees["url"]) === 1 || preg_match("/.png$/",$donnees["url"]) === 1 || preg_match("/.gif$/",$donnees["url"]) === 1 || preg_match("/.jpeg$/",$donnees["url"]) === 1){
+                        echo "<img src=\"".htmlspecialchars($donnees["url"])."\" width=\"100%\" /></br>";
+                    }else{
+                        echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a></br>";
                     }
                     echo "<span class=\"message\">".htmlspecialchars($donnees["message"])."</span>
                     <span class=\"date\">Posté le ".htmlspecialchars($donnees["datepost"])."</span>";

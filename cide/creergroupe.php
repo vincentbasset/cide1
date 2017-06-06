@@ -8,8 +8,8 @@
 			$insertion = $bdd->prepare("INSERT INTO groupe VALUES(NULL,:nom,:type,:description,\"image/icone.jpg\")");
 			$insertion->execute(["nom"=>$nom,"type"=>$type,"description"=>$description]);
 			$id = $bdd->lastInsertId();
-           		$insertion = $bdd->prepare("INSERT INTO appartient VALUES(".$_SESSION['id'].",".$id.",\"createur\")");
-			$insertion->execute();		
+           	$insertion = $bdd->prepare("INSERT INTO appartient VALUES(:iduser,:idgroupe,\"createur\")");
+			$insertion->execute(['iduser'=>$_SESSION['id'],'idgroupe'=>$id ]);		
 			if(empty($_FILES['photo']['name'])&& $_FILES['photo']['error']>0){
 				$photo = "image/icone.jpg";			
 			}
@@ -23,7 +23,7 @@
 				//Début des vérifications de sécurité...
 				if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
 				{
-					 alert('Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...');
+					 alert('Vous devez uploader un fichier de type png, gif, jpg, ou jpeg...');
 				}
 				if($taille>$taille_maxi)
 				{

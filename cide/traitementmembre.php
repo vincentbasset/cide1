@@ -4,8 +4,8 @@
 
 <?php
 	if(isset($_POST["modifier"])){
-		$update=$bdd->prepare('UPDATE appartient SET droit="'.$_POST['membre'].'" WHERE idUtil='.$_GET['id'].'');
-        $update->execute();
+		$update=$bdd->prepare('UPDATE appartient SET droit=:membre WHERE idUtil=:id');
+        $update->execute(['membre'=>$_POST['membre'], 'id'=>$_GET['id']]);
 	}
 	echo '<meta http-equiv="refresh" content="0;URL=Gestiong.php">';
 ?>

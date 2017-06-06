@@ -21,6 +21,8 @@
 			echo "
 			<form method=\"post\" action=\"traitementmurp.php?id=".htmlspecialchars($_GET['id'])."\">
 			<p class=\"centrep\">
+                <label for=\"lien\"></label> 
+                <input class=\"champinscr\" type=\"varchar\" name=\"lien\" placeholder=\"insére un lien ici\">		
 				<label for=\"message\"></label> 
 				<textarea name=\"message\" cols=\"108\" rows=\"6\" placeholder=\"Laisse un message !\"></textarea>		
 				<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>	
@@ -42,8 +44,18 @@
 							<a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a>    
 							</br>
 						</div>
-					</div></br>
-					<span class=\"message\">".htmlspecialchars($donnees["message"])."</span>
+					</div></br>";
+                    if (preg_match("/www\.youtube\.com/",$donnees["url"])===1||preg_match("/youtu\.be/",$donnees["url"])===1){
+                        $vid=preg_replace("/.*[=\/]/","",$donnees["url"]);
+                        echo '<iframe width="420" height="315"
+                        src="https://www.youtube.com/embed/'.$vid.'">
+                        </iframe></br>';
+                    } else if (preg_match("/.jpg$/",$donnees["url"]) === 1 || preg_match("/.png$/",$donnees["url"]) === 1 || preg_match("/.gif$/",$donnees["url"]) === 1 ||    preg_match("/.jpeg$/",$donnees["url"]) === 1){
+                        echo "<img src=\"".htmlspecialchars($donnees["url"])."\" width=\"100%\" /></br>";
+                    }else{
+                        echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a></br>";
+                    }
+					echo "<span class=\"message\">".htmlspecialchars($donnees["message"])."</span>
 					<span class=\"date\">Posté le ".htmlspecialchars($donnees["datepost"])."</span>";
 				
 				foreach($don as $donnee){

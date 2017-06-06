@@ -323,6 +323,32 @@ nav a:hover,nav a:focus{
 	line-height:38px;
 }
 
+/*changer de mot de passe*/
+
+.centreprofil input[type="password"]{
+	border-radius:6px;
+	color:rgb(43,87,160);
+	height:30px;
+	width:25%;
+	border: 1px solid rgb(43,87,160);
+	box-shadow: 1px 1px 12px rgb(43,87,160);
+}
+
+#motdp{
+	border-radius:6px;
+	color:rgb(43,87,160);
+	height:30px;
+	width:25%;
+	border: 1px solid rgb(43,87,160);
+	box-shadow: 1px 1px 25px rgb(43,87,160);
+	font-weight:bold;
+}
+
+#motdp:hover{
+	border: 2px solid rgb(43,87,160);
+	box-shadow: 1px 1px 25px rgb(255,221,1);
+}
+
 
 /*page des choix des groupes*/
 

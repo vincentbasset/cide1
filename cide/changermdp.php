@@ -9,11 +9,14 @@
 				<form name="inscription" method="post" action="mdpchange.php">
 					<input type="password" name="ancienmdp" placeholder="Ancien mot de passe" required>
 					</br>
+					</br>
 					<input type="password" name="mdp" placeholder="Nouveau mot de passe" required>
+					</br>
 					</br>
 					<input type="password" name="mdp verification" placeholder="Vérifiez votre mot de passe" required>
 					</br>
-					<input type="submit" value="Changer de mot de passe" name="envoyer" onmouseover="javascript:check();" />
+					</br>
+					<input id="motdp" type="submit" value="Changer de mot de passe" name="envoyer" onmouseover="javascript:check();" />
 				</form>
 			</p>
 		</div>

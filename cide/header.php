@@ -29,7 +29,7 @@
 						$reponse = $bdd -> query("SELECT * FROM utilisateur WHERE id=".$_SESSION['id']."");
 						$donnees=$reponse->fetch();
 						//ce qui se passe si on est co
-						echo '<div id="hok"><p><a href="murprofil.php?id='.$donnees["id"].'"><img src="'.$donnees["photo"].'" alt="'.$donnees["nom"].' '.$donnees["prenom"].'" width="50px" height="50px"/></p><p>'
+						echo '<div id="hok"><p><a href="profil.php"><img src="'.$donnees["photo"].'" alt="'.$donnees["nom"].' '.$donnees["prenom"].'" width="50px" height="50px"/></p><p>'
 						.$donnees["nom"].' '.$donnees["prenom"].'</a></p>
 						<form action="logout.php" method="post">
 						<input type="submit" value="Déconnexion">

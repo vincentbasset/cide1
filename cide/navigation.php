@@ -7,7 +7,7 @@
 	if (isset($_SESSION['id'])){
 	$reponse = $bdd -> query("SELECT * FROM utilisateur WHERE id=".$_SESSION['id']."");
 	$donnees=$reponse->fetch();
-		echo '<a href="murprofil.php?id='.$donnees["id"].'">Mon mur</a>';
+		echo '<a href="murprofil.php?id='.htmlspecialchars($donnees["id"]).'">Mon mur</a>';
 	}
 	else{
 		echo '<a href="profil.php">Mon mur</a>';

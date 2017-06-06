@@ -29,8 +29,8 @@
 						$reponse = $bdd -> query("SELECT * FROM utilisateur WHERE id=".$_SESSION['id']."");
 						$donnees=$reponse->fetch();
 						//ce qui se passe si on est co
-						echo '<div id="hok"><p><a href="profil.php"><img src="'.$donnees["photo"].'" alt="'.$donnees["nom"].' '.$donnees["prenom"].'" width="50px" height="50px"/></p><p>'
-						.$donnees["nom"].' '.$donnees["prenom"].'</a></p>
+						echo '<div id="hok"><p><a href="profil.php"><img src="'.htmlspecialchars($donnees["photo"]).'" alt="'.htmlspecialchars($donnees["nom"]).' '.htmlspecialchars($donnees["prenom"]).'" width="50px" height="50px"/></p><p>'
+						.htmlspecialchars($donnees["nom"]).' '.htmlspecialchars($donnees["prenom"]).'</a></p>
 						<form action="logout.php" method="post">
 						<input type="submit" value="Déconnexion">
 						</form></div>';
@@ -45,6 +45,7 @@
 						<input type="password" name="pwd" placeholder="Votre mot de passe"><br />
 						<input type="submit" value="Connexion" name="connect">
 						<a href="inscription.php">Inscription</a>
+						<br/><a href="oublimdp.php">Mot de passe oublié?</a>
 						</form></div>';	
 					}
 			?>

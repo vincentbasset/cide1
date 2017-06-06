@@ -20,7 +20,7 @@
 	<body>
 		<header>	
 		<!-- header = entête de la page -->
-			<h2><a href="https://cas.uha.fr/cas/login?service=http://www.e-services.uha.fr"><img src="image/ensisa.jpg" title="Ecole Nationale Supérieure d'Ingénieurs Sud Alsace" alt="ENSISA" width="300px" height="200px"/></a></h2>
+			<h2><a href="https://cas.uha.fr/cas/login?service=http://www.e-services.uha.fr" target="_blank"><img src="image/ensisa.jpg" title="Ecole Nationale Supérieure d'Ingénieurs Sud Alsace" alt="ENSISA" width="300px" height="200px"/></a></h2>
 			<h1><a href="index.php"><img src="image/logo.jpg" title="Le Cercle d'Ingénieurs de l'ENSISA" alt="C.I.D.E." width="300px" height="200px" /></a></h1>
 			<p>
 			

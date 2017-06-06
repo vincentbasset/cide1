@@ -78,6 +78,14 @@
 			}
 			
 			echo"</div>";
+			echo "<div class=\"droit\">";
+			$donnees2 = $reponse2->fetch();
+			echo"<p>".htmlspecialchars($donnees2["statut"])."<br/>
+			<a href=\"".htmlspecialchars($donnees2["cv"])."\" target=\"_blank\">CV de ".htmlspecialchars($donnees2["nom"])." ".htmlspecialchars($donnees2["prenom"])."</a><br/>"
+			// destiné au message .htmlspecialchars($donnees2["nom"])."<br/>"
+			.htmlspecialchars($donnees2["datenaissance"])."
+			</p>";
+			echo"</div>";
 			?>
 	</body>
 </html>

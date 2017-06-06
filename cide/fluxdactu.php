@@ -24,10 +24,9 @@
 					</br><section class=\"pcentre\">
                     <div class=\"entetepost\">
 						<div class=\"enteteg\">
-							<img src=\"".$donnees["photo"]."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
+							<img src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
 						</div>
-						<div class=\"enteted\">
-					<a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a>    
+				    <div class=\"enteted\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a>    
 					</br>
 					<span>";
 					if($donnees["idGroupe"]!=0){
@@ -44,8 +43,14 @@
 					echo"
 					</span>
 					</div>
-					</div></br>
-                    <span class=\"message\">".htmlspecialchars($donnees["message"])."</span>
+					</div></br>";
+                    if (preg_match("/www\.youtube\.com/",$donnees["url"])===1||preg_match("/youtu\.be/",$donnees["url"])===1){
+                        $vid=preg_replace("/.*[=\/]/","",$donnees["url"]);
+                        echo '<iframe width="420" height="315"
+                        src="https://www.youtube.com/embed/'.$vid.'">
+                        </iframe>';
+                    }
+                    echo "<span class=\"message\">".htmlspecialchars($donnees["message"])."</span>
                     <span class=\"date\">Posté le ".htmlspecialchars($donnees["datepost"])."</span>";
 				
 				foreach($don as $donnee){

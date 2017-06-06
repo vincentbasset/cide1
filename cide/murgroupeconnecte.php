@@ -8,7 +8,8 @@
 	$reponse4 = $bdd -> prepare("SELECT * FROM appartient WHERE idGroupe=:idgroupe AND idUtil=:idutil ");
     $reponse4->execute(['idgroupe' =>$_GET['id'], 'idutil' => $_SESSION['id']]);
 	$reponse5 = $bdd -> query("SELECT * FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE idPost!=0 order by datepost");
-	
+	$reponse6 = $bdd -> prepare("SELECT * FROM appartient WHERE idGroupe=:idgroupe AND idUtil=:idutil ");
+    $reponse6->execute(['idgroupe' =>$_GET['id'], 'idutil' => $_SESSION['id']]);
 	
 ?>
 			<?php
@@ -99,6 +100,11 @@
 					<form method=\"post\" action=\"traitementquitterg.php?id=".htmlspecialchars($_GET['id'])."\">
 						<input id=\"rejoindreg\" type=\"submit\"  value=\"  Quitter  \" name=\"quitter\">
 					</form><br>";
+					while($donnees=$reponse6->fetch()){
+						if($donnees["droit"]!="membre"){
+                               			 	echo "<a href='Gestiong.php?id=".$_GET['id']."'>Gérer le groupe</a><br>";
+                            			}
+                   			}
 				}
 				while($donnees=$reponse2->fetch()){
 					if((!$reponse4->rowcount()==0 || $donnees["visibilite"]==1) && $donnees["importance"]){

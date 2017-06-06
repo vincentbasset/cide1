@@ -281,8 +281,8 @@ nav a:hover,nav a:focus{
 	border-bottom: 3px double rgb(255,221,1);
 	padding-right:2%;
 	padding-left:2%;
-	background-color:rgb(140,166,215);
-	
+	background: linear-gradient(to right, rgba(147,178,234,1) 0%,#C4DEFF 50%,rgba(147,178,234,1) 100%);
+	text-align:center;
 }
 .centreprofil p{
 	padding: 2%;
@@ -293,6 +293,10 @@ nav a:hover,nav a:focus{
 	margin-left:22px;
 	margin-top:22px;
 	color:white;
+}
+
+.centreprofil input[type="file"] {
+	margin-bottom:20px;
 }
 
 #pgauche{
@@ -307,15 +311,16 @@ nav a:hover,nav a:focus{
 	padding-top:4%;
 	font-weight:bold;
 	margin-left:22px;
+	color:rgb(43,87,160);
 }
 
+.centreprofil #bleu{
+	color:rgb(43,87,160);
+}
 
-.centreprofil ul{
-	text-align:left;
-	margin-left:8%;
-	padding-left:5%;
-	font-size:20px;
-	
+.centreprofil #glisteprofil{
+	font-size:30px;
+	line-height:38px;
 }
 
 
@@ -330,7 +335,7 @@ nav a:hover,nav a:focus{
 	border-bottom: 3px double rgb(255,221,1);
 	padding-right:2%;
 	padding-left:2%;
-	background-color:rgb(140,166,215);
+	background: linear-gradient(to right, rgba(147,178,234,1) 0%,#C4DEFF 50%,rgba(147,178,234,1) 100%);
 	
 }
 
@@ -397,7 +402,10 @@ nav a:hover,nav a:focus{
 	background-color: rgb(1,93,170);
 }
 
-/*formulaire d'incription*/
+
+
+
+/*incription*/
 
 .inscription{
 	color: white;
@@ -412,6 +420,8 @@ nav a:hover,nav a:focus{
 	text-decoration: underline;
 	color:rgb(255,221,1);
 }
+
+
 
 /*champ de recherche (nav)*/
 

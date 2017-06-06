@@ -24,4 +24,6 @@ INSERT INTO `appartient` (`idUtil`, `idGroupe`, `droit`) VALUES
 (5, 1, 'membre'),
 (5, 8, 'createur'),
 (97, 10, 'membre'),
-(95, 9, 'membre');
+(95, 9, 'membre'),
+(98, 9, 'membre'),
+(99, 9, 'membre');

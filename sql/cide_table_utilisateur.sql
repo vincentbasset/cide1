@@ -31,4 +31,5 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `adresse`, `motdepasse`, `phot
 (5, 'vergnaut', 'david', 'a@uh.fr', '$2y$10$inJjcWpVNxeh8a2t.cDEueRWC3WH8pohte06JyQoCXmF4YGn0YPcS', 'image/profil.jpg', 'etudiant', 'textile', NULL, '2017-05-31', NULL),
 (6, 'polo', 'marco', 'polo@uha.fr', '$2y$10$aqmBCgzwGXRR4H4SEfERV.pNPfQX/UEewsAPBF4JaQFRfm5oahARq', 'image/profil.jpg', 'etudiant', 'informatique', '2A', '2017-06-14', NULL),
 (97, 'JM', 'Perronne', 'p@uha.fr', '$2y$10$QHPWJxMHPNTYt3YMq88oaeQ4IJUdsakr28NF.ck1yKLjLryQCftZS', 'image/profil.jpg', 'professeur', NULL, NULL, '2017-01-01', NULL),
-(95, 'a', 'a', 'a@a.a', '$2y$10$SVd1.cWTl0Q8cp6q0CB6qe3R7RfY0Nt1EzXzzme2dovSg4Epli9Te', 'image/profil.jpg', 'etudiant', 'informatique', '1A', '2017-12-31', NULL);
+(95, 'a', 'a', 'a@a.a', '$2y$10$SVd1.cWTl0Q8cp6q0CB6qe3R7RfY0Nt1EzXzzme2dovSg4Epli9Te', 'image/profil.jpg', 'etudiant', 'informatique', '1A', '2017-12-31', NULL),
+(99, 'fr', 'fr', 'fr@fr.fr', '$2y$10$0nHtUERRESG4ifoHyRUDUumMIrkyVLKLdgsHhA4UQLtsHNciAoJAu', 'image/profil.jpg', 'etudiant', 'informatique', '1A', '2017-06-01', NULL);

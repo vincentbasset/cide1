@@ -7,7 +7,7 @@
 		<p>
 			<div id="pgauche">
 					<?php
-					while($pdonnees=$reponse->fetch()){
+					$pdonnees=$reponse->fetch();
 					echo'
 					<img src="'.htmlspecialchars($pdonnees["photo"]).'" title="'.htmlspecialchars($pdonnees["nom"]).' '.htmlspecialchars($pdonnees["prenom"]).'" alt="'.htmlspecialchars($pdonnees["nom"]).' '.htmlspecialchars($pdonnees["prenom"]).'" width="225px" height="225px" />
 					</br>			
@@ -28,17 +28,29 @@
 						</br>
 						<span id="bleu">adresse mail:</span> '.htmlspecialchars($pdonnees["adresse"]).'
 						</br>
-						</br>';
-					}
+						</br>
+						<span id="bleu">description:</span> '.htmlspecialchars($pdonnees["description"]).'
+						</br>
+						</br>
+					</p>';
+					
 					?>
+				<form method="post" action="traitementdescription.php">
+					<span id="bleu"><label for="description">Modifier ma description:</label></span>
+					<textarea name="description" rows="15" cols="30"></textarea>
+					</br>
+					</br>
+					</br>
+					<input type="submit" name="envoyer" value="Changer la description"/>
+				</form>
 				<form method="post" action="traitementphoto.php" enctype="multipart/form-data">
-					<span id="bleu"><label for="photo">Ajouter une photo de profil:</label></span>
+					<span id="bleu"><label for="photo">Modifier photo de profil:</label></span>
 					<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
 					</br>
 					<input type="submit" name="envoyer" value="Changer la photo"/>
 				</form>
 				</br>
-				<a href="changermdp.php">changer de mot de passe</a>
+				<a href="changermdp.php">Changer de mot de passe</a>
 				</br>
 				<p>
 					<span id="bleu">groupes:</span>
@@ -50,6 +62,17 @@
 					}
 					?>
 				</p>
+				<p>
+					<?php
+					echo'<span id="bleu"><a href="'.htmlspecialchars($pdonnees["cv"]).'" target="_blank" >Mon CV</a></span></br>';
+					?>
+				</p>
+				<form method="post" action="traitementcv.php" enctype="multipart/form-data">
+					<span id="bleu"><label for="cv">Ajouter une photo de profil:</label></span>
+					<input type="file" name="cv" accept="application/pdf">
+					</br>
+					<input type="submit" name="envoyer" value="Changer le CV"/>
+				</form>
 				</br>
 				<a href="cgu.php" target="_blank">Conditions générales d'utilisation</a><br/><br/>
 				<a href="about.php" target="_blank">A propos</a><br/><br/>

@@ -44,7 +44,7 @@
                                     
                                     try{
                                        
-                                        $insertion = $bdd->prepare("INSERT INTO utilisateur VALUES(NULL, :nom, :prenom, :mail, :pwd, \"image/profil.jpg\", :statut, :filiere,:annee,:date,:cv)");
+                                        $insertion = $bdd->prepare("INSERT INTO utilisateur VALUES(NULL, :nom, :prenom, :mail, :pwd, \"image/profil.jpg\", :statut, :filiere,:annee,:date,:cv,NULL)");
                                         
                                         $insertion->execute(['nom'=>$nom, 'prenom'=>$prenom,'mail'=>$mail, 'pwd'=>password_hash($mdp , PASSWORD_BCRYPT), 'statut'=>$statut, 'filiere'=>$filiere, 'annee'=>$annee, "date"=>$date, "cv"=>null]); 
                                         

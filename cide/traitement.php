@@ -64,7 +64,7 @@
                                         $insertion=$bdd->prepare("INSERT INTO appartient VALUES(:idutil, :idgroupe, \"membre\")");
                                         $insertion->execute(['idutil'=>$id,'idgroupe'=>$groupeid['id']]);
                                         
-                                        $idgroupe=1;
+                                        $groupeid['id']=1;;
                                          $insertion=$bdd->prepare("INSERT INTO appartient VALUES(:idutil, :idgroupe, \"membre\")");
                                         $insertion->execute(['idutil'=>$id,'idgroupe'=>$groupeid['id']]);
 										

@@ -1268,7 +1268,7 @@ h5 .small,
 .h5 .small,
 h6 .small,
 .h6 .small {
-  font-size: 75%;
+  font-size: 85%;
 }
 h1,
 .h1 {
@@ -6773,6 +6773,9 @@ button.close {
 }
 /**********************************************************************************************************************************************************************************/
 
+
+
+
 h2{
 	color:rgb(0,50,100);
 }
@@ -6796,16 +6799,6 @@ h2{
 
 /* color/padding-left small 1220*/
 
-.col-sm-3{
-	background-color: ghostwhite;
-}
-
-
-.col-sm-3 .media{
-	background-color: rgb(200, 220, 250);
-	
-}
-
 
 .lgroupe{
 	text-align:center;
@@ -6816,15 +6809,65 @@ h2{
 	font-size:20px;
 }
 
-input[type="file"]{
+
+.media-body h4{
+	font-size:22px;
+}
+
+body{
+	font-size:15px;
+}
+
+.textarea{
+	width:auto;
+	resize: none;
+	overflow: auto;
+	font-size:14px;
+}
+
+.textarea:hover{
+border-radius:10px;
+
+}
+
+.date{
 	width:100%;
-	
+	font-size:10px;
+	text-align:right;
+	font-style: italic;
+	margin-bottom:11px;
 }
 
 
+.col-sm-3{
+	background-color: ghostwhite;
+	padding:0;
+}
 
+.col-sm-3 .media{
+	background-color: rgb(200, 220, 250);
+	padding:10px;
+	border-radius:10px;
+}
+input[type="submit"]{
+	margin-top:4px;
+	border-right: none;
+	border-left: none;
+	border-top:0.5 solid rgb(0, 50, 100);
+	border-bottom:0.5 solid rgb(0, 50, 100);
+	padding: 0px 15px 0px 15px;
+	background:  rgb(200, 220, 250);
+	border-radius: 20px;
+	color:rgbrgb(0, 50, 100);
+}
 
+input[type="submit"]:hover{
+	border-top:0.5 solid white;
+	border-bottom:0.5 solid white;
+	color:white;
+}
 
-
-
-
+.col-sm-7 input[type="submit"]{
+	margin-left:40%;
+	margin-top:4px;
+}

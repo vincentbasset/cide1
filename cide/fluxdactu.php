@@ -37,21 +37,20 @@
 								$rep5=$reponse5->fetch();
 								echo" à propos de <a href=\"murprofil.php?id=".$rep5["id"]."\">".$rep5["nom"]." ".$rep5["prenom"]."</a>";
 							}
-					
 							echo"
 							</i></small></h4>";
 							if (preg_match("/www\.youtube\.com/",$donnees["url"])===1||preg_match("/youtu\.be/",$donnees["url"])===1){
 								$vid=preg_replace("/.*[=\/]/","",$donnees["url"]);
 								echo '<iframe width="420" height="315"
 								src="https://www.youtube.com/embed/'.$vid.'">
-								</iframe></br>';
+								</iframe><br/>';
 							} else if (preg_match("/.jpg$/",$donnees["url"]) === 1 || preg_match("/.png$/",$donnees["url"]) === 1 || preg_match("/.gif$/",$donnees["url"]) === 1 || preg_match("/.jpeg$/",$donnees["url"]) === 1){
 								echo "<img src=\"".htmlspecialchars($donnees["url"])."\" width=\"100%\" /></br>";
 							}else{
 								echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a>";
 							}
 							echo "<p>".htmlspecialchars($donnees["message"])."</p>
-							<small><i>Posté le ".htmlspecialchars($donnees["datepost"])."</i></small>";
+							<div class=\"date\">Posté le ".htmlspecialchars($donnees["datepost"])."</div>";
 				
 				foreach($don as $donnee){
 					if($donnees["postid"]==$donnee["idPost"]){
@@ -61,9 +60,9 @@
 								<img class=\"img-circle\" src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" alt=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" width=\"50px\" height=\"50px\" />
 							</div>
 							<div class=\"media-body\">
-								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a>
+								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a></h4>
 								<p>".htmlspecialchars($donnee["message"])."</p>
-								<small><i>Posté le ".htmlspecialchars($donnee["datepost"])."</i></small>
+								<div class=\"date\">Posté le ".htmlspecialchars($donnee["datepost"])."</div>
 							</div>
 						</div>";
 					}
@@ -73,7 +72,7 @@
 				
 				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["postid"])."\">
 						<label for=\"message\"></label> 
-						<textarea name=\"message\" cols=\"108\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea>						
+						<textarea name=\"message\" cols=\"90\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea><br/>					
 					<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>
 					</form>
 					
@@ -96,18 +95,15 @@
 									<small><i>";
 									$reponse4->execute(['idg' =>$donnees["idGroupe"]]);
 									$rep4=$reponse4->fetch();			
-									echo"dans <a href=\"groupe.php?id=".$rep4["id"]."\">".htmlspecialchars($rep4["nom"])."";
+									echo"dans <a href=\"groupe.php?id=".$rep4["id"]."\">".htmlspecialchars($rep4["nom"])."</a>";
 									echo "</i></small></h4>";
-									echo "<p>".htmlspecialchars($donnees["message"])."</p>
-										<small><i>Posté le ".htmlspecialchars($donnees["datepost"])."</i></small>								
-								</div>
-							</div>
-							<hr>
-					</div>";
+									echo "</div><p>".htmlspecialchars($donnees["message"])."</p>
+										<small><i>Posté le ".htmlspecialchars($donnees["datepost"])."</i></small>										
+							</div>";
 					}
 				}
+				echo"</div>";
 			?>
 
-	</div>	
-	</body>
-</html>
+		
+

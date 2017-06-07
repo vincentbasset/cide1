@@ -5,7 +5,7 @@
 			$nom = $_POST["nom"];
 			$description = $_POST["description"];
 			$type = $_POST["type"];
-			$insertion = $bdd->prepare("INSERT INTO groupe VALUES(NULL,:nom,:type,:description,\"image/icone.jpg\")");
+			$insertion = $bdd->prepare("INSERT INTO groupe VALUES(NULL,:nom,:type,:description,\"image/icone.jpg\",NULL)");
 			$insertion->execute(["nom"=>$nom,"type"=>$type,"description"=>$description]);
 			$id = $bdd->lastInsertId();
            	$insertion = $bdd->prepare("INSERT INTO appartient VALUES(:iduser,:idgroupe,\"createur\")");
@@ -35,7 +35,12 @@
 			}
 			$insertion = $bdd->prepare("UPDATE groupe SET icone=:photo WHERE id=:id");
 			$insertion->execute(["photo"=>$photo,"id"=>$id]);
-			
+			if($type == "officiel"){
+				include("mailofficiel.php");
+			}
+			if($type == "club"){
+				include("mailclub.php");
+			}
 		}
 	}
 echo '<meta http-equiv="refresh" content="0;URL=groupe.php?id='.$id.'">';

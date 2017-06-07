@@ -13,81 +13,76 @@
 	
 ?>
 			<?php
-			echo "<div class=\"centre\">";
+			echo "<div class=\"col-sm-7 col-perso\">";
 			if (!$reponse4->rowcount()==0){
-				echo "<form method=\"post\" action=\"traitementmurg.php?id=".htmlspecialchars($_GET['id'])."\">
-					<p class=\"centrep\">";
-						while($donnees=$reponse3->fetch()){
-						  echo "
-						  <img src=\"".$donnees["icone"]."\" title=\"".htmlspecialchars($donnees["nom"])."\" alt=\"".htmlspecialchars($donnees["nom"])."\" width=\"90px\"     height=\"90px\" />
-						  <span id=\"pentete\">".htmlspecialchars($donnees["nom"])."</span></br>";
-                        }			
+				echo "
+				<form method=\"post\" action=\"traitementmurg.php?id=".htmlspecialchars($_GET['id'])."\">";
+					$donnees=$reponse3->fetch();
 						echo "
-                        <label for=\"lien\"></label> 
-						<input class=\"champinscr\" type=\"varchar\" name=\"lien\" placeholder=\"insére un lien ici\">			
-						<label for=\"message\"></label> 
-						<textarea name=\"message\" cols=\"108\" rows=\"6\" placeholder=\"Poste un message pour le groupe\"></textarea>";				
-						while($donnees=$reponse4->fetch()){
-							if($donnees["droit"]!="membre"){
-								echo "
-								<input type=\"checkbox\" name=\"important\" />
-								<label for=\"important\">important</label>
-								<input type=\"checkbox\" name=\"public\" />
-								<label for=\"public\">public</label>";
-							}
-						}
+							<div class=\"media\">
+								<div class=\"media-left\">
+									<img class=\"img-circle\" src=\"".$donnees["icone"]."\" title=\"".htmlspecialchars($donnees["nom"])."\" alt=\"".htmlspecialchars($donnees["nom"])."\" width=\"90px\"     height=\"90px\" />
+								</div>
+								<div class=\"media-body\">
+									<h4 class=\"media-heading\">".htmlspecialchars($donnees["nom"])."</h4></br>
+							
+									<label for=\"lien\"></label> 
+									<input type=\"varchar\" name=\"lien\" placeholder=\"insére un lien ici\">			
+									<label for=\"message\"></label> 
+									<textarea name=\"message\" cols=\"108\" rows=\"6\" placeholder=\"Poste un message pour le groupe\"></textarea>";				
+									while($donnees=$reponse4->fetch()){
+										if($donnees["droit"]!="membre"){
+											echo "
+											<input type=\"checkbox\" name=\"important\" />
+											<label for=\"important\">important</label>
+											<input type=\"checkbox\" name=\"public\" />
+											<label for=\"public\">public</label>";
+										}
+									}
 						echo"
-						<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>	
-					</p>
+								<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>
+								</div>
+							</div>
 				</form>";
 			}
+				echo "<hr>";
 				$don=$reponse5->fetchAll();
 				while($donnees=$reponse->fetch()){
 					if (!$reponse4->rowcount()==0 || $donnees["visibilite"]==1){
 						echo "
-							<p>
-							</br><section class=\"pcentre\">
-							<div class=\"entetepost\">
-								<div class=\"enteteg\">
-									<img src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
+							<div class=\"media\">
+								<div class=\"media-left\">
+									<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
 								</div>
-								<div class=\"enteted\">
-									<a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a>    
-									</br>
-								</div>
-							</div></br>";
-                            if (preg_match("/www\.youtube\.com/",$donnees["url"])===1||preg_match("/youtu\.be/",$donnees["url"])===1){
-                                $vid=preg_replace("/.*[=\/]/","",$donnees["url"]);
-                                echo '<iframe width="420" height="315"
-                                src="https://www.youtube.com/embed/'.$vid.'">
-                                </iframe></br>';
-                            } else if (preg_match("/.jpg$/",$donnees["url"]) === 1 || preg_match("/.png$/",$donnees["url"]) === 1 || preg_match("/.gif$/",$donnees["url"]) === 1 || preg_match("/.jpeg$/",$donnees["url"]) === 1){
-                                echo "<img src=\"".htmlspecialchars($donnees["url"])."\" width=\"100%\" /></br>";
-                            }else{
-                                echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a></br>";
-                            }
-							echo "<span class=\"message\">".htmlspecialchars($donnees["message"])."</span>
-							<span class=\"date\">Posté le ".htmlspecialchars($donnees["datepost"])."</span>";
+								<div class=\"media-body\">
+									<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a></h4>";
+									if (preg_match("/www\.youtube\.com/",$donnees["url"])===1||preg_match("/youtu\.be/",$donnees["url"])===1){
+										$vid=preg_replace("/.*[=\/]/","",$donnees["url"]);
+										echo '<iframe width="420" height="315"
+										src="https://www.youtube.com/embed/'.$vid.'">
+										</iframe></br>';
+									} else if (preg_match("/.jpg$/",$donnees["url"]) === 1 || preg_match("/.png$/",$donnees["url"]) === 1 || preg_match("/.gif$/",$donnees["url"]) === 1 || preg_match("/.jpeg$/",$donnees["url"]) === 1){
+										echo "<img src=\"".htmlspecialchars($donnees["url"])."\" width=\"100%\" /></br>";
+									}else{
+										echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a>";
+									}
+							echo "<p>".htmlspecialchars($donnees["message"])."</p>
+									<small><i>Posté le ".htmlspecialchars($donnees["datepost"])."</i></small>";
 				
 				foreach($don as $donnee){
 				echo"<span class=\"rep\">";
 					if($donnees["postid"]==$donnee["idPost"]){
-						echo "
-							<section class=\"rep2\">
-								<div class=\"entetepost\">
-									<div class=\"enteteg\">
-										<img src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" alt=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" width=\"50px\" height=\"50px\" />
-									</div>
-									<div class=\"enteted\">
-										<a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a>      <!--lien vers le profil de la personne-->
-									</div>
-								</div>
-								</br>
-								<span class=\"message\">".htmlspecialchars($donnee["message"])."</span>
-								<span class=\"date\">
-									Posté le ".htmlspecialchars($donnee["datepost"])."
-								</span>
-							</section>";
+						echo "<hr>
+						<div class=\"media\">
+							<div class=\"media-left\">
+								<img class=\"img-circle\" src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" alt=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" width=\"50px\" height=\"50px\" />
+							</div>
+							<div class=\"media-body\">
+								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a>
+								<p>".htmlspecialchars($donnee["message"])."</p>
+								<small><i>Posté le ".htmlspecialchars($donnee["datepost"])."</i></small>
+							</div>
+						</div>";
 					}
 				}
 					
@@ -96,14 +91,25 @@
 						<textarea name=\"message\" cols=\"108\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea>						
 					<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>
 					</form>
-					</span>
-				</section></p>";		
+					
+					</div>
+					<hr>
+					</div>";		
 			
                     }
 				}
-				echo "</div><div class=\"droit\"></br>";
+				
+			echo"</div>";				
+				
+				
+				
+				
+				
+				
+				echo "<div class=\"col-sm-3 col-perso\">";
 				if($reponse4->rowcount()==0){
 					echo"
+					
 					<form method=\"post\" action=\"traitementrejoindreg.php?id=".htmlspecialchars($_GET['id'])."\">
 						<input id=\"rejoindreg\" type=\"submit\"  value=\"Rejoindre\" name=\"rejoindre\">
 					</form><br>";
@@ -122,23 +128,20 @@
 				while($donnees=$reponse2->fetch()){
 					if((!$reponse4->rowcount()==0 || $donnees["visibilite"]==1) && $donnees["importance"]){
 						echo "
-						<div class=\"important\">
-							<div class=\"entetepost\">
-								<div class=\"enteteg\">
-									<img src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
+							<div class=\"media\">
+								<div class=\"media-left\">
+									<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
 								</div>
-								<div class=\"enteted\">								
-									<a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a></br>
-								</div>
-							</div>
-							</br>
-							<span class=\"message2\">".htmlspecialchars($donnees["message"])."</span >
-							<span class=\"date2\">Posté le ".htmlspecialchars($donnees["datepost"])."</span>
-							</br>						
-						</div>";
+								<div class=\"media-body\">							
+									<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a></h4>
+									<p>".htmlspecialchars($donnees["message"])."</span >
+								<small><i>Posté le ".htmlspecialchars($donnees["datepost"])."<small><i>				
+							</div>";
 					}
 				}
-				echo "</div>";
+				echo "</div>"
 			?>
-	</body>
+
+</div>
+</body>
 </html>

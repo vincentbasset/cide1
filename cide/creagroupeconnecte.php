@@ -1,15 +1,14 @@
 
-		<div class="centreprofil">
-			<p>
-				<h2>Création d'un groupe</h2>
-				
+		<div class="col-sm-1 col-perso">
+			<div class="media">
+				<h2>Création de votre groupe</h2>
+					<br/>
+					<br/>
 					<form method="post" action="creergroupe.php" enctype="multipart/form-data">
-						<p>
-						<label for="nom">Nom du groupe:<br/>>></label>
-						<input type="varchar" name="nom" required>
+						<input type="varchar" name="nom" placeholder="Le nom de votre groupe" required>
 						<br/>
-						<label for="description">Description du groupe:<br/></label>
-						<textarea name="description" rows="10" cols="70" required></textarea>
+						<br/>
+						<textarea name="description" rows="10" cols="70" placeholder="Description" required></textarea>
 						<br/>
 						<label for="photo">Ajouter une photo de profil:</label>
 						<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
@@ -22,9 +21,11 @@
 						</select>
 						<br/>
 						<input type="submit" value="Créer" name="envoyer"/>
-						</p>
+						
 					</form>
-			</p>
+			</div>
 		</div>
+		
+	</div>
 	</body>
 </html>

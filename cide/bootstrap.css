@@ -6809,7 +6809,9 @@ h2{
 	font-size:20px;
 }
 
-
+.media-body h3{
+	padding-top:10px;
+}
 .media-body h4{
 	font-size:22px;
 }
@@ -6818,16 +6820,22 @@ body{
 	font-size:15px;
 }
 
-.textarea{
-	width:auto;
+textarea,input[type="varchar"]{
 	resize: none;
 	overflow: auto;
-	font-size:14px;
+	width:100%;
+	border:0.5 solid rgb(200, 220, 250);
+}
+textarea:hover{
+	border:0.5 solid rgb(0, 50, 100);
 }
 
-.textarea:hover{
-border-radius:10px;
+input[type="varchar"]{
+	width:auto;
+}
 
+#textgroupe{
+	margin-left:4px;
 }
 
 .date{

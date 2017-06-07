@@ -19,7 +19,7 @@
 			echo "<div class=\"col-sm-7 col-perso\">";
 				$don=$reponse3->fetchAll();
 				while($donnees=$reponse->fetch()){
-               echo "
+                echo "
 					<div class=\"media\">
 						<div class=\"media-left\">
 							<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
@@ -50,7 +50,7 @@
 								echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a>";
 							}
 							echo "<p>".htmlspecialchars($donnees["message"])."</p>
-							<div class=\"date\">Posté le ".htmlspecialchars($donnees["datepost"])."</div>";
+								<div class=\"date\">Posté le ".htmlspecialchars($donnees["datepost"])."</div>";
 				
 				foreach($don as $donnee){
 					if($donnees["postid"]==$donnee["idPost"]){
@@ -82,7 +82,9 @@
 						
 				}
 				
-				echo "</div><div class=\"col-sm-3 col-perso\">";
+				echo "</div>";
+				
+				echo "<div class=\"col-sm-3 col-perso\">";
 				while($donnees=$reponse2->fetch()){
 					if($donnees["importance"] && $donnees["droit"]!="membre"){
 						echo "
@@ -97,8 +99,9 @@
 									$rep4=$reponse4->fetch();			
 									echo"dans <a href=\"groupe.php?id=".$rep4["id"]."\">".htmlspecialchars($rep4["nom"])."</a>";
 									echo "</i></small></h4>";
-									echo "</div><p>".htmlspecialchars($donnees["message"])."</p>
+									echo "<p>".htmlspecialchars($donnees["message"])."</p>
 										<small><i>Posté le ".htmlspecialchars($donnees["datepost"])."</i></small>										
+								</div>
 							</div>";
 					}
 				}

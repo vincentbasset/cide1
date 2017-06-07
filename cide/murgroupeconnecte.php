@@ -29,7 +29,7 @@
 						<label for=\"lien\"></label> 
 						<input type=\"varchar\" name=\"lien\" placeholder=\"insére un lien ici\">			
 						<label for=\"message\"></label> 
-						<textarea name=\"message\" cols=\"80\" rows=\"4\" placeholder=\"Poste un message pour le groupe\"></textarea><br/>";				
+						<textarea id=\"textgroupe\" name=\"message\" cols=\"85\" rows=\"4\" placeholder=\"Poste un message pour le groupe\"></textarea><br/>";				
 						while($donnees=$reponse4->fetch()){
 							if($donnees["droit"]!="membre"){
 								echo "
@@ -127,7 +127,7 @@
 								</div>
 								<div class=\"media-body\">							
 									<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a></h4>
-									<p>".htmlspecialchars($donnees["message"])."</span >
+									<p>".htmlspecialchars($donnees["message"])."</P >
 									<small><i>Posté le ".htmlspecialchars($donnees["datepost"])."<small><i>				
 								</div>
 							</div>";

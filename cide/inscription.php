@@ -24,6 +24,7 @@
 						<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
 						</br>
 						</br>
+<!--
 						<select  class="champinscr" name="statut" onchange="javascript:checkStatut();" required>
 							<option value="">Statut</option>
 							<option value="Administration">Administration</option>
@@ -57,6 +58,7 @@
 							document.forms["inscription"]["filiere"].style.display='none';
 							document.forms["inscription"]["annee"].style.display='none';
 						</script>
+-->
 						</br>
 						<input class="champinscr" type="password" name="mdp" placeholder="Entrez votre mot de passe" required>
 						</br>

@@ -26,40 +26,6 @@
 						<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
 						</br>
 						</br>
-						<select name="statut" onchange="javascript:checkStatut();" required>
-							<option value="">Statut</option>
-							<option value="Administration">Administration</option>
-							<option value="Professeur">Professeur</option>
-							<option value="Technique">Technique</option>
-							<option value="etudiant">Etudiant</option>
-							<option value="Ancien">Ancien</option>
-						</select>
-						</br>
-						</br>
-						<select id="listeder" name="filiere">
-							<option value="">Filière</option>
-							<option value="Textile">Ingénieur textile et fibres</option>
-							<option value="Mécanique">Ingénieur mécanique</option>
-							<option value="Automatique">Ingénieur automatique et systèmes embarqués</option>
-							<option value="Informatique">Ingénieur informatique et réseau</option>
-							<option value="Fip">Ingénieur génie industriel - système de production</option>
-							<option value="Prépa">Cycle post-bac intégré</option>
-							<option value="Master-automatique">Master automatique et informatique industrielle</option>
-							<option value="Master-mécanique">Master mécanique</option>
-							<option value="Master-cge">Master CGE ingénierie textile</option>
-						</select>
-						</br>
-						<select id="listeder" name="annee" >
-							<option value="">Annee</option>
-							<option value="1A">1A</option>
-							<option value="2A">2A</option>
-							<option value="3A">3A</option>
-						</select>
-						<script>
-							document.forms["inscription"]["filiere"].style.display='none';
-							document.forms["inscription"]["annee"].style.display='none';
-						</script>
-						</br>
 						<input type="password" name="mdp" placeholder="Entrez votre mot de passe" required>
 						</br>
 						</br>

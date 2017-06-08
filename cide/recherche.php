@@ -29,3 +29,7 @@
 		}
 		echo "</p></div>";
 ?>
+
+	</div>
+	</body>
+</html>

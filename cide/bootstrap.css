@@ -6826,7 +6826,7 @@ body{
 	font-size:15px;
 }
 
-textarea,input[type="varchar"],{
+textarea,input[type="varchar"]{
 	resize: none;
 	overflow: auto;
 	width:100%;
@@ -6906,8 +6906,8 @@ input[type="submit"]:hover{
 	margin-left:30%;
 }
 
-
 #deco{
 	color:rgb(0, 50, 100);
 	font-size:25px;
 }
+

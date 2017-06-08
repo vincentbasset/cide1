@@ -11,8 +11,9 @@
 	if(!empty($donnees2["nom"])){
 		echo '<br/>Créateur :'.htmlspecialchars($donnees2["nom"]).' '.htmlspecialchars($donnees2["prenom"]);
 	}
+
+	echo'<form method="post" action="traitementdemande.php?id='.$_GET['id'].'">';
 ?>
-	<form method="post" action="traitementdemande.php">
 		<select name="choix">
 			<option value="refuser">Refuser</option>
 			<option value="accepter">Accepter</option>

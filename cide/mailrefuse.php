@@ -1,8 +1,7 @@
 <?php
-	$reponse=$bdd->query("SELECT * FROM utilisateur inner join appartient on appartient.idUtil = utilisateur.id inner join groupe on appartient.idGroupe = groupe.id WHERE groupe.nom=\"BDE\" and appartient.droit=\"admin\" limit 0,1");
+	$reponse=$bdd->query("SELECT * FROM utilisateur inner join appartient on appartient.idUtil=utilisateur.id where idGroupe=".$_GET['id']." and droit=\"createur\"");
 		$donnees=$reponse->fetch();
 		$adresse = $donnees["adresse"];
-	$url = "http://localhost/cide/demandeofficiel.php?id=".$id;
 	require 'mail/PHPMailerAutoload.php';
 	
 	//Create a new PHPMailer instance
@@ -36,9 +35,9 @@
 	//Set who the message is to be sent to
 	$mail->addAddress($adresse);
 	//Set the subject line
-	$mail->Subject = utf8_decode('Vérification d\'un club');
+	$mail->Subject = utf8_decode('Votre club a été traité');
 	//Replace the plain text body with one created manually
-	$mail->Body = utf8_decode("Un nouveau club à été créé,\n Veuillez accepter ou refuser sa publication en cliquant si dessous:\n".$url);
+	$mail->Body = utf8_decode("Nous avons le regret de vous annoncer que votre groupe n'a pas été accepté.");
 	//Attach an image file
 	//$mail->addAttachment('images/phpmailer_mini.png');
 	//send the message, check for errors

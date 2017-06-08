@@ -28,7 +28,7 @@
             echo '<div>
                 <p>'.$donnees['nom'].' '.$donnees['prenom'].'</p>
                 <p>
-                    <form method="post" action="traitementmembre.php?id='.$donnees['id'].'">
+                    <form method="post" action="traitementmembre.php?id='.$donnees['id'].'&groupe='.$_GET['id'].'">
                       <input type="radio" name="membre" value="membre" '.$membre.'> Membre<br>
                       <input type="radio" name="membre" value="admin" '.$admin.'> Admin<br>
                       <input type="radio" name="membre" value="createur" '.$createur.'> Créateur<br><br>

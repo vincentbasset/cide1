@@ -6911,3 +6911,11 @@ input[type="submit"]:hover{
 	font-size:25px;
 }
 
+#rech{
+	font-size:22px;
+}
+
+#rech a{
+	margin-left:2px;
+}
+

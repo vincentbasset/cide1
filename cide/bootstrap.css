@@ -6788,6 +6788,12 @@ h2{
 	text-align:left;
 }
 
+a:hover{
+	text-decoration:none;
+	color:yellow;
+}
+
+
 .media {
   margin-bottom: 10px;
 }
@@ -6878,4 +6884,19 @@ input[type="submit"]:hover{
 .col-sm-7 input[type="submit"]{
 	margin-left:40%;
 	margin-top:4px;
+}
+
+.col-sm-1 input[type="file"]{
+	background-color: rgb(200, 220, 250);
+	float:right;
+	padding-right:32%;
+}
+
+#styleprofil{
+	color:rgb(0, 50, 100);
+	font-size:15px;
+}
+
+#styleprofil span{
+	font-weight:bold;
 }

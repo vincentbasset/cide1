@@ -54,7 +54,7 @@
 							echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a>";
 						}
 						echo "<p>".htmlspecialchars($donnees["message"])."</p>
-						<div class=\"date\">Posté le ".htmlspecialchars($donnees["datepost"])."</div>";
+						<div class=\"date\">Posté le ".date("j/m/y G\hi",date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])))."</div>";
 				
 				foreach($don as $donnee){
 				echo"<span class=\"rep\">";
@@ -67,7 +67,7 @@
 							<div class=\"media-body\">
 								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a></h4>
 								<p>".htmlspecialchars($donnee["message"])."</p>
-								<div class=\"date\">Posté le ".htmlspecialchars($donnee["datepost"])."</div>
+								<div class=\"date\">Posté le ".date("j/m/y G\hi",date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])))."</div>
 							</div>
 						</div>";
 					}
@@ -91,7 +91,7 @@
 					echo"<p>Statut:<br/>".htmlspecialchars($donnees2["statut"])."<br/><br/>
 						<a href=\"".htmlspecialchars($donnees2["cv"])."\" target=\"_blank\">CV de ".htmlspecialchars($donnees2["nom"])." ".htmlspecialchars($donnees2["prenom"])."</a><br/><br/>"
 						.htmlspecialchars($donnees2["description"])."<br/><br/>
-						Date de naissance: <br/>".htmlspecialchars($donnees2["datenaissance"])."
+						Date de naissance: <br/>".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y")."
 						</p>
 					</div>
 				</div>";

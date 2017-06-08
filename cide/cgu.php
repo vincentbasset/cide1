@@ -1,7 +1,7 @@
 <?php
 	include("header.php");
 ?>
-		<div class="centreprofil">
+		<div class="col-sm-1 col-perso">
 			<p>
 				<h2>Conditions générales d'utilisation du site CIDE</h2><br/><br/><br/>
 				<h3>ARTICLE 1 : Objet</h3><p>

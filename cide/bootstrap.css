@@ -6782,6 +6782,7 @@ h2{
 
 .container-fluid {
 	text-align:center;
+	color:rgb(0, 50, 100);
 }
 
 .media-body{
@@ -6836,8 +6837,9 @@ textarea:hover{
 	border:0.5 solid rgb(0, 50, 100);
 }
 
-input[type="varchar"]{
+input[type="varchar"],input[type="password"]{
 	width:auto;
+	border:0.5 solid rgb(200, 220, 250);
 }
 
 #textgroupe{
@@ -6907,7 +6909,6 @@ input[type="submit"]:hover{
 }
 
 #deco{
-	color:rgb(0, 50, 100);
 	font-size:25px;
 }
 
@@ -6918,11 +6919,6 @@ input[type="submit"]:hover{
 #rech a{
 	margin-left:2px;
 }
-
-#about{
-	color:rgb(0, 50, 100);
-}
-
 
 
 

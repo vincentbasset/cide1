@@ -14,7 +14,7 @@
 						</br>
 						</br>
 						<label for="date">Votre date de naissance: </label>
-						<input" type="date" name="date"required>
+						<input type="date" name="date" required>
 						</br>
 						</br>
 						<input type="email" name="mail" placeholder="Entrez votre e-mail" required>

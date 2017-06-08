@@ -100,7 +100,7 @@
 									echo"dans <a href=\"groupe.php?id=".$rep4["id"]."\">".htmlspecialchars($rep4["nom"])."</a>";
 									echo "</i></small></h4>";
 									echo "<p>".nl2br(htmlspecialchars($donnees["message"]))."</p>
-										<small><i>Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y G\hi")."</i></small>										
+										<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnee["datepost"])), "j/m/y \à G\hi")."</div>										
 								</div>
 							</div>";
 					}

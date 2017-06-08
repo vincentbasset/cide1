@@ -29,7 +29,7 @@
 				{
 					 alert('Le fichier est trop gros...');
 				}
-				$fichier = "icone_id=".$_SESSION['id'].$extension;
+				$fichier = "icone_id=".$id.$extension;
 				move_uploaded_file($_FILES["photo"]["tmp_name"],$dossier.$fichier);
 				$photo= $dossier.$fichier;
 			}
@@ -41,6 +41,8 @@
 			if($type == "club"){
 				include("mailclub.php");
 			}
+			$insertion = $bdd->prepare("UPDATE `groupe` SET `accepte` = '1' WHERE `groupe`.`type` = 'public' or `groupe`.`type` = 'prive' ");
+			$insertion->execute();
 		}
 	}
 echo '<meta http-equiv="refresh" content="0;URL=groupe.php?id='.$id.'">';

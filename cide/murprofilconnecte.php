@@ -67,7 +67,7 @@
 							<div class=\"media-body\">
 								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a></h4>
 								<p>".nl2br(htmlspecialchars($donnee["message"]))."</p>
-								<div class=\"date\">Posté le ".date("j/m/y G\hi",date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])))."</div>
+								<div class=\"date\">Posté le ".date("j/m/y G\hi",date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnee["datepost"])))."</div>
 							</div>
 						</div>";
 					}

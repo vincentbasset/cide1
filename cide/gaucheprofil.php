@@ -17,6 +17,8 @@
 						</div>';
 				}
 				else {
+					
+					$_SESSION['url']=$newurl;
 					//ce qui ce passe si on est pas co, avec un exemple de formulaire liant à un fichier qui fera le login
 						echo '<div id=hconnect>
 						<form action="login.php" method="post">

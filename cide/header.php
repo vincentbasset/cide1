@@ -7,7 +7,7 @@
 	}
 	$bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 ?>
-<!doctype html>
+<! doctype html>
 <html lang = "fr">
 
 	<head>
@@ -25,5 +25,9 @@
 		?>
 		
 		<div class="container-fluid">
-			<?php include("gaucheprofil.php"); ?>
+			<?php 
+				$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";   
+				$newurl = substr($url, strpos($url, "cide/") + 5);
+				include("gaucheprofil.php");
+			?>
 		

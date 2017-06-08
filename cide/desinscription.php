@@ -3,7 +3,7 @@
 	
 	if(isset($_POST["envoyer"])){
 		echo '<div class="col-sm-1 col-perso">
-				<p><img src="image/dontgo.jpg" alt="Ne partez pas!">
+				<p><img class="img-circle" src="image/dontgo.jpg" alt="Ne partez pas!">
 					<br/>
 					<br/>
 					Es-tu sur de vouloir partir? Toutes tes données seront perdues

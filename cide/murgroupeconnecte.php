@@ -107,33 +107,33 @@
 				echo"	
 					<form method=\"post\" action=\"traitementrejoindreg.php?id=".htmlspecialchars($_GET['id'])."\">
 						<input id=\"rejoindreg\" type=\"submit\"  value=\"Rejoindre\" name=\"rejoindre\">
-					</form><br>";
-				}
-				else{
-					echo"
-					<form method=\"post\" action=\"traitementquitterg.php?id=".htmlspecialchars($_GET['id'])."\">
-						<input id=\"rejoindreg\" type=\"submit\"  value=\"  Quitter  \" name=\"quitter\">
-					</form><br>";
-					while($donnees=$reponse6->fetch()){
-						if($donnees["droit"]!="membre"){
-                            echo "<a href='Gestiong.php?id=".$_GET['id']."'>Gérer le groupe</a><br>";
-						}
-                   	}
-				}
-				while($donnees=$reponse2->fetch()){
-					if((!$reponse4->rowcount()==0 || $donnees["visibilite"]==1) && $donnees["importance"]){
-						echo "
-							<div class=\"media\">
-								<div class=\"media-left\">
-									<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
-								</div>
-								<div class=\"media-body\">							
-									<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a></h4>
-									<p>".htmlspecialchars($donnees["message"])."</p>
-									<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnee["datepost"])), "j/m/y \à G\hi")."</div>		
-								</div>
-							</div>";
+					</form>";
+			}
+			else{
+				echo"
+				<form method=\"post\" action=\"traitementquitterg.php?id=".htmlspecialchars($_GET['id'])."\">
+					<input id=\"rejoindreg\" type=\"submit\"  value=\"  Quitter  \" name=\"quitter\">
+				</form>";
+				while($donnees=$reponse6->fetch()){
+					if($donnees["droit"]!="membre"){
+                        echo "<a id=\"liengestion\"href='Gestiong.php?id=".$_GET['id']."'>Gérer le groupe</a><br><br>";
 					}
+               	}
+			}
+			while($donnees=$reponse2->fetch()){
+				if((!$reponse4->rowcount()==0 || $donnees["visibilite"]==1) && $donnees["importance"]){
+					echo "
+						<div class=\"media\">
+							<div class=\"media-left\">
+								<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
+							</div>
+							<div class=\"media-body\">							
+								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a></h4>
+								<p>".htmlspecialchars($donnees["message"])."</p>
+								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnee["datepost"])), "j/m/y \à G\hi")."</div>		
+							</div>
+						</div>";
 				}
+			}
 	echo "</div>";
 ?>

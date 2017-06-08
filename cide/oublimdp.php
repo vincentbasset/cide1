@@ -1,7 +1,7 @@
 <?php
 	include("header.php");
 ?>
-		<div class="centreprofil">
+		<div class="col-sm-1 col-perso">
 			<p>
 				<form method="post" action="traitementmail.php">
 					<input type="email" name="mail" placeholder="Entrez votre mail" required>
@@ -9,5 +9,7 @@
 				</form>
 			</p>
 		</div>
+		
+	</div>
 	</body>
 </html>

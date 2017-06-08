@@ -3,7 +3,7 @@
 	$reponse = $bdd -> query("SELECT * FROM utilisateur WHERE id=".$_SESSION['id']."");
 ?>
 <script src="javascript.js"></script>
-		<div class="centreprofil">
+		<div class="col-sm-1 col-perso" id="changemdp">
 			<p>
 				Changer de mot de passe
 				<form name="inscription" method="post" action="mdpchange.php">

@@ -1,7 +1,7 @@
 <?php
 	include("header.php");
 ?>
-		<div class="centreprofil">
+		<div class="col-sm-1 col-perso" id="about">
 			<h2>A propos de C.I.D.E.</h2><br/>
 			<h3>Information sur l'entreprise</h3><br/>
 			<p>

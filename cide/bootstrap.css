@@ -6826,7 +6826,7 @@ body{
 	font-size:15px;
 }
 
-textarea,input[type="varchar"]{
+textarea,input[type="varchar"],{
 	resize: none;
 	overflow: auto;
 	width:100%;
@@ -6888,8 +6888,8 @@ input[type="submit"]:hover{
 
 .col-sm-1 input[type="file"]{
 	background-color: rgb(200, 220, 250);
-	float:right;
-	padding-right:32%;
+	float:left;
+	padding-left:40%;
 }
 
 #styleprofil{
@@ -6899,4 +6899,9 @@ input[type="submit"]:hover{
 
 #styleprofil span{
 	font-weight:bold;
+}
+
+#listeder{
+	color:red;
+	margin-left:30%;
 }

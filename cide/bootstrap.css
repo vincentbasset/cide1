@@ -6905,3 +6905,9 @@ input[type="submit"]:hover{
 	color:red;
 	margin-left:30%;
 }
+
+
+#deco{
+	color:rgb(0, 50, 100);
+	font-size:25px;
+}

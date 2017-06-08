@@ -1,23 +1,16 @@
 <?php
     include("header.php");
     if (isset($_GET['id'])) {
-		$reponse=$bdd->query("SELECT * FROM groupe WHERE id=\"".$_GET["id"]."\"");
-		$donnees=$reponse->fetch();
-		if($donnees["accepte"] == "1"){
-			include("murgroupe.php");
-		}else{	echo '<div class="centredeco">
-			<p>
-			En attente d\'acceptation
-			</p></div>';
-		}
+        include("murgroupe.php");
     }
     else {
         if (isset($_SESSION['id'])) {
-				include("groupeconnecte.php");
+		//ce qui se passe si on est co
+		include("groupeconnecte.php");
 		}
 		else {
 			//ce qui ce passe si on est pas co, avec un exemple de formulaire liant à un fichier qui fera le login
-			echo '<div class="centredeco">
+			echo '<div class="col-sm-1 col-perso" id="deco">
 				<p>
 				Connecte toi ou rejoins nous !
 				</br>
@@ -26,6 +19,8 @@
 				</p></div>';
 		}
 	}
-	echo "</body>
-		  </html>";
+	echo "
+		</div>
+		</body>
+		</html>";
 ?>

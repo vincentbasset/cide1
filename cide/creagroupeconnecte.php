@@ -5,13 +5,17 @@
 					<br/>
 					<br/>
 					<form method="post" action="creergroupe.php" enctype="multipart/form-data">
-						<input type="varchar" name="nom" placeholder="Le nom de votre groupe" required>
+						<input type="varchar" name="nom" placeholder="Le nom" required>
 						<br/>
 						<br/>
-						<textarea name="description" rows="10" cols="70" placeholder="Description" required></textarea>
+						<textarea name="description" rows="10" cols="70" placeholder="Description..." required></textarea>
+						<br/>
 						<br/>
 						<label for="photo">Ajouter une photo de profil:</label>
+						<br/>
+						<br/>
 						<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
+						<br/>
 						<br/>
 						<select name="type">
 							<option value="prive">Privé</option>

@@ -53,13 +53,12 @@
 						}else{
 							echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a>";
 						}
-						echo "<p>".nl2br(htmlspecialchars($donnees["message"])."</p>
-						<div class=\"date\">Posté le ".date("j/m/y G\hi",date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])))."</div>";
+						echo "<p>".nl2br(htmlspecialchars($donnees["message"]))."</p>
+								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>";
 				
 				foreach($don as $donnee){
-				echo"<span class=\"rep\">";
 					if($donnees["postid"]==$donnee["idPost"]){
-						echo "<hr>
+						echo"<hr>
 						<div class=\"media\">
 							<div class=\"media-left\">
 								<img class=\"img-circle\" src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" alt=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" width=\"50px\" height=\"50px\" />
@@ -67,12 +66,14 @@
 							<div class=\"media-body\">
 								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a></h4>
 								<p>".nl2br(htmlspecialchars($donnee["message"]))."</p>
-								<div class=\"date\">Posté le ".date("j/m/y G\hi",date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnee["datepost"])))."</div>
+								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnee["datepost"])), "j/m/y \à G\hi")."</div>
 							</div>
 						</div>";
 					}
 				
 				}
+				
+
 				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["postid"])."\">
 						<label for=\"message\"></label> 
 						<textarea name=\"message\" cols=\"108\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea>						
@@ -91,7 +92,7 @@
 					echo"<p>Statut:<br/>".htmlspecialchars($donnees2["statut"])."<br/><br/>
 						<a href=\"".htmlspecialchars($donnees2["cv"])."\" target=\"_blank\">CV de ".htmlspecialchars($donnees2["nom"])." ".htmlspecialchars($donnees2["prenom"])."</a><br/><br/>"
 						.htmlspecialchars($donnees2["description"])."<br/><br/>
-						Date de naissance: <br/>".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y")."
+						Date de naissance: <br/>".htmlspecialchars($donnees2["datenaissance"])."
 						</p>
 					</div>
 				</div>";

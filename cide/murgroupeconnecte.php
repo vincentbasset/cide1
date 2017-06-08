@@ -22,7 +22,7 @@
 			echo "
 				<div class=\"media\">
 					<div class=\"media-left\">
-						<img class=\"img-circle\" src=\"".$donnees["icone"]."\" title=\"".htmlspecialchars($donnees["nom"])."\" alt=\"".htmlspecialchars($donnees["nom"])."\" width=\"90px\"     height=\"90px\" />
+						<img class=\"img-circle\" src=\"".$donnees["icone"]."\" title=\"".htmlspecialchars($donnees["nom"])."\" alt=\"".htmlspecialchars($donnees["nom"])."\" width=\"90px\" height=\"90px\" />
 					</div>
 					<div class=\"media-body\">
 						<h3 class=\"media-heading\">".htmlspecialchars($donnees["nom"])."</h3>						
@@ -66,24 +66,26 @@
 						}else{
 							echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a>";
 						}
-						echo "<p>".nl2br(htmlspecialchars($donnees["message"])."</p>
-							<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>";
+						echo "<p>".nl2br(htmlspecialchars($donnees["message"]))."</p>
+								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>";
+
+						
 				
 				foreach($don as $donnee){
-				echo"<span class=\"rep\">";
 					if($donnees["postid"]==$donnee["idPost"]){
-						echo "<hr>
+						echo"<hr>
 						<div class=\"media\">
 							<div class=\"media-left\">
 								<img class=\"img-circle\" src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" alt=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" width=\"50px\" height=\"50px\" />
 							</div>
 							<div class=\"media-body\">
 								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a></h4>
-								<p>".nl2br(htmlspecialchars($donnee["message"])."</p>
+								<p>".nl2br(htmlspecialchars($donnee["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnee["datepost"])), "j/m/y \à G\hi")."</div>
 							</div>
 						</div>";
 					}
+				
 				}
 					
 				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["postid"])."\">
@@ -127,8 +129,8 @@
 								</div>
 								<div class=\"media-body\">							
 									<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a></h4>
-									<p>".nl2br(htmlspecialchars($donnees["message"])."</P >
-									<small><i>Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."<small><i>				
+									<p>".htmlspecialchars($donnees["message"])."</P >
+									<small><i>Posté le ".htmlspecialchars($donnees["datepost"])."<small><i>				
 								</div>
 							</div>";
 					}

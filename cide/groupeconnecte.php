@@ -32,18 +32,20 @@
 			<br/>
 			<?php
 			while($donnees=$reponse2->fetch()){
-				echo '
-					<hr>
-					<a href="groupe.php?id='.htmlspecialchars($donnees["id"]).'">
-						<div class="media">
-							<img class="img-circle" src="'.htmlspecialchars($donnees["icone"]).'" title="'.htmlspecialchars($donnees["nom"]).'" alt="'.htmlspecialchars($donnees["nom"]).'" width="80px" height="80px" />
-							<div class="media-body lgroupe">
-								<h4 class="media-heading lgroupe">'.htmlspecialchars($donnees["nom"]).'</h4>
-								<p>'.htmlspecialchars($donnees["description"]).'</p>
-							</div>
-						</div>
-					</a>';
-			}
+                if($donnees["type"]!="defaut"){
+                    echo '
+                        <hr>
+                        <a href="groupe.php?id='.htmlspecialchars($donnees["id"]).'">
+                            <div class="media">
+                                <img class="img-circle" src="'.htmlspecialchars($donnees["icone"]).'" title="'.htmlspecialchars($donnees["nom"]).'" alt="'.htmlspecialchars($donnees["nom"]).'" width="80px" height="80px" />
+                                <div class="media-body lgroupe">
+                                    <h4 class="media-heading lgroupe">'.htmlspecialchars($donnees["nom"]).'</h4>
+                                    <p>'.htmlspecialchars($donnees["description"]).'</p>
+                                </div>
+                            </div>
+                        </a>';
+			     }
+            }
 			?>
 	</div>
 

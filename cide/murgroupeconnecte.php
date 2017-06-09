@@ -104,6 +104,7 @@
 
     echo "<div class=\"col-sm-3 col-perso\">";
     if($reponse4->rowcount()==0){
+        $donneesgroupe=$reponse3->fetch();
         if($donneesgroupe["type"]!="defaut"){
             echo"	
                 <form method=\"post\" action=\"traitementrejoindreg.php?id=".htmlspecialchars($_GET['id'])."\">

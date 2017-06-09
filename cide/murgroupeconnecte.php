@@ -62,7 +62,7 @@
                             src="https://www.youtube.com/embed/'.$vid.'">
                             </iframe></br>';
                     } else if (preg_match("/.jpg$/",$donneespost["url"]) === 1 || preg_match("/.png$/",$donneespost["url"]) === 1 || preg_match("/.gif$/",$donneespost["url"]) === 1 || preg_match("/.jpeg$/",$donneespost["url"]) === 1){
-                        echo "<img src=\"".htmlspecialchars($donneespost["url"])."\" width=\"100%\" /></br>";
+                        echo "<img class=\"img\" src=\"".htmlspecialchars($donneespost["url"])."\"  /><br/>";
                     }else{
                         echo "<a href=".htmlspecialchars($donneespost["url"]).">".htmlspecialchars($donneespost["url"])."</a>";
                     }

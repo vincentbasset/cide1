@@ -10,7 +10,8 @@
 			$insertion->execute(['iduser'=>$_SESSION['id'],'idmessage'=>$_GET['id'], 'message'=>$message ]);
 		}
 	}
-	echo '<meta http-equiv="refresh" content="0;URL=index.php">';
+	
+	echo '<meta http-equiv="refresh" content="0;URL='.$_SESSION['url'].'">';
 ?>
 	</body>
 

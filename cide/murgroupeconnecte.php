@@ -14,6 +14,7 @@
 ?>
 			
 <?php
+	$_SESSION['url']=$newurl;
 	echo "<div class=\"col-sm-7 col-perso\">";
 	if (!$reponse4->rowcount()==0){
 		echo "
@@ -68,7 +69,6 @@
                     }
                     echo "<p>".nl2br(htmlspecialchars($donneespost["message"]))."</p>
                             <div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donneespost["datepost"])), "j/m/y \à G\hi")."</div>";
-
 
 
             foreach($don as $donneesreponses){
@@ -138,5 +138,6 @@
                 </div>";
         }
     }
+
 	echo "</div>";
 ?>

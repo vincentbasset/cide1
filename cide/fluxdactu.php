@@ -1,12 +1,10 @@
 <?php
 	$date = $bdd -> query("select getdate() as currentdatetime");
 	
-	$reponse = $bdd -> query("SELECT *,post.id as postid FROM post inner join utilisateur on post.idUtil=utilisateur.id
-							WHERE post.idPost=0 order by datepost desc");
-								
-	$reponse2 = $bdd -> query("SELECT * FROM post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id
-							WHERE groupe.nom in(SELECT groupe.nom FROM appartient inner join groupe on appartient.idGroupe=groupe.id ) ORDER BY datepost DESC ");
-	
+	$reponse = $bdd -> prepare("SELECT *,post.id as postid from post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id  where (post.visibilite=1 or post.idGroupe in (SELECT appartient.idGroupe from appartient where appartient.idUtil=:idutil)) and groupe.accepte=1 and post.idUtil=appartient.idUtil and post.idPost=0 ORDER BY datepost DESC ");
+	$reponse->execute(['idutil' =>$_SESSION['id']]);							
+	$reponse2 = $bdd -> prepare("SELECT * from post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id  where (post.visibilite=1 or post.idGroupe in (SELECT appartient.idGroupe from appartient where appartient.idUtil=:idutil)) and groupe.accepte=1 and post.idUtil=appartient.idUtil and post.importance=1 ORDER BY datepost DESC ");
+	$reponse2->execute(['idutil' =>$_SESSION['id']]);
 	$reponse3 = $bdd -> query("SELECT * FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE idPost!=0 order by datepost");
 	
 	$reponse4 = $bdd -> prepare("SELECT nom,id FROM  groupe WHERE groupe.id = :idg");
@@ -85,8 +83,9 @@
 				echo "</div>";
 				
 				echo "<div class=\"col-sm-3 col-perso\">";
+				
 				while($donnees=$reponse2->fetch()){
-					if($donnees["importance"] && $donnees["droit"]!="membre"){
+					//if(!$reponse4->rowcount()==0 || $donnees["visibilite"]==1){
 						echo "
 							<div class=\"media\">
 								<div class=\"media-left\">
@@ -100,10 +99,10 @@
 									echo"dans <a href=\"groupe.php?id=".$rep4["id"]."\">".htmlspecialchars($rep4["nom"])."</a>";
 									echo "</i></small></h4>";
 									echo "<p>".nl2br(htmlspecialchars($donnees["message"]))."</p>
-										<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnee["datepost"])), "j/m/y \à G\hi")."</div>										
+										<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>										
 								</div>
 							</div>";
-					}
+					//}
 				}
 				echo"</div>";
 			?>

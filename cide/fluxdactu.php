@@ -43,7 +43,7 @@
 								src="https://www.youtube.com/embed/'.$vid.'">
 								</iframe><br/>';
 							} else if (preg_match("/.jpg$/",$donnees["url"]) === 1 || preg_match("/.png$/",$donnees["url"]) === 1 || preg_match("/.gif$/",$donnees["url"]) === 1 || preg_match("/.jpeg$/",$donnees["url"]) === 1){
-								echo "<img class=\"img\" src=\"".htmlspecialchars($donneespost["url"])."\"  /><br/>";
+								echo "<img src=\"".htmlspecialchars($donnees["url"])."\" width=\"100%\" /></br>";
 							}else{
 								echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a>";
 							}

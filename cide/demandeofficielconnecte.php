@@ -6,7 +6,7 @@
 	$donnees=$reponse->fetch();
 	$donnees2=$reponse2->fetch();
 	echo"<div class=\"col-sm-1 col-perso\">
-		<img src=\"".htmlspecialchars($donnees["icone"])."\" alt=\"".htmlspecialchars($donnees["nom"])."\" />
+		<img src=\"".htmlspecialchars($donnees["icone"])."\" alt=\"".htmlspecialchars($donnees["nom"])."\" height=50% width=30% />
 		<br/>Nom du groupe :".htmlspecialchars($donnees["nom"])."<br/>Description: ".htmlspecialchars($donnees["description"]);
 	if(!empty($donnees2["nom"])){
 		echo '<br/>Créateur :'.htmlspecialchars($donnees2["nom"]).' '.htmlspecialchars($donnees2["prenom"]);

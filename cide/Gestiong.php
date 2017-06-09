@@ -45,9 +45,12 @@
                 </p>
             
             </div>';
-        }
+        } 
+	echo '<form method="post" action="detruireg.php?id='.$_GET['id'].'">
+		<input type="submit" name="envoyer" value="Détruire le groupe" />
+	<form>';
     ?>
-    
+
 </div>
 </body>
 </html>

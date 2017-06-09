@@ -21,11 +21,11 @@
 			//Début des vérifications de sécurité...
 			if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
 			{
-				 alert('Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...');
+				 echo"<script>alert('Vous devez uploader un fichier de type png, gif, jpg, jpeg, txt ou doc...')</script>";
 			}
 			if($taille>$taille_maxi)
 			{
-				 alert('Le fichier est trop gros...');
+				 echo"<script>alert('Le fichier est trop gros...')</script>";
 			}
 			$fichier = "icone_id=".$_GET['id'].$extension;
 			move_uploaded_file($_FILES["icone"]["tmp_name"],$dossier.$fichier);
@@ -33,7 +33,7 @@
 		}                     
         try{ 
             $insertion = $bdd->prepare("UPDATE groupe SET icone=:icone WHERE id=:id");
-			$insertion->execute(["icone"=>$icone,"id"=>$_SESSION['id']]); 
+			$insertion->execute(["icone"=>$icone,"id"=>$_GET['id']]); 
 			//header ('location: index.php');  
         }
         catch(PDOException $erreur) {

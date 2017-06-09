@@ -13,7 +13,19 @@
 	
 	
 ?>		
-			<?php
+	
+<script>
+	$(document).ready(function(){
+		$(".cache").click(function(){
+			$(this).find(".cache2").toggle(700);
+		});
+	});
+</script>
+
+
+
+
+		<?php
 			echo "<div class=\"col-sm-7 col-perso\">";
 				$don=$reponse3->fetchAll();
 				while($donnees=$reponse->fetch()){

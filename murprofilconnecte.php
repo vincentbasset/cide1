@@ -115,6 +115,7 @@
 						<a href=\"".htmlspecialchars($donnees2["cv"])."\" target=\"_blank\">CV de ".htmlspecialchars($donnees2["nom"])." ".htmlspecialchars($donnees2["prenom"])."</a><br/><br/>"
 						.htmlspecialchars($donnees2["description"])."<br/><br/>
 						Date de naissance: <br/>".htmlspecialchars($donnees2["datenaissance"])."
+						
 						</p>
 					</div>
 				</div>";

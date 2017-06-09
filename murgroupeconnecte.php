@@ -12,7 +12,17 @@
     $reponse6->execute(['idgroupe' =>$_GET['id'], 'idutil' => $_SESSION['id']]);
 	
 ?>
-			
+
+
+<script>
+	$(document).ready(function(){
+		$(".cache").click(function(){
+			$(this).find(".cache2").toggle(700);
+		});
+	});
+</script>
+
+		
 <?php
 	$_SESSION['url']=$newurl;
 	echo "<div class=\"col-sm-7 col-perso\">";

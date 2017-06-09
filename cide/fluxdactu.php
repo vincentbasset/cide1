@@ -13,7 +13,19 @@
 	
 	
 ?>		
-			<?php
+	
+<script>
+	$(document).ready(function(){
+		$(".cache").click(function(){
+			$(this).find(".cache2").toggle(700);
+		});
+	});
+</script>
+
+
+
+
+		<?php
 			echo "<div class=\"col-sm-7 col-perso\">";
 				$don=$reponse3->fetchAll();
 				while($donnees=$reponse->fetch()){
@@ -50,6 +62,14 @@
 							echo "<p>".nl2br(htmlspecialchars($donnees["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>";
 				
+				
+				
+				
+				echo "<div class=\"cache\">
+						<span>Voir commentaires</span>
+							<div class=\"cache2\" style=\"display:none\">";
+				
+				
 				foreach($don as $donnee){
 					if($donnees["postid"]==$donnee["idPost"]){
 						echo"<hr>
@@ -66,6 +86,11 @@
 					}
 				
 				}
+				
+				
+				
+				echo"Fin des commentaires</div>
+					</div>";	
 				
 				
 				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["postid"])."\">

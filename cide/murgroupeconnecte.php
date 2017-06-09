@@ -117,7 +117,7 @@
 				</form>";
 				while($donnees=$reponse6->fetch()){
 					if($donnees["droit"]!="membre"){
-                        echo "<a id=\"liengestion\"href='Gestiong.php?id=".$_GET['id']."'>Gérer le groupe</a><br><br>";
+                        echo "<a id=\"liengestion\"href='gestiong.php?id=".$_GET['id']."'>Gérer le groupe</a><br><br>";
 					}
                	}
 			}

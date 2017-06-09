@@ -9,6 +9,7 @@
 ?>
 		
 <?php
+	$_SESSION['url']=$newurl;
 	echo "<div class=\"col-sm-7 col-perso\">";
 		while($donnees=$reponse->fetch()){
 			echo "

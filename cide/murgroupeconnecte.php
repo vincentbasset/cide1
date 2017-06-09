@@ -14,6 +14,7 @@
 ?>
 			
 <?php
+	$_SESSION['url']=$newurl;
 	echo "<div class=\"col-sm-7 col-perso\">";
 	if (!$reponse4->rowcount()==0){
 		echo "

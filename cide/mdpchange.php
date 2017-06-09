@@ -8,11 +8,11 @@
 				$mdp = $_POST["mdp"];
 				$insertion = $bdd->prepare("UPDATE utilisateur SET motdepasse =\"".password_hash($mdp , PASSWORD_BCRYPT)."\" WHERE id=".$_SESSION['id']."");
 				$insertion->execute();
-				echo "<div class='centreprofil' ><p>Votre mot de passe a bien été changé</p></div>";
+				echo "<div class='col-sm-1 col-perso' id='deco' ><p>Votre mot de passe a bien été changé</p></div>";
 			}
 		}
 		else{
-			echo "<div class='centreprofil' ><p>Votre ancien mot de passe est erroné veuillez <a href=\"changermdp.php\" >recommencer</a></p></div>";
+			echo "<div class='col-sm-1 col-perso' id='deco' ><p>Votre ancien mot de passe est erroné veuillez <a href=\"changermdp.php\" >recommencer</a></p></div>";
 		}
 	}
 ?>

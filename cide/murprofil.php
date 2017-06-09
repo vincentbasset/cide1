@@ -4,9 +4,7 @@
 		if (isset($_SESSION['id'])) {
 			//ce qui se passe si on est co
 			include("murprofilconnecte.php");
-		}
-	}
-	else {
+		}else {
 	
 		echo '<div class="col-sm-1 col-perso" id="deco">
 				<p>
@@ -15,7 +13,9 @@
 				</br>
 				<a class="inscription" href="inscription.php">Pas encore inscrit ? Par ici !</a>
 				</p></div>';
+		}
 	}
+	
 	echo "</body>
 		  </html>";
 ?>

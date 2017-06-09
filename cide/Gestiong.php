@@ -11,7 +11,15 @@
     <br>
     <h3>Membres :</h3>
     <br>
-    <?php
+	
+	<?php 
+		echo '<form method="post" action="traitementicone.php?id='.$_GET['id'].'" enctype="multipart/form-data"> 
+
+		<label for="icone">Changer l\'icone du groupe: </label>
+		<input type="file" name="icone" accept="image/gif, image/jpeg, image/png" />
+		<input type="submit" name="envoyer" value="Changer l\'icone"/>
+	</form>';
+    
         while($donnees=$reponse->fetch()){
             $membre='';
             $admin='';

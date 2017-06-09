@@ -14,13 +14,13 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-		<li><a href="https://cas.uha.fr/cas/login?service=http://www.e-services.uha.fr" target="_blank">ENSISA</a></li>
+		<li><a href="https://cas.uha.fr/cas/login?service=http://www.e-services.uha.fr" target="_blank">e-service</a></li>
 		<li><a href="index.php">Accueil</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Groupe <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="groupe.php">Mes Groupes</a></li>
-            <li><a href="creagroupe.php">Créer Groupe</a></li>
+            <li><a href="creagroupe.php">Creer Groupe</a></li>
           </ul>
         </li>
         <li><?php
@@ -34,6 +34,7 @@
 				}
 			?>
 		</li>
+		<li><a href="offre.php">Offre</a></li>
       </ul>
     </div>
   </div>

@@ -1,10 +1,8 @@
 <?php
     if (isset($_SESSION['id'])) {
-        //ce qui se passe si on est co
 		include("murgroupeconnecte.php");
 	}
 	else {
-		//ce qui ce passe si on est pas co, avec un exemple de formulaire liant à un fichier qui fera le login
 		echo '<div class="col-sm-1 col-perso" id="deco">
 				<p>
 				Connecte toi ou rejoins nous !

@@ -55,6 +55,8 @@ div{
 	vertical-align:top;
 }
 
+
+
 header p{
 	display:inline-block;
 	position:relative;
@@ -183,10 +185,6 @@ nav a:hover,nav a:focus{
 	font-size:19px;
 }
 
-
-
-
-
 .droit{
 	width:24%;
 	padding-right:1%;
@@ -222,6 +220,10 @@ nav a:hover,nav a:focus{
 	background: linear-gradient(140deg, rgba(255,255,255,1) 0%,rgba(200,200,255,1) 50%);
 }
 
+img{
+    max-width: 720px;
+    max-height:660px;
+}
 
 
 

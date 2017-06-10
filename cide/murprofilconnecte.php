@@ -5,7 +5,8 @@
     $reponse2 -> execute(['idprofil'=>$_GET['id']]);
 	$reponse3 = $bdd -> prepare("SELECT *,post.id as postid FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE idUtilmur=:idprofil order by datepost desc");
     $reponse3 -> execute(['idprofil'=>$_GET['id']]);
-	$reponse4 = $bdd -> query("SELECT * FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE idPost!=0 order by datepost");
+	$reponse4 = $bdd -> prepare("SELECT *,post.id as postid FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE idPost!=0 order by datepost");
+	$reponse4 -> execute();
 ?>
 
 <script>
@@ -45,6 +46,10 @@
 			
 		$don=$reponse4->fetchAll();
 		while($donnees=$reponse3->fetch()){
+			$like = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='like' and post.id=:postid");
+					$like->execute(['postid' =>$donnees['postid']]);
+					$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
+					$dislike->execute(['postid' =>$donnees['postid']]);
 			echo "
 				<div class=\"media\">
 					<div class=\"media-left\">
@@ -64,7 +69,15 @@
 						}
 						echo "<p>".nl2br(htmlspecialchars($donnees["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>";
-	
+						$_SESSION['url']=$newurl;
+							echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnees["postid"].'">
+									'.$like->rowcount().'
+								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
+								 </form>
+								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnees["postid"].'">
+									'.$dislike->rowcount().'
+								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
+								</form>';
 	
 	
 
@@ -76,6 +89,11 @@
 	
 				foreach($don as $donnee){
 					if($donnees["postid"]==$donnee["idPost"]){
+						$like = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='like' and post.id=:postid");
+					$like->execute(['postid' =>$donnee['postid']]);
+					$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
+					$dislike->execute(['postid' =>$donnee['postid']]);
+					
 						echo"<hr>
 						<div class=\"media\">
 							<div class=\"media-left\">
@@ -87,6 +105,14 @@
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnee["datepost"])), "j/m/y \à G\hi")."</div>
 							</div>
 						</div>";
+						echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnee["postid"].'">
+									'.$like->rowcount().'
+								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
+								 </form>
+								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnee["postid"].'">
+									'.$dislike->rowcount().'
+								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
+								</form>';
 					}
 				
 				}

@@ -1,13 +1,13 @@
 <?php
 	$reponse = $bdd -> prepare("SELECT *,post.id as postid FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE post.idGroupe = :idgroupe order by datepost desc");
     $reponse->execute(['idgroupe' =>$_GET['id']]);
-	$reponse2 = $bdd -> prepare("SELECT * FROM post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id WHERE post.idUtil=utilisateur.id AND groupe.nom in(SELECT groupe.nom FROM appartient inner join groupe on appartient.idGroupe=groupe.id WHERE groupe.id=:idgroupe) ORDER BY datepost DESC ");
+	$reponse2 = $bdd -> prepare("SELECT *,post.id as postid FROM post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id WHERE post.idUtil=utilisateur.id AND groupe.nom in(SELECT groupe.nom FROM appartient inner join groupe on appartient.idGroupe=groupe.id WHERE groupe.id=:idgroupe) ORDER BY datepost DESC ");
     $reponse2->execute(['idgroupe' =>$_GET['id']]);
 	$reponse3 = $bdd -> prepare("SELECT * FROM groupe WHERE groupe.id=:idgroupe");
     $reponse3->execute(['idgroupe' =>$_GET['id']]);
 	$reponse4 = $bdd -> prepare("SELECT * FROM appartient WHERE idGroupe=:idgroupe AND idUtil=:idutil ");
     $reponse4->execute(['idgroupe' =>$_GET['id'], 'idutil' => $_SESSION['id']]);
-	$reponse5 = $bdd -> query("SELECT * FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE idPost!=0 order by datepost");
+	$reponse5 = $bdd -> query("SELECT *,post.id as postid FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE idPost!=0 order by datepost");
 	$reponse6 = $bdd -> prepare("SELECT * FROM appartient WHERE idGroupe=:idgroupe AND idUtil=:idutil ");
     $reponse6->execute(['idgroupe' =>$_GET['id'], 'idutil' => $_SESSION['id']]);
 	
@@ -60,6 +60,10 @@
 		$don=$reponse5->fetchAll();
 		while($donnees=$reponse->fetch()){
 			if (!$reponse4->rowcount()==0 || $donnees["visibilite"]==1){
+				$like = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='like' and post.id=:postid");
+				$like->execute(['postid' =>$donnees['postid']]);
+				$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
+				$dislike->execute(['postid' =>$donnees['postid']]);
 				echo "
 				<div class=\"media\">
 					<div class=\"media-left\">
@@ -79,7 +83,14 @@
 						}
 						echo "<p>".nl2br(htmlspecialchars($donnees["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>";
-
+						echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnees["postid"].'">
+									'.$like->rowcount().'
+								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
+								 </form>
+								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnees["postid"].'">
+									'.$dislike->rowcount().'
+								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
+								</form>';
 								
 								
 				echo "<div class=\"cache\">
@@ -90,6 +101,10 @@
 				
 				foreach($don as $donnee){
 					if($donnees["postid"]==$donnee["idPost"]){
+						$like = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='like' and post.id=:postid");
+						$like->execute(['postid' =>$donnee['postid']]);
+						$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
+						$dislike->execute(['postid' =>$donnee['postid']]);
 						echo"<hr>
 						<div class=\"media\">
 							<div class=\"media-left\">
@@ -101,6 +116,14 @@
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnee["datepost"])), "j/m/y \à G\hi")."</div>
 							</div>
 						</div>";
+						echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnee["postid"].'">
+									'.$like->rowcount().'
+								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
+								 </form>
+								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnee["postid"].'">
+									'.$dislike->rowcount().'
+								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
+								</form>';
 					}
 				
 				}
@@ -144,6 +167,10 @@
 			}
 			while($donnees=$reponse2->fetch()){
 				if((!$reponse4->rowcount()==0 || $donnees["visibilite"]==1) && $donnees["importance"]){
+					$like = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='like' and post.id=:postid");
+					$like->execute(['postid' =>$donnees['postid']]);
+					$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
+					$dislike->execute(['postid' =>$donnees['postid']]);
 					echo "
 						<div class=\"media\">
 							<div class=\"media-left\">
@@ -154,7 +181,15 @@
 								<p>".htmlspecialchars($donnees["message"])."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>		
 							</div>
-						</div>";
+						";
+						echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnees["postid"].'">
+									'.$like->rowcount().'
+								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
+								 </form>
+								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnees["postid"].'">
+									'.$dislike->rowcount().'
+								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
+								</form></div>';
 				}
 			}
 	echo "</div>";

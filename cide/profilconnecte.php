@@ -76,7 +76,7 @@
 				</p>
 				</br>
 				<form method="post" action="traitementcv.php" enctype="multipart/form-data">
-					<span id="bleu"><label for="cv">Ajouter une photo de CV:</label></span>
+					<span><label for="cv">Ajouter une photo de CV:</label></span>
 					</br>
 					<input type="file" name="cv" accept="application/pdf">
 					</br>
@@ -91,6 +91,3 @@
 				<form>
 			</p>
 		</div>
-
-	</body>
-</html>

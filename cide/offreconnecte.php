@@ -47,6 +47,7 @@
 						
 						<textarea name="description" rows="12" cols="75" placeholder="Description"></textarea>
 						</br>
+						</br>
 						<select name="filiere" required>
 							<option value="">Filière principalement concernée</option>
 							<option value="stage">Toutes</option>

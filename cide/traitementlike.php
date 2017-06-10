@@ -7,4 +7,8 @@
 		echo "<script>alert('Vous avez déjà voté pour ce post')</script>";
 	}
 	echo '<meta http-equiv="refresh" content="0;URL='.$_SESSION['url'].'">';
+
+	echo "</div>
+		</body>
+		</html>";
 ?>

@@ -6834,6 +6834,7 @@ textarea,input[type="varchar"]{
 	border:0.5 solid rgb(200, 220, 250);
 	border-radius:10px;
 }
+
 input[type="varchar"]{
 	width:50%;
 	padding-left:3px;
@@ -6934,11 +6935,19 @@ input[type="submit"]:hover, #liengestion:hover{
 	padding: 0 3px;
 }
 
+.modal-body label{
+	font-weight:normal;
+}
 
+.modal-body select{
+	border:0.5 solid rgb(200, 220, 250);
+	border-radius:10px;
+}
 
-
-
-
+#myform{
+	display:inline;
+	float:right;
+}
 
 
 

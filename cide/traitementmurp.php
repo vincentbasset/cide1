@@ -12,5 +12,6 @@
 	}
 	echo '<meta http-equiv="refresh" content="0;URL=murprofil.php?id='.htmlspecialchars($_GET["id"]).'">';
 ?>
+	</div>
 	</body>
 </html>

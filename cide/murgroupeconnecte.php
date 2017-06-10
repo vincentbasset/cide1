@@ -90,7 +90,8 @@
 								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnees["postid"].'">
 									'.$dislike->rowcount().'
 								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
-								</form>';
+								</form>
+								<br>';
 								
 								
 				echo "<div class=\"cache\">
@@ -123,7 +124,8 @@
 								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnee["postid"].'">
 									'.$dislike->rowcount().'
 								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
-								</form>';
+								</form>
+								<br>';
 					}
 				
 				}

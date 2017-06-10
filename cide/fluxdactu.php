@@ -17,7 +17,7 @@
 <script>
 	$(document).ready(function(){
 		$(".cache").click(function(){
-			$(this).find(".cache2").toggle(700);
+			$(this).find(".cache2").toggle(500);
 		});
 	});
 </script>
@@ -67,14 +67,16 @@
 							echo "<p>".nl2br(htmlspecialchars($donnees["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>";
 							$_SESSION['url']=$newurl;
-							echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnees["postid"].'">
+							echo'
+								<form id="myform" method="post" action="traitementlike.php?id='.$donnees["postid"].'">
 									'.$like->rowcount().'
 								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
 								 </form>
 								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnees["postid"].'">
 									'.$dislike->rowcount().'
 								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
-								</form>';
+								</form>
+								<br>';
 				
 				
 				echo "<div class=\"cache\">
@@ -96,22 +98,23 @@
 							</div>
 						</div>";
 						$like = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='like' and post.id=:postid");
-					$like->execute(['postid' =>$donnee['postid']]);
-					$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
-					$dislike->execute(['postid' =>$donnee['postid']]);
+						$like->execute(['postid' =>$donnee['postid']]);
+						$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
+						$dislike->execute(['postid' =>$donnee['postid']]);
 						echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnee["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
+								 <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
 								 </form>
 								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnee["postid"].'">
 									'.$dislike->rowcount().'
 								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
-								</form>';
+								</form>
+								<br>';
 					}
 				
 				}
 				
-				
+
 				
 				echo"Fin des commentaires</div>
 					</div>";	

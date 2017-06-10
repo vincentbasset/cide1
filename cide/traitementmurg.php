@@ -22,5 +22,7 @@
 	}
 	echo '<meta http-equiv="refresh" content="0;URL=groupe.php?id='.htmlspecialchars($_GET["id"]).'">';
 ?>
-	</body>
+
+</div>
+</body>
 </html>

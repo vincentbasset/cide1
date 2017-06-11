@@ -150,6 +150,7 @@
 					
 	<div class="col-sm-3 col-perso">
 		<div class="media filtre">
+		<a id="liengestion" href="mesoffres.php">Gérer mes offres</a><br><br>
 		<h3>Filtrer les offres</h3>
 			</br>
 			<form method="post" action="traitementfiltre.php">

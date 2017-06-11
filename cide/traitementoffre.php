@@ -4,6 +4,7 @@
 
 <?php
 $mobilite=0;
+$mobilite=1;
 	if(isset($_POST["envoyer"])){
 		if(!empty($_POST["nom"])){
 			$nom = $_POST["nom"];
@@ -11,6 +12,9 @@ $mobilite=0;
 				$metier= $_POST["metier"];
 				if(!empty($_POST["lieu"])){
 					$lieu= $_POST["lieu"];
+					if(!empty($_POST["etranger"])){
+						$etranger=1;
+					}	
 					if(!empty($_POST["nature"])){
 						$nature = $_POST["nature"];
 						if(!empty($_POST["duree"])){
@@ -23,8 +27,8 @@ $mobilite=0;
 								if(!empty($_POST["filiere"])){
 									$filiere = $_POST["filiere"];
 										
-									$insertion = $bdd->prepare("INSERT INTO offre VALUES(NULL,:iduser,:nom,:metier,:lieu,:nature,:duree,:mobilite,:description,:filiere,0)");
-									$insertion->execute(['iduser' => $_SESSION['id'] , 'nom' => $nom , 'metier' => $metier , 'lieu' => $lieu, 'nature' => $nature, 'duree'=> $duree, 'mobilite'=> $mobilite, 'description'=> $description, 'filiere'=> $filiere ]);
+									$insertion = $bdd->prepare("INSERT INTO offre VALUES(NULL,:iduser,:nom,:metier,:lieu,:etranger,:nature,:duree,:mobilite,:description,:filiere,0)");
+									$insertion->execute(['iduser' => $_SESSION['id'] , 'nom' => $nom , 'metier' => $metier , 'lieu' => $lieu, 'etranger' => $etranger, 'nature' => $nature, 'duree'=> $duree, 'mobilite'=> $mobilite, 'description'=> $description, 'filiere'=> $filiere ]);
 								
 								}
                                 else{

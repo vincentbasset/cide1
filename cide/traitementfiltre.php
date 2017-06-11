@@ -17,8 +17,11 @@
 		if(!empty($_POST["cdi"])){
 			$update=$bdd->query("UPDATE offre SET visible = 1 WHERE nature=\"cdi\"");
 		}
-		if(!empty($_POST["alternace"])){
+		if(!empty($_POST["alternance"])){
 			$update=$bdd->query("UPDATE offre SET visible = 1 WHERE nature=\"alternance\"");
+		}
+		if(!empty($_POST["etranger"])){
+			$update=$bdd->query("UPDATE offre SET visible = 1 WHERE etranger=1");
 		}
 		if(!empty($_POST["info"])){
 			$update=$bdd->query("UPDATE offre SET visible = 1 WHERE filiere=\"informatique\" OR filiere=\"toutes\"");

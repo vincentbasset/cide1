@@ -45,6 +45,10 @@
 						<input type="varchar" name="lieu" placeholder="Lieu" required>
 						</br>
 						</br>
+						<input type="checkbox" name="etranger" />
+						<label for="mobilite">offre à l'étranger</label>
+						</br>
+						</br>
 						<select name="nature" required>
 							<option value="">Nature de l'offre</option>
 							<option value="stage">Stage</option>
@@ -114,6 +118,13 @@
 					</br>
 					<span>Lieu: </span>".htmlspecialchars($donnees["lieu"])."
 					</br>";
+					if(htmlspecialchars($donnees["etranger"])==1){
+						echo"offre à l'étranger";
+					}
+					else{
+						echo"France";
+					}
+					echo"</br>";
 					if(htmlspecialchars($donnees["mobilite"])==1){
 						echo"Transport personnel fortement conseillé";
 					}
@@ -127,7 +138,7 @@
 					<div class=\"offreplus\" style=\"display:none\">	
 						<span>Description: </span></br>".htmlspecialchars($donnees["description"])."
 						</br>
-						<i><a href=\"murprofil.php?id=".htmlspecialchars($donnees["utilid"])."\">".htmlspecialchars($donnees["prenom"])." ".htmlspecialchars($donnees["utilnom"])."</a><i>
+						<i>Posté par <a href=\"murprofil.php?id=".htmlspecialchars($donnees["utilid"])."\">".htmlspecialchars($donnees["prenom"])." ".htmlspecialchars($donnees["utilnom"])."</a></i>
 					</div>
 				</div>
 			</div>
@@ -154,9 +165,12 @@
 				<input type="checkbox" name="cdi" />
 				<label for="cdi">CDI</label>
 				</br>
-				<input type="checkbox" name="alternace" />
-				<label for="alternace">Alternance</label>
+				<input type="checkbox" name="alternance" />
+				<label for="alternance">Alternance</label>
 				</br>
+				</br>
+				<input type="checkbox" name="etranger" />
+				<label for="etranger">offre à l'étranger</label>
 				</br>
 				</br>
 				<input type="checkbox" name="info" />
@@ -176,7 +190,6 @@
 				</br>
 				<input type="checkbox" name="prepas" />
 				<label for="prepas">Prépas</label>
-				</br>
 				</br>
 				</br>
 				<input type="checkbox" name="court" />

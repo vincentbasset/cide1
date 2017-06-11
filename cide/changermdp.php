@@ -8,17 +8,18 @@
 				Changer de mot de passe
 				<form name="inscription" method="post" action="mdpchange.php">
 					<input type="password" name="ancienmdp" placeholder="Ancien mot de passe" required>
-					</br>
-					</br>
+					<br>
+					<br>
 					<input type="password" name="mdp" placeholder="Nouveau mot de passe" required>
-					</br>
-					</br>
+					<br>
+					<br>
 					<input type="password" name="mdp verification" placeholder="Vérifiez votre mot de passe" required>
-					</br>
-					</br>
+					<br>
+					<br>
 					<input id="motdp" type="submit" value="Changer de mot de passe" name="envoyer" onmouseover="javascript:check();" />
 				</form>
 			</p>
 		</div>
+	</div>	
 	</body>
 </html>

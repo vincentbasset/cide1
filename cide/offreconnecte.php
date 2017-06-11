@@ -1,6 +1,13 @@
 <?php
-	$reponse = $bdd -> prepare("SELECT offre.*,utilisateur.nom as utilnom,utilisateur.prenom FROM utilisateur,offre WHERE offre.idUtil=utilisateur.id AND idUtil=:idutil ");
-    $reponse->execute([ 'idutil' => $_SESSION['id']]);
+	if($_GET['variable']==0){
+		$rep = $bdd -> query("UPDATE offre SET visible = 1");
+		$reponse = $bdd -> query("SELECT offre.*,utilisateur.nom as utilnom,utilisateur.prenom,utilisateur.id as utilid FROM utilisateur,offre WHERE offre.idUtil=utilisateur.id ORDER BY offre.id");
+	}
+	else{
+		$reponse = $bdd -> query("SELECT offre.*,utilisateur.nom as utilnom,utilisateur.prenom,utilisateur.id as utilid FROM utilisateur,offre WHERE offre.idUtil=utilisateur.id AND visible=1 ORDER BY offre.id");
+	}
+	
+
 ?>
 <script>
 	$(document).ready(function(){
@@ -119,7 +126,8 @@
 					<span>Voir plus...</span>
 					<div class=\"offreplus\" style=\"display:none\">	
 						<span>Description: </span></br>".htmlspecialchars($donnees["description"])."
-						</br></br>
+						</br>
+						<i><a href=\"murprofil.php?id=".htmlspecialchars($donnees["utilid"])."\">".htmlspecialchars($donnees["prenom"])." ".htmlspecialchars($donnees["utilnom"])."</a><i>
 					</div>
 				</div>
 			</div>
@@ -130,8 +138,66 @@
 	</div>				
 					
 	<div class="col-sm-3 col-perso">
-		<div class="media">
+		<div class="media filtre">
 		<h3>Filtrer les offres</h3>
+			</br>
+			<form method="post" action="traitementfiltre.php">
+				<input type="checkbox" name="stage" />
+				<label for="stage">Stage</label>
+				</br>
+				<input type="checkbox" name="job" />
+				<label for="job">Job</label>
+				</br>
+				<input type="checkbox" name="cdd" />
+				<label for="cdd">CDD</label>
+				</br>
+				<input type="checkbox" name="cdi" />
+				<label for="cdi">CDI</label>
+				</br>
+				<input type="checkbox" name="alternace" />
+				<label for="alternace">Alternance</label>
+				</br>
+				</br>
+				</br>
+				<input type="checkbox" name="info" />
+				<label for="info">Informatique</label>
+				</br>
+				<input type="checkbox" name="auto" />
+				<label for="auto">Automatique</label>
+				</br>
+				<input type="checkbox" name="meca" />
+				<label for="meca">Mecanique</label>
+				</br>
+				<input type="checkbox" name="textile" />
+				<label for="textile">Textile</label>
+				</br>
+				<input type="checkbox" name="master" />
+				<label for="master">Master</label>
+				</br>
+				<input type="checkbox" name="prepas" />
+				<label for="prepas">Prépas</label>
+				</br>
+				</br>
+				</br>
+				<input type="checkbox" name="court" />
+				<label for="court">1 mois ou moins</label>
+				</br>
+				<input type="checkbox" name="moyen" />
+				<label for="moyen">1-2 mois</label>
+				</br>
+				<input type="checkbox" name="long" />
+				<label for="long">plus de 2 mois</label>
+				</br>
+				</br>
+				<input type="checkbox" name="mobilite" />
+				<label for="mobilite">transport en commun</label>
+				</br>
+				</br>
+				<input type="submit" name="envoyer" value="filtrer"/>
+				</br>
+				<input type="submit" name="annuler" value="retirer le filtre"/>
+				
+			</form>
 		</div>
 	</div>
 

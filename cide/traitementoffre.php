@@ -23,7 +23,7 @@ $mobilite=0;
 								if(!empty($_POST["filiere"])){
 									$filiere = $_POST["filiere"];
 										
-									$insertion = $bdd->prepare("INSERT INTO offre VALUES(NULL,:iduser,:nom,:metier,:lieu,:nature,:duree,:mobilite,:description,:filiere)");
+									$insertion = $bdd->prepare("INSERT INTO offre VALUES(NULL,:iduser,:nom,:metier,:lieu,:nature,:duree,:mobilite,:description,:filiere,0)");
 									$insertion->execute(['iduser' => $_SESSION['id'] , 'nom' => $nom , 'metier' => $metier , 'lieu' => $lieu, 'nature' => $nature, 'duree'=> $duree, 'mobilite'=> $mobilite, 'description'=> $description, 'filiere'=> $filiere ]);
 								
 								}
@@ -58,7 +58,7 @@ $mobilite=0;
 	else{
         echo '<body onLoad="alert(\'envoyer\')">';
 	}
-		echo '<meta http-equiv="refresh" content="0;URL=offre.php';
+echo '<meta http-equiv="refresh" content="0;URL=offre.php?variable=0">';
 ?>
 </div>
 </body>

@@ -34,7 +34,7 @@
 				}
 			?>
 		</li>
-		<li><a href="offre.php">Offre</a></li>
+		<li><a href="offre.php?variable=0">Offre</a></li>
       </ul>
     </div>
   </div>

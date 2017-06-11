@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 11 Juin 2017 à 18:27
+-- Généré le :  Lun 12 Juin 2017 à 00:33
 -- Version du serveur :  10.1.21-MariaDB
 -- Version de PHP :  5.6.30
 
@@ -32,6 +32,7 @@ CREATE TABLE `offre` (
   `nom` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `metier` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `lieu` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `etranger` int(11) NOT NULL,
   `nature` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `duree` int(11) NOT NULL,
   `mobilite` tinyint(1) NOT NULL,
@@ -44,12 +45,8 @@ CREATE TABLE `offre` (
 -- Contenu de la table `offre`
 --
 
-INSERT INTO `offre` (`id`, `idUtil`, `nom`, `metier`, `lieu`, `nature`, `duree`, `mobilite`, `description`, `filiere`, `visible`) VALUES
-(4, 116, 'ENSISA', 'Développeur informatique', 'Mulhouse', 'stage', 4, 1, 'on recherche qq\'un qui gère html, javascript,css,php,sql pour faire un réseau social interne à l\'ENSISA. ', 'toutes', 1),
-(5, 116, 'st remi', 'prof', 'Roubaix', 'alternance', 6, 1, 'ON RECHERCHE UN VRAI PROF DE PHYSIQUE', 'prepas', 1),
-(7, 116, 'rvr', 'vrv', 'rvrv', 'job', 0, 1, 'rvrvvrv', 'informatique', 1),
-(8, 116, 'ENSISA', 'test', 'test', 'job', 0, 1, 'crtv', 'textile', 1),
-(9, 116, 'zrg', 'grgrgrg', 'grgrg', 'cdi', 5, 0, 'sgrgezzegrg', 'mécanique', 1);
+INSERT INTO `offre` (`id`, `idUtil`, `nom`, `metier`, `lieu`, `etranger`, `nature`, `duree`, `mobilite`, `description`, `filiere`, `visible`) VALUES
+(9, 114, 'zrg', 'grgrgrg', 'grgrg', 1, 'cdi', 5, 0, 'sgrgezzegrg', 'mécanique', 1);
 
 --
 -- Index pour les tables exportées

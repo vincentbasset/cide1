@@ -6827,7 +6827,7 @@ body{
 	font-size:15px;
 }
 
-textarea,input[type="varchar"]{
+textarea,input[type="varchar"],input[type="text"]{
 	resize: none;
 	overflow: auto;
 	width:99%;
@@ -6846,16 +6846,29 @@ input[type="int"]{
 	border-radius:10px;
 }
 
-textarea:hover,input[type="varchar"]:hover,input[type="int"]:hover {
+textarea:hover,input[type="varchar"]:hover,input[type="int"]:hover,input[type="text"]:hover {
 	border:0.5 solid rgb(0, 50, 100);
 }
 
 input[type="password"]{
 	width:auto;
-	border:0.3 solid rgb(0, 50, 100);
+	border:0.5 solid rgb(200, 220, 250);
 	border-radius:10px;
 	padding: 0 3px;
 }
+
+.col-sm-2 .media div form input[type="varchar"]{
+	width:100%;
+	border:0.5 solid rgb(200, 220, 250);
+	border-radius:10px;
+
+}
+
+.col-sm-2 .media div form input[type="varchar"]:hover,input[type="password"]:hover{
+	border:0.5 solid rgb(0, 50, 100);
+}
+
+
 
 #textgroupe{
 	margin-left:4px;
@@ -6919,7 +6932,6 @@ input[type="submit"]:hover, #liengestion:hover{
 }
 
 #listeder{
-	color:red;
 	margin-left:30%;
 }
 
@@ -7028,8 +7040,6 @@ input[type="submit"]:hover, #liengestion:hover{
 	text-align:left;
 	padding-left:25%;
 }
-
-
 
 
 

@@ -6942,6 +6942,7 @@ input[type="submit"]:hover, #liengestion:hover{
 .modal-body select{
 	border:0.5 solid rgb(200, 220, 250);
 	border-radius:10px;
+	padding:0 10px;
 }
 
 #myform{
@@ -6949,15 +6950,73 @@ input[type="submit"]:hover, #liengestion:hover{
 	float:right;
 }
 
+.modal-header .modal-footer{
+	background-color:rgb(200, 220, 250);
+	color:red;
+}
 
 
 
 
 
 
+.slideanim {
+	visibility:hidden;
+}
+
+.slide {
+    animation-name: slide;
+    animation-duration: 1.3s;
+    visibility: visible; 
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(20%);
+    } 
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    } 
+}
+
+.media:nth-child(1), .media:nth-child(2), .media:nth-child(3){
+    visibility:visible;
+	opacity: 1;
+	animation-duration:0s;
+}
 
 
+.offre {
+	border:4 solid rgb(0, 50, 100);
+	border-radius:10px;
+}
 
+.offreleft{
+	position:left;
+	margin-right:0;
+	display:inline-block;
+	width:45%;
+	vertical-align:top;
+}
+
+.offreright{
+	position:right;
+	margin-left:0;
+	display:inline-block;
+	width:45%;
+	vertical-align:top;
+	
+}
+
+.offreplus{
+	padding:5px 10px 3px 10px;
+}
+
+.offre span{
+	font-weight:bold;
+}
 
 
 

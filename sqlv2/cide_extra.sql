@@ -13,13 +13,15 @@ ALTER TABLE `appartient`
 -- Index pour la table `chatdans`
 --
 ALTER TABLE `chatdans`
-  ADD PRIMARY KEY (`idutil`,`idroom`);
+  ADD PRIMARY KEY (`idutil`,`idroom`),
+  ADD KEY `idroom` (`idroom`);
 
 --
 -- Index pour la table `chatmsg`
 --
 ALTER TABLE `chatmsg`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idroom` (`idroom`);
 
 --
 -- Index pour la table `chatroom`
@@ -54,7 +56,12 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `chatmsg`
 --
 ALTER TABLE `chatmsg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT pour la table `chatroom`
+--
+ALTER TABLE `chatroom`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT pour la table `groupe`
 --
@@ -70,3 +77,18 @@ ALTER TABLE `post`
 --
 ALTER TABLE `utilisateur`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `chatdans`
+--
+ALTER TABLE `chatdans`
+  ADD CONSTRAINT `room` FOREIGN KEY (`idroom`) REFERENCES `chatroom` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `chatmsg`
+--
+ALTER TABLE `chatmsg`
+  ADD CONSTRAINT `room_msg` FOREIGN KEY (`idroom`) REFERENCES `chatroom` (`id`) ON DELETE CASCADE;

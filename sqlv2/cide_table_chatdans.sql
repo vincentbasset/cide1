@@ -8,15 +8,18 @@
 CREATE TABLE `chatdans` (
   `idutil` int(11) NOT NULL,
   `idroom` int(11) NOT NULL,
-  `couleur` varchar(6) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'black'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `couleur` varchar(6) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `chatdans`
+-- Déclencheurs `chatdans`
 --
-
-INSERT INTO `chatdans` (`idutil`, `idroom`, `couleur`) VALUES
-(116, 1, 'red'),
-(117, 1, 'black'),
-(116, 2, 'black'),
-(115, 2, 'teal');
+DELIMITER $$
+CREATE TRIGGER `after_chatdans_delete` AFTER DELETE ON `chatdans` FOR EACH ROW BEGIN 
+ IF ((SELECT COUNT(idroom) FROM chatdans WHERE idroom=old.idroom)<1) 
+ THEN 
+ DELETE FROM chatroom WHERE chatroom.id = old.idroom;
+ END IF;
+ END
+$$
+DELIMITER ;

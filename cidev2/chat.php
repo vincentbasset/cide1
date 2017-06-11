@@ -4,9 +4,9 @@
 ?>
 
 <div class="chat live-chat" id="live-chat<?php echo $room ?>">
-<header class="clearfix">
+<header class="clearfix" id="header<?php echo $room ?>">
     <a href="#" class="chat-close" id="exit<?php echo $room ?>">x</a>
-    <h4><?php echo 'chat room n¤'.$room; ?></h4>
+    <a href="#" onclick="ouverturechat(<?php echo $room ?>)"><h4><?php echo 'chat room n°'.$room; ?></h4></a>
     <span class="chat-message-counter">3</span>
 </header>
     
@@ -35,12 +35,18 @@
 	$(document).ready(function() { //attend le chargement de la page pour executer le script
         setInterval (loadLog, 2500);	//Reload file every 2500 ms
 		//If user wants to end session
-        $("#exit").click(function(){
+        $("#exit<?php echo $room; ?>").click(function(){
             var exit = confirm("Are you sure you want to end the session?");
-            if(exit==true){window.location = 'index.php?logout=true';}		
+            if(exit==true){
+                $.ajax({
+                    url:"fermeturechat.php?room=<?php echo $room ?>",
+                    type:"post",
+                    success: $('#<?php echo $room ?>').remove()
+                })    
+            ;}		
         });
         //If user submits the form
-        $("#form<?php echo $room ?>").submit(function(event){
+        $("#form<?php echo $room; ?>").submit(function(event){
         event.preventDefault();
         var $this = $(this); // L'objet jQuery du formulaire
             // Envoi de la requête HTTP en mode asynchrone
@@ -59,7 +65,7 @@
                 url: "chargementchat.php?room=<?php echo $room; ?>&couleur=<?php echo $couleur ?>",
                 cache: false,
                 success: function(html){		
-                    $("#chatbox<?php echo $room; ?>").append(html); //Insert chat log into the #chatbox div	
+                    $("#chatbox<?php echo $room; ?>").appendChild(html); //Insert chat log into the #chatbox div	
 
                     //Auto-scroll			
                     /*var newscrollHeight = $("#chatbox<?php echo $room; ?>").attr("scrollHeight") - 40; //Scroll height after the request
@@ -70,6 +76,22 @@
             });
 	   }
 	}); 
+</script>
+<script>
+    function ouverturechat(idroom){
+        var idwrapper = 'wrapper'+  idroom;
+        var idheader = 'header' + idroom;
+        var chatw = document.getElementById(idwrapper);
+        var chath = document.getElementById(idheader);
+        if (chatw.style.visibility === 'hidden'){
+            chatw.style.visibility = 'visible';
+            chath.style.position = 'initial';
+        } else {
+            chatw.style.visibility = 'hidden';
+            chath.style.position = 'absolute';
+            chath.style.bottom = '0';
+        }
+    }
 </script>
 </div>
 

@@ -17,4 +17,3 @@ session_start();
        
     }
 ?>
- <p>INSERT INTO chatmsg VALUES(NULL,<?php echo $_SESSION['id'] ?>,<?php echo $_GET['room'] ?>,<?php echo $_POST['usermsg'] ?>,CURRENT_TIMESTAMP)</p>

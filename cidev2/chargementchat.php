@@ -8,7 +8,7 @@ session_start();
 	}
 	$bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     
-    $reponse = $bdd -> prepare('SELECT * FROM chatmsg inner join utilisateur on chatmsg.idutil=utilisateur.id WHERE idroom = :idr and chattime > CURRENT_TIMESTAMP - 3');
+    $reponse = $bdd -> prepare('SELECT * FROM chatmsg inner join utilisateur on chatmsg.idutil=utilisateur.id WHERE idroom = :idr and chattime BETWEEN timestamp(DATE_SUB(NOW(), INTERVAL 3 SECOND)) AND timestamp(NOW())');
     $reponse -> execute(['idr' => $_GET['room']]);
     while($donnees = $reponse -> fetch()){
                 $name=$donnees['prenom'].' '.$donnees['nom'];

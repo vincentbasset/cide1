@@ -15,7 +15,7 @@
 				<a class="inscription" href="inscription.php">Pas encore inscrit ? Par ici !</a>
 				</p></div>';
 	}
-    
+    echo '</div>';
     include("footer.php");
     
 	echo "</body>

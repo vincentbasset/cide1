@@ -23,7 +23,11 @@ session_start();
 		}
 		$rechercheutil = $bdd -> query("SELECT * FROM utilisateur where nom like '%".$mot1."%' and prenom like '%".$mot2."%' or nom like '%".$mot2."%' and prenom like '%".$mot1."%'");
 		while($donnees = $rechercheutil->fetch()){
-		echo "<br/>".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."<br/><hr><br/>";
+		echo "<br/><div class='col-sm-8'>".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</div>
+        
+        <button onclick='ouverturenewchat(".$donnees["id"].")'>open room</button>
+        
+        <br/><hr><br/>";
 		}
 		echo "</p>";
 ?>

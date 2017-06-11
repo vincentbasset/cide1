@@ -1,10 +1,10 @@
 <div class="chat live-chat" id="live-chatnew">
-<header class="clearfix">
-    <h4>new chat room</h4>
+<header class="clearfix" id="headernew">
+    <a href="#" onclick="ouverturenewroom()"><h4>new room</h4></a>
     <span class="chat-message-counter">3</span>
 </header>
     
-<div class="wrapper" id="wrapper<?php echo $room ?>">
+<div class="wrapper" id="wrappernew">
     <div class="chatbox" id="chatboxnew" style="overflow:auto;">
     </div>
     <form method="post" action="chargementrecherchechat.php" id="formchat">
@@ -30,6 +30,31 @@
                 });
             });
         });
+    </script>
+    <script>
+        function ouverturenewroom(){
+            var idwrapper = 'wrappernew';
+            var idheader = 'headernew';
+            var chatw = document.getElementById(idwrapper);
+            var chath = document.getElementById(idheader);
+            if (chatw.style.visibility === 'hidden'){
+                chatw.style.visibility = 'visible';
+                chath.style.position = 'initial';
+            } else {
+                chatw.style.visibility = 'hidden';
+                chath.style.position = 'absolute';
+                chath.style.bottom = '0';
+            }
+        }
+    </script>
+    <script>
+        function ouverturenewchat(idu){
+            $.ajax({
+                    url:"ouverturenewchat.php?id="+idu,
+                    type:"post",
+                    success: function(html){$("#newroom").before(html);}
+                });
+        }
     </script>
 </div>
 </div>

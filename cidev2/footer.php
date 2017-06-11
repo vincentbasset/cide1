@@ -2,6 +2,7 @@
     footer{
         position: fixed;
         bottom: 0;
+        width: 100%;
     }
 body {
     background: #e9e9e9;
@@ -165,25 +166,11 @@ img {
         $reponsebis = $bdd -> prepare('SELECT * FROM chatdans WHERE idutil = :idu');
         $reponsebis -> execute(['idu' => $_SESSION['id']]);
     ?>
-    
-    <div class="container-fluid">
-        <ul class="nav nav-tabs">
-            <?php
-                while($donnees = $reponse -> fetch()){
-                    $room=$donnees['idroom'];
-                        echo '<li><button href="#" onclick="ouverturechat('.$room.')">';
-                        echo 'chat room'.$room;
-                        echo '</button></li>';
-                }
-            ?>
-            <li><button>new chat room</button></li>
-        </ul>
-    </div>
     <div class="container-fluid chat" id="chat">
         <?php
                 while($donneesbis = $reponsebis -> fetch()){
                     $room=$donneesbis['idroom'];
-                    echo '<div id='.$room.' class="col-sm-4">';    
+                    echo '<div id='.$room.' class="col-sm-2">';    
                     include 'chat.php';
                     echo '</div>';
                 }
@@ -192,16 +179,6 @@ img {
                 echo '</div>';
             ?>
     </div>
-    
-    <script>
-        function ouverturechat(idroom){
-            var chatr = document.getElementById(idroom);
-            if (chatr.style.visibility === 'hidden'){
-                chatr.style.visibility = 'visible';
-            } else {
-                chatr.style.visibility = 'hidden';
-            }
-        }
-    </script>
+
     
 </footer>

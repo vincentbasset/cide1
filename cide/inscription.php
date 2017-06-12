@@ -8,14 +8,14 @@
 				<form name="inscription" method="post" action="traitement.php" enctype="multipart/form-data">
 						<p>
 							</br>
-							<input type="varchar" name="nom" placeholder="Entrez votre nom" required>
+							<input type="text" name="nom" placeholder="Entrez votre nom" required>
 							</br>
 							</br>
-							<input type="varchar" name="prenom" placeholder="Entrez votre prénom" required>
+							<input type="text" name="prenom" placeholder="Entrez votre prénom" required>
 							</br>
 							</br>
 							<label for="date">Votre date de naissance: </label>
-							<input type="date" name="date" required>
+							<input type="date" id="date" name="date" required>
 							</br>
 							</br>
 							<input type="email" name="mail" placeholder="Entrez votre e-mail" required>
@@ -24,7 +24,7 @@
 							<label for="photo">Ajouter une photo de profil:</label>
 							</br>
 							</br>
-							<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
+							<input type="file" id="photo" name="photo" accept="image/gif, image/jpeg, image/png">
 							</br>
 							</br>
 							<input type="password" name="mdp" placeholder="Entrez votre mot de passe" required>
@@ -35,7 +35,7 @@
 							</br>
 							<a href="cgu.php" target="_blank">Conditions générales d\'utilisation</a>
 							</br>
-							<input type="checkbox" name="cgu" required>					
+							<input type="checkbox" name="cgu" id="cgu" required>					
 							<label for="cgu">J\'ai lu et accepte les conditions générales d\'utilisation</label>
 							</br>
 							</br>

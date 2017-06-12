@@ -16,11 +16,12 @@
 			<?php
 			echo "<div class=\"col-sm-7 col-perso\">";
 				$don=$reponse3->fetchAll();
+                
 				while($donnees=$reponse->fetch()){
                 echo "
 					<div class=\"media\">
 						<div class=\"media-left\">
-							<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
+							<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60\" height=\"60\" />
 						</div>
 						<div class=\"media-body\">
 							<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a>
@@ -55,7 +56,7 @@
 						echo"<hr>
 						<div class=\"media\">
 							<div class=\"media-left\">
-								<img class=\"img-circle\" src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" alt=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" width=\"50px\" height=\"50px\" />
+								<img class=\"img-circle\" src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" alt=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" width=\"50\" height=\"50\" />
 							</div>
 							<div class=\"media-body\">
 								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a></h4>
@@ -68,15 +69,16 @@
 				}
 				
 				
-				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["postid"])."\">
-						<label for=\"message\"></label> 
-						<textarea name=\"message\" cols=\"90\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea><br/>					
+				echo "<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["postid"])."\">
+						
+						<textarea  name=\"message\" cols=\"90\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea><br/>					
 					<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>
 					</form>
 					
 					</div>
 					<hr>
 					</div>";
+                
 						
 				}
 				

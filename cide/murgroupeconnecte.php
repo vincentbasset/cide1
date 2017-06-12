@@ -23,7 +23,7 @@
 			echo "
 				<div class=\"media\">
 					<div class=\"media-left\">
-						<img class=\"img-circle\" src=\"".$donneesgroupe["icone"]."\" title=\"".htmlspecialchars($donneesgroupe["nom"])."\" alt=\"".htmlspecialchars($donneesgroupe["nom"])."\" width=\"90px\" height=\"90px\" />
+						<img class=\"img-circle\" src=\"".$donneesgroupe["icone"]."\" title=\"".htmlspecialchars($donneesgroupe["nom"])."\" alt=\"".htmlspecialchars($donneesgroupe["nom"])."\" width=\"90\" height=\"90\" />
 					</div>
 					<div class=\"media-body\">
 						<h3 class=\"media-heading\">".htmlspecialchars($donneesgroupe["nom"])."</h3>						
@@ -53,7 +53,7 @@
             echo "
             <div class=\"media\">
                 <div class=\"media-left\">
-                    <img class=\"img-circle\" src=\"".htmlspecialchars($donneespost["photo"])."\" title=\"".htmlspecialchars($donneespost["nom"])." ".htmlspecialchars($donneespost["prenom"])."\" alt=\"".htmlspecialchars($donneespost["nom"])." ".htmlspecialchars($donneespost["prenom"])."\" width=\"60px\" height=\"60px\" />
+                    <img class=\"img-circle\" src=\"".htmlspecialchars($donneespost["photo"])."\" title=\"".htmlspecialchars($donneespost["nom"])." ".htmlspecialchars($donneespost["prenom"])."\" alt=\"".htmlspecialchars($donneespost["nom"])." ".htmlspecialchars($donneespost["prenom"])."\" width=\"60\" height=\"60\" />
                 </div>
                 <div class=\"media-body\">
                     <h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donneespost["prenom"])."</a></h4>";
@@ -76,7 +76,7 @@
                     echo"<hr>
                     <div class=\"media\">
                         <div class=\"media-left\">
-                            <img class=\"img-circle\" src=\"".htmlspecialchars($donneesreponses["photo"])."\" title=\"".htmlspecialchars($donneesreponses["nom"])." ".htmlspecialchars($donneesreponses["prenom"])."\" alt=\"".htmlspecialchars($donneesreponses["nom"])." ".htmlspecialchars($donneesreponses["prenom"])."\" width=\"50px\" height=\"50px\" />
+                            <img class=\"img-circle\" src=\"".htmlspecialchars($donneesreponses["photo"])."\" title=\"".htmlspecialchars($donneesreponses["nom"])." ".htmlspecialchars($donneesreponses["prenom"])."\" alt=\"".htmlspecialchars($donneesreponses["nom"])." ".htmlspecialchars($donneesreponses["prenom"])."\" width=\"50\" height=\"50\" />
                         </div>
                         <div class=\"media-body\">
                             <h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donneesreponses["id"])."\">".htmlspecialchars($donneesreponses["nom"])." ".htmlspecialchars($donneesreponses["prenom"])."</a></h4>
@@ -128,7 +128,7 @@
             echo "
                 <div class=\"media\">
                     <div class=\"media-left\">
-                        <img class=\"img-circle\" src=\"".htmlspecialchars($donneespostutil["photo"])."\" title=\"".htmlspecialchars($donneespostutil["nom"])." ".htmlspecialchars($donneespostutil["prenom"])."\" alt=\"".htmlspecialchars($donneespostutil["nom"])." ".htmlspecialchars($donneespostutil["prenom"])."\" width=\"60px\" height=\"60px\" />
+                        <img class=\"img-circle\" src=\"".htmlspecialchars($donneespostutil["photo"])."\" title=\"".htmlspecialchars($donneespostutil["nom"])." ".htmlspecialchars($donneespostutil["prenom"])."\" alt=\"".htmlspecialchars($donneespostutil["nom"])." ".htmlspecialchars($donneespostutil["prenom"])."\" width=\"60\" height=\"60\" />
                     </div>
                     <div class=\"media-body\">							
                         <h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donneespostutil["id"])."\">".htmlspecialchars($donneespostutil["nom"])." ".htmlspecialchars($donneespostutil["prenom"])."</a></h4>

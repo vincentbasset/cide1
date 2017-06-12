@@ -9,7 +9,7 @@
 					Es-tu sur de vouloir partir? Toutes tes données seront perdues
 					<br/>
 					<form method="post" action="validdesinscription.php">
-						<input type="submit" name="envoyer" value="Me désinscrire" />
+						<input type="submit" name="envoyer" value="Me desinscrire" />
 					</form>
 				</p>
 			</div>';

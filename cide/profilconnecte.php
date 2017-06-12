@@ -9,7 +9,7 @@
 				<?php
 					$pdonnees=$reponse->fetch();
 					echo'
-					<img class="img-circle" src="'.htmlspecialchars($pdonnees["photo"]).'" title="'.htmlspecialchars($pdonnees["nom"]).' '.htmlspecialchars($pdonnees["prenom"]).'" alt="'.htmlspecialchars($pdonnees["nom"]).' '.htmlspecialchars($pdonnees["prenom"]).'" width="225px" height="225px" />
+					<img class="img-circle" src="'.htmlspecialchars($pdonnees["photo"]).'" title="'.htmlspecialchars($pdonnees["nom"]).' '.htmlspecialchars($pdonnees["prenom"]).'" alt="'.htmlspecialchars($pdonnees["nom"]).' '.htmlspecialchars($pdonnees["prenom"]).'" width="225" height="225" />
 					</br>			
 					</div>
 					<div>
@@ -20,16 +20,16 @@
 					</div>
 					</p>
 					<p>
-						<span id="bleu">date de naissance:</span> '.htmlspecialchars($pdonnees["datenaissance"]).'
+						<span>date de naissance:</span> '.htmlspecialchars($pdonnees["datenaissance"]).'
 						</br>
 						</br>
-						<span id="bleu">statut:</span> '.htmlspecialchars($pdonnees["statut"]).'</span>
+						<span >statut:</span> '.htmlspecialchars($pdonnees["statut"]).'</span>
 						</br>
 						</br>
-						<span id="bleu">adresse mail:</span> '.htmlspecialchars($pdonnees["adresse"]).'
+						<span>adresse mail:</span> '.htmlspecialchars($pdonnees["adresse"]).'
 						</br>
 						</br>
-						<span id="bleu">description:</span> '.htmlspecialchars($pdonnees["description"]).'
+						<span>description:</span> '.htmlspecialchars($pdonnees["description"]).'
 						</br>
 						</br>
 					</p>';
@@ -45,9 +45,9 @@
 				</br>
 				</br>
 				<form method="post" action="traitementphoto.php" enctype="multipart/form-data">
-					<span id="bleu"><label for="photo">Modifier photo de profil:</label></span>
+					<span><label for="photo">Modifier photo de profil:</label></span>
 					</br>
-					<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
+					<input type="file" name="photo" id="photo" accept="image/gif, image/jpeg, image/png">
 					</br>
 					</br>
 					<input type="submit" name="envoyer" value="Changer la photo"/>
@@ -71,14 +71,14 @@
 				</br>
 				<p>
 					<?php
-					echo'<span id="bleu"><a href="'.htmlspecialchars($pdonnees["cv"]).'" target="_blank" >Mon CV</a></span></br>';
+					echo'<span><a href="'.htmlspecialchars($pdonnees["cv"]).'" target="_blank" >Mon CV</a></span></br>';
 					?>
 				</p>
 				</br>
 				<form method="post" action="traitementcv.php" enctype="multipart/form-data">
 					<span><label for="cv">Ajouter une photo de CV:</label></span>
 					</br>
-					<input type="file" name="cv" accept="application/pdf">
+					<input type="file" name="cv" id="cv" accept="application/pdf">
 					</br>
 					</br>
 					<input type="submit" name="envoyer" value="Changer le CV"/>

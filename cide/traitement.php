@@ -45,7 +45,7 @@
                                         $insertion = $bdd->prepare("INSERT INTO utilisateur VALUES(NULL, :nom, :prenom, :mail, :pwd, \"image/profil.jpg\", :statut, :filiere,:annee,:date,:cv,NULL)");
 
                                         if($insertion->execute(['nom'=>$nom, 'prenom'=>$prenom,'mail'=>$mail, 'pwd'=>password_hash($mdp , PASSWORD_BCRYPT), 'statut'=>$statut, 'filiere'=>$filiere, 'annee'=>$annee, "date"=>$date, "cv"=>null])){
-
+											//on recupère l'id qui viens d'être utilisé
                                             $id=$bdd->lastInsertId();
                                             if (empty($filiere) && empty($annee)){
                                                 $groupe=$bdd->query("SELECT id FROM groupe WHERE nom=\"".$statut."\"");

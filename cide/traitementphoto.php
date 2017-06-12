@@ -16,7 +16,7 @@
 			$taille_maxi = 5000000;
 			$taille = filesize($_FILES['photo']['tmp_name']);
 			$extensions = array('.png', '.gif', '.jpg', '.jpeg');
-			$extension = strrchr($_FILES['photo']['name'], '.'); 
+			$extension = strrchr($_FILES['photo']['name'], '.'); 	//recherche de l'extenstion de base
 			//Début des vérifications de sécurité...
 			if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
 			{
@@ -32,8 +32,7 @@
 		}                     
         try{ 
             $insertion = $bdd->prepare("UPDATE utilisateur SET photo=:photo WHERE id=:id");
-			$insertion->execute(["photo"=>$photo,"id"=>$_SESSION['id']]); 
-			//header ('location: index.php');  
+			$insertion->execute(["photo"=>$photo,"id"=>$_SESSION['id']]);   
         }
         catch(PDOException $erreur) {
             if ($verbose) {

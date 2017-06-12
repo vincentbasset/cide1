@@ -20,7 +20,7 @@
 				$_SESSION['url']=$newurl;
 				echo '<div id=hconnect>
 						<form action="login.php" method="post">
-							<input class=\"connecte\" type="varchar" name="login" placeholder="Votre login">
+							<input class=\"connecte\" type="text" name="login" placeholder="Votre login">
 							<br/>
 							<input class=\"connecte\" type="password" name="pwd" placeholder="Votre mot de passe">
 							<br/>

@@ -1,7 +1,7 @@
 <?php
 	$date = $bdd -> query("select getdate() as currentdatetime");
 	
-	$reponse = $bdd -> prepare("SELECT *,post.id as postid from post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id  where (post.visibilite=1 or post.idGroupe in (SELECT appartient.idGroupe from appartient where appartient.idUtil=:idutil)) and groupe.accepte=1 and post.idUtil=appartient.idUtil and post.idPost=0 ORDER BY datepost DESC ");
+	$reponse = $bdd -> prepare("SELECT * from post where post.idGroupe=0 and post.idPost=0 or post.id in (SELECT post.id from post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id where (post.visibilite=1 or post.idGroupe in (SELECT appartient.idGroupe from appartient where appartient.idUtil=:idutil)) and groupe.accepte=1 and post.idUtil=appartient.idUtil and post.idPost=0) ORDER BY datepost DESC ");
 	$reponse->execute(['idutil' =>$_SESSION['id']]);							
 	$reponse2 = $bdd -> prepare("SELECT *,post.id as postid  from post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id  where (post.visibilite=1 or post.idGroupe in (SELECT appartient.idGroupe from appartient where appartient.idUtil=:idutil)) and groupe.accepte=1 and post.idUtil=appartient.idUtil and post.importance=1 ORDER BY datepost DESC ");
 	$reponse2->execute(['idutil' =>$_SESSION['id']]);
@@ -30,17 +30,20 @@
 				$don=$reponse3->fetchAll();
 				while($donnees=$reponse->fetch()){
 					$like = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='like' and post.id=:postid");
-					$like->execute(['postid' =>$donnees['postid']]);
+					$like->execute(['postid' =>$donnees['id']]);
 					$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
-					$dislike->execute(['postid' =>$donnees['postid']]);
+					$dislike->execute(['postid' =>$donnees['id']]);
+					$reponse6 = $bdd -> prepare("SELECT * FROM  utilisateur WHERE utilisateur.id=:idutil");
+					$reponse6->execute(['idutil' =>$donnees['idUtil']]);
+					$donnees6=$reponse6->fetch();
                 echo "
 					
 					<div class=\"media\">
 						<div class=\"media-left\">
-							<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
+							<img class=\"img-circle\" src=\"".htmlspecialchars($donnees6["photo"])."\" title=\"".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."\" alt=\"".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."\" width=\"60px\" height=\"60px\" />
 						</div>
 						<div class=\"media-body\">
-							<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a>
+							<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees6["id"])."\">".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."</a>
 							<small><i>";
 							if($donnees["idGroupe"]!=0){
 								$reponse4->execute(['idg' =>$donnees["idGroupe"]]);
@@ -67,11 +70,11 @@
 							echo "<p>".nl2br(htmlspecialchars($donnees["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>";
 							$_SESSION['url']=$newurl;
-							echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnees["postid"].'">
+							echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnees["id"].'">
 									'.$like->rowcount().'
 								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
 								 </form>
-								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnees["postid"].'">
+								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnees["id"].'">
 									'.$dislike->rowcount().'
 								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
 								</form>';
@@ -83,7 +86,7 @@
 				
 				
 				foreach($don as $donnee){
-					if($donnees["postid"]==$donnee["idPost"]){
+					if($donnees["id"]==$donnee["idPost"]){
 						echo"<hr>
 						<div class=\"media\">
 							<div class=\"media-left\">
@@ -117,7 +120,7 @@
 					</div>";	
 				
 				
-				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["postid"])."\">
+				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["id"])."\">
 						<label for=\"message\"></label> 
 						<textarea name=\"message\" cols=\"90\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea><br/>					
 					<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>

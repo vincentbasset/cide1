@@ -27,8 +27,7 @@
 		}                     
         try{ 
             $insertion = $bdd->prepare("UPDATE utilisateur SET cv=:cv WHERE id=:id");
-			$insertion->execute(["cv"=>$cv,"id"=>$_SESSION['id']]); 
-			//header ('location: index.php');  
+			$insertion->execute(["cv"=>$cv,"id"=>$_SESSION['id']]);  
         }
         catch(PDOException $erreur) {
             if ($verbose) {

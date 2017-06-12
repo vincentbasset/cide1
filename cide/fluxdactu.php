@@ -1,6 +1,6 @@
 <?php
 	$date = $bdd -> query("select getdate() as currentdatetime");
-	
+	//on prends toutes les infos des posts qui sont visible pas l'utilisateur connecté
 	$reponse = $bdd -> prepare("SELECT * from post where post.idGroupe=0 and post.idPost=0 or post.id in (SELECT post.id from post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id where (post.visibilite=1 or post.idGroupe in (SELECT appartient.idGroupe from appartient where appartient.idUtil=:idutil)) and groupe.accepte=1 and post.idUtil=appartient.idUtil and post.idPost=0) ORDER BY datepost DESC ");
 	$reponse->execute(['idutil' =>$_SESSION['id']]);							
 	$reponse2 = $bdd -> prepare("SELECT *,post.id as postid  from post inner join groupe on post.idGroupe=groupe.id inner join appartient on groupe.id=appartient.idGroupe inner join utilisateur on appartient.idUtil=utilisateur.id  where (post.visibilite=1 or post.idGroupe in (SELECT appartient.idGroupe from appartient where appartient.idUtil=:idutil)) and groupe.accepte=1 and post.idUtil=appartient.idUtil and post.importance=1 ORDER BY datepost DESC ");
@@ -37,6 +37,7 @@
 					$reponse6 = $bdd -> prepare("SELECT * FROM  utilisateur WHERE utilisateur.id=:idutil");
 					$reponse6->execute(['idutil' =>$donnees['idUtil']]);
 					$donnees6=$reponse6->fetch();
+					//on affiche le post mère
                 echo "
 					
 					<div class=\"media\">
@@ -81,7 +82,7 @@
 								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
 								</form>';
 				
-				
+				//on cache avec bootstrap les réponse du post mère
 				echo "<div class=\"cache\">
 						<span>Voir commentaires</span>
 							<div class=\"cache2\" style=\"display:none\">";
@@ -121,7 +122,7 @@
 				echo"Fin des commentaires</div>
 					</div>";	
 				
-				
+				//formulaire pour répondre
 				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["id"])."\">
 						<textarea name=\"message\" cols=\"90\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea><br/>					
 
@@ -138,7 +139,7 @@
 				echo "</div>";
 				
 				echo "<div class=\"col-sm-3 col-perso\">";
-				
+				//posts importants
 				while($donnees=$reponse2->fetch()){
 					$like = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='like' and post.id=:postid");
 					$like->execute(['postid' =>$donnees['postid']]);

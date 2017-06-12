@@ -33,8 +33,7 @@
 		}                     
         try{ 
             $insertion = $bdd->prepare("UPDATE groupe SET icone=:icone WHERE id=:id");
-			$insertion->execute(["icone"=>$icone,"id"=>$_GET['id']]); 
-			//header ('location: index.php');  
+			$insertion->execute(["icone"=>$icone,"id"=>$_GET['id']]);  
         }
         catch(PDOException $erreur) {
             if ($verbose) {

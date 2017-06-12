@@ -6964,11 +6964,19 @@ input[type="submit"]:hover, #liengestion:hover{
 	font-weight:normal;
 }
 
+
+.logo{
+    width:300px;
+    height:200px;
+}
+
+
 .modal-body select{
 	border:0.5 solid rgb(200, 220, 250);
 	border-radius:10px;
 	padding:0 10px;
 }
+
 
 #myform{
 	display:inline;

@@ -28,6 +28,7 @@
 		<?php
 			echo "<div class=\"col-sm-7 col-perso\">";
 				$don=$reponse3->fetchAll();
+                
 				while($donnees=$reponse->fetch()){
 					$like = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='like' and post.id=:postid");
 					$like->execute(['postid' =>$donnees['id']]);
@@ -41,6 +42,7 @@
 					<div class=\"media\">
 						<div class=\"media-left\">
 							<img class=\"img-circle\" src=\"".htmlspecialchars($donnees6["photo"])."\" title=\"".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."\" alt=\"".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."\" width=\"60px\" height=\"60px\" />
+
 						</div>
 						<div class=\"media-body\">
 							<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees6["id"])."\">".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."</a>
@@ -90,7 +92,7 @@
 						echo"<hr>
 						<div class=\"media\">
 							<div class=\"media-left\">
-								<img class=\"img-circle\" src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" alt=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" width=\"50px\" height=\"50px\" />
+								<img class=\"img-circle\" src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" alt=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" width=\"50\" height=\"50\" />
 							</div>
 							<div class=\"media-body\">
 								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a></h4>
@@ -115,20 +117,21 @@
 				}
 				
 				
-				
+
 				echo"Fin des commentaires</div>
 					</div>";	
 				
 				
 				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["id"])."\">
-						<label for=\"message\"></label> 
 						<textarea name=\"message\" cols=\"90\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea><br/>					
+
 					<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>
 					</form>
 					
 					</div>
 					<hr>
 					</div>";
+                
 						
 				}
 				

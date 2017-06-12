@@ -6,7 +6,7 @@
 				$donnees=$reponse->fetch();
 				echo '
 					<div>
-						<a href="profil.php"><img class="img-circle" src="'.htmlspecialchars($donnees["photo"]).'" alt="'.htmlspecialchars($donnees["prenom"]).' '.htmlspecialchars($donnees["nom"]).'" width="65px" height="65px"/>
+						<a href="profil.php"><img class="img-circle" src="'.htmlspecialchars($donnees["photo"]).'" alt="'.htmlspecialchars($donnees["prenom"]).' '.htmlspecialchars($donnees["nom"]).'" width="65" height="65"/>
 					</div>
 					<br/>
 					<div>

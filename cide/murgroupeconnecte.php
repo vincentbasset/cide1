@@ -33,7 +33,7 @@
 			echo "
 				<div class=\"media\">
 					<div class=\"media-left\">
-						<img class=\"img-circle\" src=\"".$donneesgroupe["icone"]."\" title=\"".htmlspecialchars($donneesgroupe["nom"])."\" alt=\"".htmlspecialchars($donneesgroupe["nom"])."\" width=\"90px\" height=\"90px\" />
+						<img class=\"img-circle\" src=\"".$donneesgroupe["icone"]."\" title=\"".htmlspecialchars($donneesgroupe["nom"])."\" alt=\"".htmlspecialchars($donneesgroupe["nom"])."\" width=\"90\" height=\"90\" />
 					</div>
 					<div class=\"media-body\">
 						<h3 class=\"media-heading\">".htmlspecialchars($donneesgroupe["nom"])."</h3>						
@@ -57,6 +57,7 @@
 		</form>";
 	}
 	echo "<hr><hr>";
+
 		$don=$reponse5->fetchAll();
 		while($donneespost=$reponse->fetch()){
 			if (!$reponse4->rowcount()==0 || $donneespost["visibilite"]==1){
@@ -67,7 +68,7 @@
 				echo "
 				<div class=\"media\">
 					<div class=\"media-left\">
-						<img class=\"img-circle\" src=\"".htmlspecialchars($donneespost["photo"])."\" title=\"".htmlspecialchars($donneespost["prenom"])." ".htmlspecialchars($donneespost["nom"])."\" alt=\"".htmlspecialchars($donneespost["nom"])." ".htmlspecialchars($donneespost["prenom"])."\" width=\"60px\" height=\"60px\" />
+						<img class=\"img-circle\" src=\"".htmlspecialchars($donneespost["photo"])."\" title=\"".htmlspecialchars($donneespost["prenom"])." ".htmlspecialchars($donneespost["nom"])."\" alt=\"".htmlspecialchars($donneespost["nom"])." ".htmlspecialchars($donneespost["prenom"])."\" width=\"60\" height=\"60\" />
 					</div>
 					<div class=\"media-body\">
 						<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donneespost["id"])."\">".htmlspecialchars($donneespost["prenom"])." ".htmlspecialchars($donneespost["nom"])."</a></h4>";
@@ -85,11 +86,11 @@
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donneespost["datepost"])), "j/m/y \à G\hi")."</div>";
 						echo'<form id="myform" method="post" action="traitementlike.php?id='.$donneespost["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
+								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40" width="40" />
 								 </form>
 								 <form id="myform" method="post" action="traitementdislike.php?id='.$donneespost["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
+								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
 								</form>
 								<br>';
 								
@@ -109,7 +110,7 @@
 						echo"<hr>
 						<div class=\"media\">
 							<div class=\"media-left\">
-								<img class=\"img-circle\" src=\"".htmlspecialchars($donneesreponses["photo"])."\" title=\"".htmlspecialchars($donneesreponses["prenom"])." ".htmlspecialchars($donneesreponses["nom"])."\" alt=\"".htmlspecialchars($donneesreponses["nom"])." ".htmlspecialchars($donneesreponses["prenom"])."\" width=\"50px\" height=\"50px\" />
+								<img class=\"img-circle\" src=\"".htmlspecialchars($donneesreponses["photo"])."\" title=\"".htmlspecialchars($donneesreponses["prenom"])." ".htmlspecialchars($donneesreponses["nom"])."\" alt=\"".htmlspecialchars($donneesreponses["nom"])." ".htmlspecialchars($donneesreponses["prenom"])."\" width=\"50\" height=\"50\" />
 							</div>
 							<div class=\"media-body\">
 								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donneesreponses["id"])."\">".htmlspecialchars($donneesreponses["prenom"])." ".htmlspecialchars($donneesreponses["nom"])."</a></h4>
@@ -136,7 +137,7 @@
 				
 					
 				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donneespost["postid"])."\">
-						<label for=\"message\"></label> 
+						
 						<textarea name=\"message\" cols=\"90\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea>						
 						<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>
 					</form>		
@@ -179,7 +180,7 @@
 					echo "
 						<div class=\"media\">
 							<div class=\"media-left\">
-								<img class=\"img-circle\" src=\"".htmlspecialchars($donneespostutil["photo"])."\" title=\"".htmlspecialchars($donneespostutil["nom"])."\" alt=\"".htmlspecialchars($donneespostutil["nom"])."\" width=\"60px\" height=\"60px\" />
+								<img class=\"img-circle\" src=\"".htmlspecialchars($donneespostutil["photo"])."\" title=\"".htmlspecialchars($donneespostutil["nom"])."\" alt=\"".htmlspecialchars($donneespostutil["nom"])."\" width=\"60\" height=\"60\" />
 							</div>
 							<div class=\"media-body\">							
 								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donneespostutil["id"])."\">".htmlspecialchars($donneespostutil["prenom"])." ".htmlspecialchars($donneespostutil["nom"])."</a></h4>
@@ -189,13 +190,14 @@
 						";
 						echo'<form id="myform" method="post" action="traitementlike.php?id='.$donneespostutil["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
+								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40" width="40" />
 								 </form>
 								 <form id="myform" method="post" action="traitementdislike.php?id='.$donneespostutil["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
+								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
 								</form></div>';
 				}
 			}
+
 	echo "</div>";
 ?>

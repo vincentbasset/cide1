@@ -7,7 +7,7 @@
 	}
 	$bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 ?>
-<! doctype html>
+<!DOCTYPE html>
 <html lang = "fr">
 
 	<head>

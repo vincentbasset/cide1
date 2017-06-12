@@ -5,7 +5,7 @@
 					<br/>
 					<br/>
 					<form method="post" action="creergroupe.php" enctype="multipart/form-data">
-						<input type="varchar" name="nom" placeholder="Le nom" required>
+						<input type="text" name="nom" placeholder="Le nom" required>
 						<br/>
 						<br/>
 						<textarea name="description" rows="10" cols="70" placeholder="Description..." required></textarea>
@@ -14,7 +14,7 @@
 						<label for="photo">Ajouter une photo de profil:</label>
 						<br/>
 						<br/>
-						<input type="file" name="photo" accept="image/gif, image/jpeg, image/png">
+						<input type="file" name="photo" id="photo" accept="image/gif, image/jpeg, image/png">
 						<br/>
 						<br/>
 						<select name="type">

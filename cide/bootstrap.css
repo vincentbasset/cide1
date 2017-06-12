@@ -6827,48 +6827,28 @@ body{
 	font-size:15px;
 }
 
-textarea,input[type="varchar"],input[type="text"]{
+textarea,input[type="varchar"]{
 	resize: none;
 	overflow: auto;
 	width:99%;
 	border:0.5 solid rgb(200, 220, 250);
 	border-radius:10px;
 }
-
 input[type="varchar"]{
 	width:50%;
 	padding-left:3px;
 }
 
-input[type="int"]{
-	width:26%;
-	border:0.5 solid rgb(200, 220, 250);
-	border-radius:10px;
-}
-
-textarea:hover,input[type="varchar"]:hover,input[type="int"]:hover,input[type="text"]:hover {
+textarea:hover,input[type="varchar"]:hover {
 	border:0.5 solid rgb(0, 50, 100);
 }
 
 input[type="password"]{
 	width:auto;
-	border:0.5 solid rgb(200, 220, 250);
+	border:0.3 solid rgb(0, 50, 100);
 	border-radius:10px;
 	padding: 0 3px;
 }
-
-.col-sm-2 .media div form input[type="varchar"]{
-	width:100%;
-	border:0.5 solid rgb(200, 220, 250);
-	border-radius:10px;
-
-}
-
-.col-sm-2 .media div form input[type="varchar"]:hover,input[type="password"]:hover{
-	border:0.5 solid rgb(0, 50, 100);
-}
-
-
 
 #textgroupe{
 	margin-left:4px;
@@ -6882,6 +6862,7 @@ input[type="password"]{
 	font-style: italic;
 	margin-bottom:11px;
 }
+
 
 .col-sm-3{
 	background-color: ghostwhite;
@@ -6931,6 +6912,7 @@ input[type="submit"]:hover, #liengestion:hover{
 }
 
 #listeder{
+	color:red;
 	margin-left:30%;
 }
 
@@ -6947,37 +6929,14 @@ input[type="submit"]:hover, #liengestion:hover{
 }
 
 #changemdp input[type="password"]{
-	border:0.5 solid rgb(200, 220, 250);
+	border:0.3 solid rgb(0, 50, 100);
 	border-radius:10px;
 	padding: 0 3px;
-	width:20%;
-	
 }
 
-#changemdp input[type="password"]:hover{
-	border:0.5 solid rgb(0, 50, 100);
-}
-
-
-
-.modal-body label{
-	font-weight:normal;
-}
-
-.modal-body select{
-	border:0.5 solid rgb(200, 220, 250);
-	border-radius:10px;
-	padding:0 10px;
-}
-
-#myform{
-	display:inline;
-	float:right;
-}
-
-.modal-header .modal-footer{
-	background-color:rgb(200, 220, 250);
-	color:red;
+.img{
+    width: 100%;
+    /*max-height:660px;*/
 }
 
 
@@ -6985,68 +6944,18 @@ input[type="submit"]:hover, #liengestion:hover{
 
 
 
-.slideanim {
-	visibility:hidden;
-}
-
-.slide {
-    animation-name: slide;
-    animation-duration: 1.3s;
-    visibility: visible; 
-}
-
-@keyframes slide {
-    0% {
-        opacity: 0;
-        transform: translateY(20%);
-    } 
-    100% {
-        opacity: 1;
-        transform: translateY(0%);
-    } 
-}
-
-.media:nth-child(1), .media:nth-child(2), .media:nth-child(3){
-    visibility:visible;
-	opacity: 1;
-	animation-duration:0s;
-}
 
 
-.offre {
-	border:3 solid rgb(0, 50, 100);
-	border-radius:10px;
-}
 
-.offreleft{
-	position:left;
-	margin-right:0;
-	display:inline-block;
-	width:45%;
-	vertical-align:top;
-}
 
-.offreright{
-	position:right;
-	margin-left:0;
-	display:inline-block;
-	width:45%;
-	vertical-align:top;
-	
-}
 
-.offreplus{
-	padding:5px 10px 3px 10px;
-}
 
-.offre span{
-	font-weight:bold;
-}
 
-.filtre form{
-	text-align:left;
-	padding-left:25%;
-}
+
+
+
+
+
 
 
 

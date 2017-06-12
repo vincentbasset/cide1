@@ -5,29 +5,20 @@
     $reponse2 -> execute(['idprofil'=>$_GET['id']]);
 	$reponse3 = $bdd -> prepare("SELECT *,post.id as postid FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE idUtilmur=:idprofil order by datepost desc");
     $reponse3 -> execute(['idprofil'=>$_GET['id']]);
-	$reponse4 = $bdd -> prepare("SELECT *,post.id as postid FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE idPost!=0 order by datepost");
-	$reponse4 -> execute();
+	$reponse4 = $bdd -> query("SELECT * FROM post inner join utilisateur on post.idUtil=utilisateur.id WHERE idPost!=0 order by datepost");
 ?>
-
-<script>
-	$(document).ready(function(){
-		$(".cache").click(function(){
-			$(this).find(".cache2").toggle(700);
-		});
-	});
-</script>
-	
+		
 <?php
 	$_SESSION['url']=$newurl;
 	echo "<div class=\"col-sm-7 col-perso\">";
-		while($donnees=$reponse->fetch()){
+		while($donneesutil=$reponse->fetch()){
 			echo "
 				<div class=\"media\">
 					<div class=\"media-left\">
-						<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"90px\" height=\"90px\" />
+						<img class=\"img-circle\" src=\"".htmlspecialchars($donneesutil["photo"])."\" title=\"".htmlspecialchars($donneesutil["nom"])." ".htmlspecialchars($donneesutil["prenom"])."\" alt=\"".htmlspecialchars($donneesutil["nom"])." ".htmlspecialchars($donneesutil["prenom"])."\" width=\"90px\" height=\"90px\" />
 					</div>
 					<div class=\"media-body\">
-					<h3 class=\"media-heading\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</h3>";
+					<h3 class=\"media-heading\">".htmlspecialchars($donneesutil["nom"])." ".htmlspecialchars($donneesutil["prenom"])."</h3>";
 		}			
 		echo "
 			<form method=\"post\" action=\"traitementmurp.php?id=".htmlspecialchars($_GET['id'])."\">
@@ -44,87 +35,47 @@
 			</div>
 			</div>";
 			
-		$don=$reponse4->fetchAll();
-		while($donnees=$reponse3->fetch()){
-			$like = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='like' and post.id=:postid");
-					$like->execute(['postid' =>$donnees['postid']]);
-					$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
-					$dislike->execute(['postid' =>$donnees['postid']]);
+		$donneesreponses=$reponse4->fetchAll();
+		while($donneespost=$reponse3->fetch()){
 			echo "
 				<div class=\"media\">
 					<div class=\"media-left\">
-						<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
+						<img class=\"img-circle\" src=\"".htmlspecialchars($donneespost["photo"])."\" title=\"".htmlspecialchars($donneespost["nom"])." ".htmlspecialchars($donneespost["prenom"])."\" alt=\"".htmlspecialchars($donneespost["nom"])." ".htmlspecialchars($donneespost["prenom"])."\" width=\"60px\" height=\"60px\" />
 					</div>
 					<div class=\"media-body\">
-						<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a></h4>";
-						if (preg_match("/www\.youtube\.com/",$donnees["url"])===1||preg_match("/youtu\.be/",$donnees["url"])===1){
-							$vid=preg_replace("/.*[=\/]/","",$donnees["url"]);
+						<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donneespost["id"])."\">".htmlspecialchars($donneespost["nom"])." ".htmlspecialchars($donneespost["prenom"])."</a></h4>";
+						if (preg_match("/www\.youtube\.com/",$donneespost["url"])===1||preg_match("/youtu\.be/",$donneespost["url"])===1){
+							$vid=preg_replace("/.*[=\/]/","",$donneespost["url"]);
 							echo '<iframe width="420" height="315"
 							src="https://www.youtube.com/embed/'.$vid.'">
 							</iframe></br>';
-						} else if (preg_match("/.jpg$/",$donnees["url"]) === 1 || preg_match("/.png$/",$donnees["url"]) === 1 || preg_match("/.gif$/",$donnees["url"]) === 1 ||    preg_match("/.jpeg$/",$donnees["url"]) === 1){
-							echo "<img src=\"".htmlspecialchars($donnees["url"])."\" width=\"100%\" /><br/>";
+						} else if (preg_match("/.jpg$/",$donneespost["url"]) === 1 || preg_match("/.png$/",$donneespost["url"]) === 1 || preg_match("/.gif$/",$donneespost["url"]) === 1 ||    preg_match("/.jpeg$/",$donneespost["url"]) === 1){
+							echo "<img class=\"img\" src=\"".htmlspecialchars($donneespost["url"])."\"  /><br/>";
 						}else{
-							echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a>";
+							echo "<a href=".htmlspecialchars($donneespost["url"]).">".htmlspecialchars($donneespost["url"])."</a>";
 						}
-						echo "<p>".nl2br(htmlspecialchars($donnees["message"]))."</p>
-								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>";
-						$_SESSION['url']=$newurl;
-							echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnees["postid"].'">
-									'.$like->rowcount().'
-								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
-								 </form>
-								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnees["postid"].'">
-									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
-								</form>
-								<br>';
-	
-	
-
-				echo "<div class=\"cache\">
-						<span>Voir commentaires</span>
-							<div class=\"cache2\" style=\"display:none\">";
-
-
-	
-				foreach($don as $donnee){
-					if($donnees["postid"]==$donnee["idPost"]){
-						$like = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='like' and post.id=:postid");
-					$like->execute(['postid' =>$donnee['postid']]);
-					$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
-					$dislike->execute(['postid' =>$donnee['postid']]);
-					
+						echo "<p>".nl2br(htmlspecialchars($donneespost["message"]))."</p>
+								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donneespost["datepost"])), "j/m/y \à G\hi")."</div>";
+				
+				foreach($donneesreponses as $donneerep){
+					if($donneespost["postid"]==$donneerep["idPost"]){
 						echo"<hr>
 						<div class=\"media\">
 							<div class=\"media-left\">
-								<img class=\"img-circle\" src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" alt=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" width=\"50px\" height=\"50px\" />
+								<img class=\"img-circle\" src=\"".htmlspecialchars($donneerep["photo"])."\" title=\"".htmlspecialchars($donneerep["nom"])." ".htmlspecialchars($donneerep["prenom"])."\" alt=\"".htmlspecialchars($donneerep["nom"])." ".htmlspecialchars($donneerep["prenom"])."\" width=\"50px\" height=\"50px\" />
 							</div>
 							<div class=\"media-body\">
-								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a></h4>
-								<p>".nl2br(htmlspecialchars($donnee["message"]))."</p>
-								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnee["datepost"])), "j/m/y \à G\hi")."</div>
+								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donneerep["id"])."\">".htmlspecialchars($donneerep["nom"])." ".htmlspecialchars($donneerep["prenom"])."</a></h4>
+								<p>".nl2br(htmlspecialchars($donneerep["message"]))."</p>
+								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donneerep["datepost"])), "j/m/y \à G\hi")."</div>
 							</div>
 						</div>";
-						echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnee["postid"].'">
-									'.$like->rowcount().'
-								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
-								 </form>
-								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnee["postid"].'">
-									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
-								</form>
-								<br>';
 					}
 				
 				}
 				
 
-					echo"Fin des commentaires</div>
-				</div>";
-				
-				
-				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["postid"])."\">
+				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donneespost["postid"])."\">
 						<label for=\"message\"></label> 
 						<textarea name=\"message\" cols=\"108\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea>						
 						<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>
@@ -138,12 +89,11 @@
 			
 			echo "<div class=\"col-sm-3 col-perso\">
 					<div class=\"media\">";
-					$donnees2 = $reponse2->fetch();
-					echo"<p>Statut:<br/>".htmlspecialchars($donnees2["statut"])."<br/><br/>
-						<a href=\"".htmlspecialchars($donnees2["cv"])."\" target=\"_blank\">CV de ".htmlspecialchars($donnees2["nom"])." ".htmlspecialchars($donnees2["prenom"])."</a><br/><br/>"
-						.htmlspecialchars($donnees2["description"])."<br/><br/>
-						Date de naissance: <br/>".htmlspecialchars($donnees2["datenaissance"])."
-						
+					$donneesutil = $reponse2->fetch();
+					echo"<p>Statut:<br/>".htmlspecialchars($donneesutil["statut"])."<br/><br/>
+						<a href=\"".htmlspecialchars($donneesutil["cv"])."\" target=\"_blank\">CV de ".htmlspecialchars($donneesutil["nom"])." ".htmlspecialchars($donneesutil["prenom"])."</a><br/><br/>"
+						.htmlspecialchars($donneesutil["description"])."<br/><br/>
+						Date de naissance: <br/>".htmlspecialchars($donneesutil["datenaissance"])."
 						</p>
 					</div>
 				</div>";

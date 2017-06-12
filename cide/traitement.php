@@ -85,7 +85,7 @@
                                                 {
                                                      alert('Le fichier est trop gros...');
                                                 }
-                                                $fichier = "photo_id=".$_SESSION['id'].$extension;
+                                                $fichier = "photo_id=".$id.$extension;
                                                 move_uploaded_file($_FILES["photo"]["tmp_name"],$dossier.$fichier);
                                                 $photo= $dossier.$fichier;
                                             }

@@ -30,11 +30,12 @@
 					<h3 class=\"media-heading\">".htmlspecialchars($donneesutil["nom"])." ".htmlspecialchars($donneesutil["prenom"])."</h3>";
 		}			
 		echo "
-			<form method=\"post\" action=\"traitementmurp.php?id=".htmlspecialchars($_GET['id'])."\">
+			<form method=\"post\" action=\"traitementmurp.php?id=".htmlspecialchars($_GET['id'])."\" enctype=\"multipart/form-data\">
 				<p>
-                <label for=\"lien\"></label> 
-                <input type=\"varchar\" name=\"lien\" placeholder=\"insére un lien ici\">		
-				<label for=\"message\"></label> 
+                <label for=\"photo\">Poste un document</label>
+                <input type=\"file\" id=\"photo\" name=\"photo\">
+                <input type=\"varchar\" name=\"lien\" placeholder=\"Poste un lien vers une video Youtube, un image ou un site web\">		
+				<label for=\"textgroupe\"></label> 
 				<textarea id=\"textgroupe\" name=\"message\" cols=\"108\" rows=\"6\" placeholder=\"Laisse un message !\"></textarea><br/>	
 				<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>	
 				</p>			
@@ -66,6 +67,11 @@
 							echo "<img src=\"".htmlspecialchars($donneespost["url"])."\" width=\"100%\" /><br/>";
 						}else{
 							echo "<a href=".htmlspecialchars($donneespost["url"]).">".htmlspecialchars($donneespost["url"])."</a>";
+						}
+                        if (preg_match("/.jpg$/",$donneespost["fichier"]) === 1 || preg_match("/.png$/",$donneespost["fichier"]) === 1 || preg_match("/.gif$/",$donneespost["fichier"]) === 1 ||    preg_match("/.jpeg$/",$donneespost["fichier"]) === 1){
+							echo "<img src=\"".htmlspecialchars($donneespost["fichier"])."\" width=\"100%\" /><br/>";
+						}else if (!is_null($donneespost["fichier"])){
+							echo "<a href=\"".htmlspecialchars($donneespost["fichier"])."\">Télécharge le fichier joint ".htmlspecialchars(basename($donneespost["fichier"]))."</a>";
 						}
 						echo "<p>".nl2br(htmlspecialchars($donneespost["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donneespost["datepost"])), "j/m/y \à G\hi")."</div>";
@@ -124,8 +130,7 @@
 				</div>";
 				
 				
-				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donnees["postid"])."\">
-						<label for=\"message\"></label> 
+				echo"<form method=\"post\" action=\"traitementrep.php?id=".htmlspecialchars($donneespost["postid"])."\">
 						<textarea name=\"message\" cols=\"108\" rows=\"4\" placeholder=\"Laisse un message !\"></textarea>						
 						<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>
 					</form>

@@ -5,6 +5,13 @@
 <?php
 	if(isset($_POST["envoyer"])){
 		$update=$bdd->query("UPDATE offre SET visible = 0");
+		if(!empty($_POST["favori"])){
+			$favori = $bdd -> prepare("SELECT * FROM favori where favori.idUtil=:idutil");
+			$favori->execute(['idutil'=>$_SESSION['id']]);
+			while($fav=$favori->fetch()){
+				$update=$bdd->query("UPDATE offre SET visible = 1 WHERE offre.id=".htmlspecialchars($fav['idOffre'])."");
+			}
+		}
 		if(!empty($_POST["stage"])){
 			$update=$bdd->query("UPDATE offre SET visible = 1 WHERE nature=\"stage\"");		
 		}

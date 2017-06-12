@@ -1,6 +1,6 @@
 <?php
 	include("header.php");
-	$reponse = $bdd -> prepare("SELECT offre.*,utilisateur.nom as utilnom,utilisateur.prenom,utilisateur.id as utilid FROM utilisateur,offre WHERE offre.idUtil=utilisateur.id AND utilisateur.id=:idutil ORDER BY offre.id");
+	$reponse = $bdd -> prepare("SELECT offre.*,utilisateur.nom as utilnom,utilisateur.prenom,utilisateur.id as utilid FROM utilisateur,offre WHERE offre.idUtil=utilisateur.id AND utilisateur.id=:idutil ORDER BY offre.id DESC");
 	$reponse->execute(['idutil' =>$_SESSION['id']]);
 
 echo"
@@ -15,42 +15,42 @@ echo"
 					<input type=\"submit\" name=\"envoyer\" value=\"supprimer\"/>
 				</form>
 				<div class=\"offreleft\">
-					</br>
+					<br>
 					<span>Nom de l'entreprise: </span>".htmlspecialchars($donnees["nom"])."
-					</br>
+					<br>
 					<span>Métier: </span>".htmlspecialchars($donnees["metier"])."
-					</br>
+					<br>
 					<span>Nature de l'offre: </span>".htmlspecialchars($donnees["nature"])."
-					</br>
+					<br>
 					pour ".htmlspecialchars($donnees["duree"])." semaines
-					</br>
+					<br>
 				</div>
 				<div class=\"offreright\">
-					</br>
+					<br>
 					<span>Filière concernée: </span>".htmlspecialchars($donnees["filiere"])."
-					</br>
+					<br>
 					<span>Lieu: </span>".htmlspecialchars($donnees["lieu"])."
-					</br>";
+					<br>";
 					if(htmlspecialchars($donnees["etranger"])==1){
 						echo"offre à l'étranger";
 					}
 					else{
 						echo"France";
 					}
-					echo"</br>";
+					echo"<br>";
 					if(htmlspecialchars($donnees["mobilite"])==1){
 						echo"Transport personnel fortement conseillé";
 					}
 					else{
 						echo"Lieu accessible en transport en commun";
 					}
-					echo"</br>
+					echo"<br>
 				</div>
 				<div class=\"cache\">
 					<span>Voir plus...</span>
 					<div class=\"offreplus\" style=\"display:none\">	
 						<span>Description: </span></br>".htmlspecialchars($donnees["description"])."
-						</br>
+						<br>
 						<i>Posté par <a href=\"murprofil.php?id=".htmlspecialchars($donnees["utilid"])."\">".htmlspecialchars($donnees["prenom"])." ".htmlspecialchars($donnees["utilnom"])."</a></i>
 					</div>
 				</div>
@@ -58,6 +58,7 @@ echo"
 		</div>";
 	}
 ?>
+
 <script>
 	$(document).ready(function(){
 		$(".cache").click(function(){
@@ -65,6 +66,8 @@ echo"
 		});
 	});
 </script>
+
+
 
 	</div>
 </body>

@@ -16,9 +16,41 @@ ALTER TABLE `chat`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `chatdans`
+--
+ALTER TABLE `chatdans`
+  ADD PRIMARY KEY (`idutil`,`idroom`),
+  ADD KEY `idroom` (`idroom`);
+
+--
+-- Index pour la table `chatmsg`
+--
+ALTER TABLE `chatmsg`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idroom` (`idroom`);
+
+--
+-- Index pour la table `chatroom`
+--
+ALTER TABLE `chatroom`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `favori`
+--
+ALTER TABLE `favori`
+  ADD PRIMARY KEY (`idUtil`,`idOffre`);
+
+--
 -- Index pour la table `groupe`
 --
 ALTER TABLE `groupe`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `offre`
+--
+ALTER TABLE `offre`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -52,15 +84,30 @@ ALTER TABLE `vote`
 --
 
 --
+-- AUTO_INCREMENT pour la table `chatmsg`
+--
+ALTER TABLE `chatmsg`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
+--
+-- AUTO_INCREMENT pour la table `chatroom`
+--
+ALTER TABLE `chatroom`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+--
 -- AUTO_INCREMENT pour la table `groupe`
 --
 ALTER TABLE `groupe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+--
+-- AUTO_INCREMENT pour la table `offre`
+--
+ALTER TABLE `offre`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 --
 -- AUTO_INCREMENT pour la table `userensisa`
 --
@@ -71,3 +118,12 @@ ALTER TABLE `userensisa`
 --
 ALTER TABLE `utilisateur`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `chatmsg`
+--
+ALTER TABLE `chatmsg`
+  ADD CONSTRAINT `room_msg` FOREIGN KEY (`idroom`) REFERENCES `chatroom` (`id`) ON DELETE CASCADE;

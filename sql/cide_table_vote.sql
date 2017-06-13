@@ -31,4 +31,6 @@ INSERT INTO `vote` (`idUtil`, `idPost`, `type`) VALUES
 (115, 58, 'like'),
 (115, 70, 'dislike'),
 (115, 66, 'like'),
-(1, 69, 'like');
+(1, 69, 'like'),
+(116, 71, 'like'),
+(116, 2, 'dislike');

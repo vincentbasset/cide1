@@ -15,13 +15,17 @@ CREATE TABLE `post` (
   `importance` tinyint(1) NOT NULL,
   `message` text COLLATE utf8_unicode_ci NOT NULL,
   `url` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `datepost` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `datepost` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `fichier` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Contenu de la table `post`
 --
 
-INSERT INTO `post` (`id`, `idUtil`, `idGroupe`, `idUtilmur`, `idPost`, `visibilite`, `importance`, `message`, `url`, `datepost`) VALUES
-(1, 115, 1, 0, 0, 0, 0, 'coucou', '', '2017-06-06 17:54:06'),
-(2, 115, 1, 0, 0, 0, 0, 'salut', '', '2017-06-06 17:56:40');
+INSERT INTO `post` (`id`, `idUtil`, `idGroupe`, `idUtilmur`, `idPost`, `visibilite`, `importance`, `message`, `url`, `datepost`, `fichier`) VALUES
+(1, 115, 1, 0, 0, 0, 0, 'coucou', '', '2017-06-06 15:54:06', ''),
+(2, 115, 1, 0, 0, 0, 0, 'salut', '', '2017-06-06 15:56:40', ''),
+(71, 116, 56, 0, 0, 0, 1, 'coucou', '', '2017-06-13 12:05:40', NULL),
+(72, 116, 0, 0, 2, 0, 0, 'boo t\'es null\r\n', '', '2017-06-13 12:08:31', NULL),
+(73, 116, 0, 0, 2, 0, 0, 'zut je me suis tromper', '', '2017-06-13 12:09:25', NULL);

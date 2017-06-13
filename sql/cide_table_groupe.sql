@@ -44,4 +44,5 @@ INSERT INTO `groupe` (`id`, `nom`, `type`, `description`, `icone`, `accepte`) VA
 (23, 'Prépa-1A', 'defaut', '', 'image/icone.jpg', 1),
 (24, 'Prépa-2A', 'defaut', '', 'image/icone.jpg', 1),
 (25, 'Ancien', 'defaut', '', 'image/icone.jpg', 1),
-(26, 'BDE', 'defaut', 'Bureau des élèves de l\'ENSISA', 'image/icone_id=115.jpg', 1);
+(26, 'BDE', 'defaut', 'Bureau des élèves de l\'ENSISA', 'image/icone_id=115.jpg', 1),
+(56, 'coucou tu veux voir...', 'prive', 'ma cape?', 'image/icone.jpg', 1);

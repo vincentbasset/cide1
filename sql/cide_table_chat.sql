@@ -19,6 +19,6 @@ CREATE TABLE `chat` (
 --
 
 INSERT INTO `chat` (`id`, `idUtil1`, `idUtil2`, `message`, `date`, `lien`) VALUES
-(1, 115, 114, 'coucou', '2017-06-06 17:18:35', NULL),
-(2, 114, 115, 'salut', '2017-06-06 17:18:35', NULL),
-(3, 115, 114, 'hello', '2017-06-06 17:18:49', NULL);
+(1, 115, 114, 'coucou', '2017-06-06 15:18:35', NULL),
+(2, 114, 115, 'salut', '2017-06-06 15:18:35', NULL),
+(3, 115, 114, 'hello', '2017-06-06 15:18:49', NULL);

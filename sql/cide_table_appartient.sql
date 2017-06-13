@@ -41,7 +41,7 @@ INSERT INTO `appartient` (`idUtil`, `idGroupe`, `droit`) VALUES
 (115, 44, 'admin'),
 (115, 45, 'admin'),
 (114, 46, 'admin'),
-(116, 8, 'createur'),
+(116, 8, 'membre'),
 (116, 1, 'membre'),
 (116, 47, 'createur'),
 (115, 48, 'createur'),

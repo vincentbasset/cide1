@@ -24,6 +24,12 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id`, `idUtil`, `idGroupe`, `idUtilmur`, `idPost`, `visibilite`, `importance`, `message`, `url`, `datepost`, `fichier`) VALUES
+(99, 1, 19, 0, 0, 0, 0, 'Bienvenue', '', '2017-06-13 14:31:38', NULL),
+(98, 1, 19, 0, 0, 1, 0, 'Voici le groupe des 3A Textile', '', '2017-06-13 14:31:30', NULL),
+(97, 1, 18, 0, 0, 0, 0, 'Bienvenue!', '', '2017-06-13 14:31:10', NULL),
+(96, 1, 18, 0, 0, 1, 0, 'Voici le groupe des 2A Textile', '', '2017-06-13 14:30:51', NULL),
+(95, 1, 17, 0, 0, 0, 0, 'Bienvenue!', '', '2017-06-13 14:30:17', NULL),
+(94, 1, 17, 0, 0, 1, 0, 'Voici le groupe des 1A textile', '', '2017-06-13 14:29:59', NULL),
 (93, 114, 8, 0, 0, 0, 0, 'Les notes du projet AOO sont disponibles!', '', '2017-06-13 15:37:53', NULL),
 (92, 116, 0, 0, 90, 0, 0, 'Pendant les vacances viens me faire un coucou dans le ch\'nord il drache beaucoup là bas mais c\'est pas grave!\r\nTu me diras quoi', '', '2017-06-13 15:16:17', NULL),
 (91, 118, 0, 0, 86, 0, 0, 'C\'est moi qui l\'ait fait!!!!', '', '2017-06-13 15:08:48', NULL),

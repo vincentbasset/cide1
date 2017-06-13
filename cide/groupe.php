@@ -9,11 +9,13 @@
 			<p>
 			En attente d\'acceptation
 			</p></div>';
+		        include("chat/footer.php");
 		}
     }
     else {
         if (isset($_SESSION['id'])) {
-				include("groupeconnecte.php");
+			include("groupeconnecte.php");
+			include("chat/footer.php");
 		}
 		else {
 			//ce qui ce passe si on est pas co, avec un exemple de formulaire liant à un fichier qui fera le login

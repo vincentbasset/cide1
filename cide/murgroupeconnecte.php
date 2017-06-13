@@ -24,6 +24,8 @@
 
 		
 <?php
+
+	// 1ere zone: déposer un post sur le mur
 	$_SESSION['url']=$newurl;
 	echo "<div class=\"col-sm-7 col-perso\">";
 	if (!$reponse4->rowcount()==0){
@@ -58,8 +60,10 @@
 			</div>
 		</form>";
 	}
+	
+	// 2eme zone: liste des posts présent sur le mur
+	
 	echo "<hr><hr>";
-
 		$don=$reponse5->fetchAll();
 		while($donneespost=$reponse->fetch()){
 			if (!$reponse4->rowcount()==0 || $donneespost["visibilite"]==1){
@@ -93,11 +97,11 @@
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donneespost["datepost"])), "j/m/y \à G\hi")."</div>";
 						echo'<form class="myform" method="post" action="traitementlike.php?id='.$donneespost["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="30" width="30" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donneespost["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
+								  <input type="image" name="vote"  alt="je n\'aime pas" src="image/dislike.gif" height="30" width="30" />
 								</form>
 								<br>';
 								
@@ -106,6 +110,8 @@
 						<span>Voir commentaires</span>
 							<div class=\"cache2\" style=\"display:none\">";					
 				
+				
+				//commentaires de chaque posts
 				
 				
 				foreach($don as $donneesreponses){
@@ -127,11 +133,11 @@
 						</div>";
 						echo'<form class="myform" method="post" action="traitementlike.php?id='.$donneesreponses["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="30" width="30" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donneesreponses["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
+								  <input type="image" name="vote"  alt="je n\'aime pas" src="image/dislike.gif" height="30" width="30" />
 								</form>
 								<br>';
 					}
@@ -157,6 +163,8 @@
 		
 		echo"</div>";				
 					
+		//colonne de droite: 2 boutons et posts importants 
+					
 		echo "<div class=\"col-sm-3 col-perso\">";
 		if($reponse4->rowcount()==0){
 			$donneesgroupe=$reponse3->fetch();
@@ -174,7 +182,8 @@
 				</form>";
 				while($donneesmembre=$reponse6->fetch()){
 					if($donneesmembre["droit"]!="membre"){
-                        echo "<a id=\"liengestion\"href='gestiong.php?id=".$_GET['id']."'>Gérer le groupe</a><br><br>";
+						
+                        echo "<br><a id=\"liengestion\"href='gestiong.php?id=".$_GET['id']."'>Gérer le groupe</a><br><br>";
 					}
                	}
 			}
@@ -197,11 +206,11 @@
 						";
 						echo'<form class="myform" method="post" action="traitementlike.php?id='.$donneespostutil["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="30" width="30" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donneespostutil["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
+								  <input type="image" name="vote"  alt="je n\'aime pas" src="image/dislike.gif" height="30" width="30" />
 								</form></div>';
 				}
 			}

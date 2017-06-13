@@ -76,11 +76,11 @@
 						echo "<p>".nl2br(htmlspecialchars($donneespost["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donneespost["datepost"])), "j/m/y \à G\hi")."</div>";
 						$_SESSION['url']=$newurl;
-							echo'<form id="myform" method="post" action="traitementlike.php?id='.$donneespost["postid"].'">
+							echo'<form class="myform" method="post" action="traitementlike.php?id='.$donneespost["postid"].'">
 									'.$like->rowcount().'
 								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
 								 </form>
-								 <form id="myform" method="post" action="traitementdislike.php?id='.$donneespost["postid"].'">
+								 <form class="myform" method="post" action="traitementdislike.php?id='.$donneespost["postid"].'">
 									'.$dislike->rowcount().'
 								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
 								</form>
@@ -112,11 +112,11 @@
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donneerep["datepost"])), "j/m/y \à G\hi")."</div>
 							</div>
 						</div>";
-						echo'<form id="myform" method="post" action="traitementlike.php?id='.$donneerep["postid"].'">
+						echo'<form class="myform" method="post" action="traitementlike.php?id='.$donneerep["postid"].'">
 									'.$like->rowcount().'
 								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
 								 </form>
-								 <form id="myform" method="post" action="traitementdislike.php?id='.$donneerep["postid"].'">
+								 <form class="myform" method="post" action="traitementdislike.php?id='.$donneerep["postid"].'">
 									'.$dislike->rowcount().'
 								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
 								</form>

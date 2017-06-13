@@ -12,18 +12,6 @@ CREATE TABLE `chatdans` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `chatdans`
---
-
-INSERT INTO `chatdans` (`idutil`, `idroom`, `couleur`) VALUES
-(115, 72, 'black'),
-(114, 73, 'black'),
-(114, 71, 'black'),
-(1, 69, 'black'),
-(1, 74, 'black'),
-(114, 75, 'black');
-
---
 -- Déclencheurs `chatdans`
 --
 DELIMITER $$

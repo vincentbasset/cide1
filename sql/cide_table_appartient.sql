@@ -16,10 +16,8 @@ CREATE TABLE `appartient` (
 --
 
 INSERT INTO `appartient` (`idUtil`, `idGroupe`, `droit`) VALUES
-(114, 8, 'admin'),
-(114, 1, 'admin'),
-(0, 4, 'membre'),
-(0, 1, 'membre'),
+(114, 8, 'membre'),
+(114, 1, 'membre'),
 (115, 8, 'admin'),
 (115, 1, 'admin'),
 (115, 26, 'admin'),
@@ -79,4 +77,11 @@ INSERT INTO `appartient` (`idUtil`, `idGroupe`, `droit`) VALUES
 (1, 5, 'admin'),
 (1, 4, 'admin'),
 (1, 3, 'admin'),
-(116, 56, 'createur');
+(115, 52, 'createur'),
+(115, 53, 'createur'),
+(115, 54, 'createur'),
+(115, 55, 'createur'),
+(118, 8, 'membre'),
+(118, 1, 'membre'),
+(119, 8, 'admin'),
+(119, 1, 'membre');

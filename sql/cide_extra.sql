@@ -10,12 +10,6 @@ ALTER TABLE `appartient`
   ADD PRIMARY KEY (`idUtil`,`idGroupe`);
 
 --
--- Index pour la table `chat`
---
-ALTER TABLE `chat`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `chatdans`
 --
 ALTER TABLE `chatdans`
@@ -87,43 +81,34 @@ ALTER TABLE `vote`
 -- AUTO_INCREMENT pour la table `chatmsg`
 --
 ALTER TABLE `chatmsg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=150;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 --
 -- AUTO_INCREMENT pour la table `chatroom`
 --
 ALTER TABLE `chatroom`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 --
 -- AUTO_INCREMENT pour la table `groupe`
 --
 ALTER TABLE `groupe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT pour la table `offre`
 --
 ALTER TABLE `offre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT pour la table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 --
 -- AUTO_INCREMENT pour la table `userensisa`
 --
 ALTER TABLE `userensisa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
---
--- Contraintes pour les tables exportées
---
-
---
--- Contraintes pour la table `chatmsg`
---
-ALTER TABLE `chatmsg`
-  ADD CONSTRAINT `room_msg` FOREIGN KEY (`idroom`) REFERENCES `chatroom` (`id`) ON DELETE CASCADE;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;

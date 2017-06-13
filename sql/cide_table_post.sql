@@ -24,8 +24,11 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id`, `idUtil`, `idGroupe`, `idUtilmur`, `idPost`, `visibilite`, `importance`, `message`, `url`, `datepost`, `fichier`) VALUES
-(1, 115, 1, 0, 0, 0, 0, 'coucou', '', '2017-06-06 15:54:06', ''),
-(2, 115, 1, 0, 0, 0, 0, 'salut', '', '2017-06-06 15:56:40', ''),
-(71, 116, 56, 0, 0, 0, 1, 'coucou', '', '2017-06-13 12:05:40', NULL),
-(72, 116, 0, 0, 2, 0, 0, 'boo t\'es null\r\n', '', '2017-06-13 12:08:31', NULL),
-(73, 116, 0, 0, 2, 0, 0, 'zut je me suis tromper', '', '2017-06-13 12:09:25', NULL);
+(93, 114, 8, 0, 0, 0, 0, 'Les notes du projet AOO sont disponibles!', '', '2017-06-13 15:37:53', NULL),
+(92, 116, 0, 0, 90, 0, 0, 'Pendant les vacances viens me faire un coucou dans le ch\'nord il drache beaucoup là bas mais c\'est pas grave!\r\nTu me diras quoi', '', '2017-06-13 15:16:17', NULL),
+(91, 118, 0, 0, 86, 0, 0, 'C\'est moi qui l\'ait fait!!!!', '', '2017-06-13 15:08:48', NULL),
+(90, 118, 0, 116, 0, 0, 0, 'A quand la bière ch\'ti?J\'ai soif!', '', '2017-06-13 15:03:35', NULL),
+(89, 119, 8, 0, 0, 0, 1, 'Le conseil des 1A arrive! \r\nSi vous avez des messages à faire passer, venez mp', '', '2017-06-13 14:57:36', NULL),
+(88, 119, 0, 0, 87, 0, 0, 'Ok mais la prochaine chanson c\'est du métal s\'il vous plait!', '', '2017-06-13 14:54:08', NULL),
+(87, 115, 0, 115, 0, 0, 0, 'A quand la prochaine chorégraphie?', 'https://www.youtube.com/watch?v=gyv89c-fqsU', '2017-06-13 14:49:26', NULL),
+(86, 1, 1, 0, 0, 1, 1, 'Bienvenue sur notre propre réseau social!', '', '2017-06-13 14:44:07', NULL);

@@ -26,6 +26,8 @@ CREATE TABLE `utilisateur` (
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `adresse`, `motdepasse`, `photo`, `statut`, `filiere`, `annee`, `datenaissance`, `cv`, `description`) VALUES
 (114, 'Jaby', 'Florian', 'florian.jaby@uha.fr', '$2y$10$KfOHCf50iT6.kVLQhxxxW.rAs63U5z46lx/uaOcXzJKX8DFBuffLy', 'image/photo_id=114.jpg', 'etudiant', 'Informatique', '1A', '25/10/1994', NULL, 'Je suis le plus beau!'),
-(115, 'Ringler', 'Fanny', 'fanny.ringler@uha.fr', '$2y$10$h9KU0OvwWsca4YiyXUz4X.ax01IFhczTnzvzlC4jzxFNilMXrImYa', 'image/photo_id=115.jpg', 'etudiant', 'Informatique', '1A', '15/01/1996', 'cv/cv_id=115.pdf', 'Je suis folle!'),
-(116, 'Basset', 'Vincent', 'vincent.basset@uha.fr', '$2y$10$Np.G/pzLaJ/YnKVRaPuN6.IjH.IC12WxP73yIkp8cayVp/hyvL482', 'image/profil.jpg', 'etudiant', 'Informatique', '1A', '01/07/1995', NULL, NULL),
-(1, 'Alliot', 'Patrick', 'p.a@uha.fr', '$2y$10$xU60EZZYldJnDJyI1DE.xevRe1wjNxIEjZgQ2EqNCZVK1d6dvj.qu', 'image/profil.jpg', 'Administration', NULL, NULL, '01/01/1960', NULL, NULL);
+(115, 'Ringler', 'Fanny', 'fanny.ringler@uha.fr', '$2y$10$Rb.Z1jkj455qwY19atVeteh6W5YNNozkIyJp7gIGKxTIW5OikehrS', 'image/photo_id=115.jpg', 'etudiant', 'Informatique', '1A', '15/01/1996', NULL, 'Soyez les bienvenues'),
+(116, 'Basset', 'Vincent', 'vincent.basset@uha.fr', '$2y$10$Np.G/pzLaJ/YnKVRaPuN6.IjH.IC12WxP73yIkp8cayVp/hyvL482', 'image/photo_id=116.jpg', 'etudiant', 'Informatique', '1A', '01/07/1995', NULL, NULL),
+(1, 'Directeur', 'Directeur', 'p.a@uha.fr', '$2y$10$VbcSAVK7klAveW.Vrmz/kembS294EVbsw/61RWJcwQN85Am/K4IEi', 'image/profil.jpg', 'Administration', NULL, NULL, '01/01/1960', NULL, NULL),
+(118, 'Vernay', 'Jacques', 'Jacques.vernay@uha.fr', '$2y$10$8BlHK2ugCVKebbbYhHPGYeAZySRM0gBtZ9HD.zzmRkXQxGz0TlFP.', 'image/photo_id=118.jpg', 'etudiant', 'Informatique', '1A', '30/01/1995', NULL, NULL),
+(119, 'Planes', 'Louis', 'louis.planes@uha.fr', '$2y$10$xMWEFcDVGnS0gyMn1qiRfukVKfMYELObceHxyJlc974qZpumL1fpy', 'image/photo_id=119.jpg', 'etudiant', 'Informatique', '1A', '1996-10-04', NULL, NULL);

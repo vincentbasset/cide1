@@ -25,4 +25,5 @@ CREATE TABLE `offre` (
 --
 
 INSERT INTO `offre` (`id`, `idUtil`, `nom`, `metier`, `lieu`, `etranger`, `nature`, `duree`, `mobilite`, `description`, `filiere`, `visible`) VALUES
-(9, 114, 'zrg', 'grgrgrg', 'grgrg', 1, 'cdi', 5, 0, 'sgrgezzegrg', 'mécanique', 1);
+(10, 115, 'Europa park', 'Développeur', 'Rust', 1, 'cdi', 12, 1, 'Maintenance de l\'application Europa park \r\n\r\nSavoir impérativement s\'exprimer en anglais\r\n', 'informatique', 1),
+(11, 116, 'Mcdonalds', 'Serveur', 'Mulhouse', 0, 'job', 6, 1, 'Mcdo recrute pour cet été', 'toutes', 1);

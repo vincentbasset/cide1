@@ -16,21 +16,7 @@ CREATE TABLE `vote` (
 --
 
 INSERT INTO `vote` (`idUtil`, `idPost`, `type`) VALUES
-(115, 69, 'like'),
-(115, 67, 'like'),
-(115, 64, 'dislike'),
-(115, 65, 'like'),
-(115, 50, 'like'),
-(115, 14, 'like'),
-(115, 26, 'like'),
-(115, 63, 'like'),
-(115, 46, 'like'),
-(115, 17, 'like'),
-(115, 51, 'like'),
-(115, 48, 'like'),
-(115, 58, 'like'),
-(115, 70, 'dislike'),
-(115, 66, 'like'),
-(1, 69, 'like'),
-(116, 71, 'like'),
-(116, 2, 'dislike');
+(114, 86, 'like'),
+(114, 87, 'like'),
+(118, 86, 'like'),
+(118, 87, 'dislike');

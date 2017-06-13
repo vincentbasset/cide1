@@ -6827,17 +6827,18 @@ body{
 	font-size:15px;
 }
 
-textarea,input[type="varchar"],input[type="text"]{
+textarea{
 	resize: none;
 	overflow: auto;
 	width:99%;
-	border:0.5px solid rgb(200, 220, 250);
-	border-radius:10px;
+
 }
 
-input[type="varchar"]{
+input[type="text"]{
 	width:50%;
 	padding-left:3px;
+	border:0.5px solid rgb(200, 220, 250);
+	border-radius:10px;
 }
 
 input[type="int"]{
@@ -6846,25 +6847,27 @@ input[type="int"]{
 	border-radius:10px;
 }
 
-textarea:hover,input[type="varchar"]:hover,input[type="int"]:hover,input[type="text"]:hover {
+textarea:hover,input[type="text"]:hover,input[type="int"]:hover{
 	border:0.5px solid rgb(0, 50, 100);
 }
 
 input[type="password"]{
-	width:auto;
+	width:85%;
 	border:0.5px solid rgb(200, 220, 250);
 	border-radius:10px;
 	padding: 0 3px;
 }
 
-.col-sm-2 .media div form input[type="varchar"]{
+.col-sm-2 .media div form input[type="text"]{
 	width:100%;
 	border:0.5px solid rgb(200, 220, 250);
 	border-radius:10px;
+	padding:0;	
+	margin-bottom:10px;
 
 }
 
-.col-sm-2 .media div form input[type="varchar"]:hover,input[type="password"]:hover{
+.col-sm-2 .media div form input[type="text"]:hover,input[type="password"]:hover{
 	border:0.5px solid rgb(0, 50, 100);
 }
 
@@ -7013,7 +7016,7 @@ input[type="submit"]:hover, #liengestion:hover{
 
 
 .offre {
-	border:3 solid rgb(0, 50, 100);
+	border:3px solid rgb(0, 50, 100);
 	border-radius:10px;
 }
 

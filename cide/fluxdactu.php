@@ -26,7 +26,8 @@
 
 
 		<?php
-			echo "<div class=\"col-sm-7 col-perso\">";
+			echo "
+			<div class=\"col-sm-7 col-perso\">";
 				$don=$reponse3->fetchAll();
                 
 				while($donnees=$reponse->fetch()){

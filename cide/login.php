@@ -24,7 +24,7 @@
 				$_SESSION['id'] = $donnees['id'];
 				
 				// on redirige notre visiteur vers une page de notre section membre
-				header ('location: '.$_SESSION['url']);
+				header ('location: '.$_GET['url']);
 				 
 			}
 			else {

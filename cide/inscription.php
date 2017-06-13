@@ -8,10 +8,10 @@
 				<form name="inscription" method="post" action="traitement.php" enctype="multipart/form-data">
 						<p>
 							</br>
-							<input type="text" name="nom" placeholder="Entrez votre nom" required>
+							<input class="tailleinscription" type="text" name="nom" placeholder="Entrez votre nom" required>
 							</br>
 							</br>
-							<input type="text" name="prenom" placeholder="Entrez votre prénom" required>
+							<input class="tailleinscription" type="text" name="prenom" placeholder="Entrez votre prénom" required>
 							</br>
 							</br>
 							<label for="date">Votre date de naissance: </label>
@@ -27,10 +27,10 @@
 							<input type="file" id="photo" name="photo" accept="image/gif, image/jpeg, image/png">
 							</br>
 							</br>
-							<input type="password" name="mdp" placeholder="Entrez votre mot de passe" required>
+							<input class="tailleinscription" type="password" name="mdp" placeholder="Entrez votre mot de passe" required>
 							</br>
 							</br>
-							<input type="password" name="mdp verification" placeholder="Vérifiez votre mot de passe" required>
+							<input class="tailleinscription" type="password" name="mdp verification" placeholder="Vérifiez votre mot de passe" required>
 							</br>
 							</br>
 							<a href="cgu.php" target="_blank">Conditions générales d\'utilisation</a>

@@ -78,11 +78,11 @@
 							echo "<p>".nl2br(htmlspecialchars($donnees["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>";
 							$_SESSION['url']=$newurl;
-							echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnees["id"].'">
+							echo'<form class="myform" method="post" action="traitementlike.php?id='.$donnees["id"].'">
 									'.$like->rowcount().'
 								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
 								 </form>
-								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnees["id"].'">
+								 <form class="myform" method="post" action="traitementdislike.php?id='.$donnees["id"].'">
 									'.$dislike->rowcount().'
 								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
 								</form>';
@@ -110,11 +110,11 @@
 					$like->execute(['postid' =>$donnee['postid']]);
 					$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
 					$dislike->execute(['postid' =>$donnee['postid']]);
-						echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnee["postid"].'">
+						echo'<form class="myform" method="post" action="traitementlike.php?id='.$donnee["postid"].'">
 									'.$like->rowcount().'
 								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
 								 </form>
-								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnee["postid"].'">
+								 <form class="myform" method="post" action="traitementdislike.php?id='.$donnee["postid"].'">
 									'.$dislike->rowcount().'
 								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
 								</form>';
@@ -166,11 +166,11 @@
 										<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>										
 								</div>
 							";
-							echo'<form id="myform" method="post" action="traitementlike.php?id='.$donnees["postid"].'">
+							echo'<form class="myform" method="post" action="traitementlike.php?id='.$donnees["postid"].'">
 									'.$like->rowcount().'
 								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
 								 </form>
-								 <form id="myform" method="post" action="traitementdislike.php?id='.$donnees["postid"].'">
+								 <form class="myform" method="post" action="traitementdislike.php?id='.$donnees["postid"].'">
 									'.$dislike->rowcount().'
 								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
 								</form></div>';

@@ -6970,7 +6970,7 @@ input[type="submit"]:hover, #liengestion:hover{
 	padding:0 10px;
 }
 
-#myform{
+.myform{
 	display:inline;
 	float:right;
 }

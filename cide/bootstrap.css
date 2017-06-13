@@ -5675,6 +5675,7 @@ button.list-group-item-danger.active:focus {
   margin-bottom: 0;
 }
 .panel-group {
+  margin-bottom: 20px;
 }
 .panel-group .panel {
   margin-bottom: 0;
@@ -6791,11 +6792,6 @@ h2{
 a:hover{
 	text-decoration:none;
 	color:yellow;
-}
-
-
-.media {
-  margin-bottom: 10px;
 }
 
 .media-heading{

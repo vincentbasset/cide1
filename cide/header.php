@@ -29,6 +29,9 @@
 			<?php 
 				$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";   
 				$newurl = substr($url, strpos($url, "cide/") + 5);
+				if ($newurl == null){
+				    $newurl = 'index.php';
+				}
 				include("gaucheprofil.php");
 			?>
 		

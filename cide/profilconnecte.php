@@ -14,9 +14,9 @@
 					</div>
 					<div>
 						<p>
-						<h3>'.htmlspecialchars($pdonnees["nom"]).'</h3>
-						
 						<h3>'.htmlspecialchars($pdonnees["prenom"]).'</h3>
+						
+						<h3>'.htmlspecialchars($pdonnees["nom"]).'</h3>
 					</div>
 					</p>
 					<p>

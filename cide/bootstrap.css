@@ -6847,6 +6847,7 @@ input[type="int"]{
 	border-radius:10px;
 }
 
+
 textarea:hover,input[type="text"]:hover,input[type="int"]:hover{
 	border:0.5px solid rgb(0, 50, 100);
 }
@@ -6862,12 +6863,19 @@ input[type="password"]{
 	width:100%;
 	border:0.5px solid rgb(200, 220, 250);
 	border-radius:10px;
-	padding:0;	
-	margin-bottom:10px;
+	padding:0;
+	text-height:2px
 
 }
 
-.col-sm-2 .media div form input[type="text"]:hover,input[type="password"]:hover{
+
+.col-sm-2 #cherche{
+	width:100%;
+	border:0.5px solid rgb(200, 220, 250);
+	border-radius:10px;
+}
+
+.col-sm-2 .media div form input[type="text"]:hover,input[type="password"]:hover,.col-sm-2 #cherche:hover{
 	border:0.5px solid rgb(0, 50, 100);
 }
 
@@ -6961,7 +6969,9 @@ input[type="submit"]:hover, #liengestion:hover{
 	border:0.5px solid rgb(0, 50, 100);
 }
 
-
+#nomgroupe{
+	width:25%;
+}
 
 .modal-body label{
 	font-weight:normal;

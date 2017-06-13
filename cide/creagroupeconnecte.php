@@ -5,7 +5,7 @@
 					<br/>
 					<br/>
 					<form method="post" action="creergroupe.php" enctype="multipart/form-data">
-						<input type="text" name="nom" placeholder="Le nom" required>
+						<input id="nomgroupe" type="text" name="nom" placeholder="Le nom" required>
 						<br/>
 						<br/>
 						<textarea name="description" rows="10" cols="70" placeholder="Description..." required></textarea>

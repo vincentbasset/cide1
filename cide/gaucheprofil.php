@@ -7,9 +7,9 @@
 				echo '
 					<div>
 						<a href="profil.php"><img class="img-circle" src="'.htmlspecialchars($donnees["photo"]).'" alt="'.htmlspecialchars($donnees["prenom"]).' '.htmlspecialchars($donnees["nom"]).'" width="65" height="65"/>
-					</div>
+					
 					<br/>
-					<div>
+					
 						<h3 class="media-heading">'.htmlspecialchars($donnees["prenom"]).' '.htmlspecialchars($donnees["nom"]).'</a></h3>
 						<form action="logout.php" method="post">
 							<input type="submit" value="Déconnexion">
@@ -45,7 +45,7 @@
 			}
 		?>
 		<form method="post" action="traitementrecherche.php">
-			<input id="recherche" type="text" name="search" placeholder="Rechercher...">
+			<input id="cherche" type="text" name="search" placeholder="Rechercher...">
 		</form>	
 	</div>
 </div>

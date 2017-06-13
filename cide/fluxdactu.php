@@ -42,7 +42,7 @@
 					
 					<div class=\"media\">
 						<div class=\"media-left\">
-							<img class=\"img-circle\" src=\"".htmlspecialchars($donnees6["photo"])."\" title=\"".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."\" alt=\"".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."\" width=\"60px\" height=\"60px\" />
+							<img class=\"img-circle\" src=\"".htmlspecialchars($donnees6["photo"])."\" title=\"".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."\" alt=\"".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."\" width=\"60\" height=\"60\" />
 
 						</div>
 						<div class=\"media-body\">
@@ -66,12 +66,12 @@
 								src="https://www.youtube.com/embed/'.$vid.'">
 								</iframe><br/>';
 							} else if (preg_match("/.jpg$/",$donnees["url"]) === 1 || preg_match("/.png$/",$donnees["url"]) === 1 || preg_match("/.gif$/",$donnees["url"]) === 1 || preg_match("/.jpeg$/",$donnees["url"]) === 1){
-								echo "<img class=\"img\" src=\"".htmlspecialchars($donnees["url"])."\" width=\"100%\" /></br>";
+								echo "<img class=\"img\" src=\"".htmlspecialchars($donnees["url"])."\" class=\"url\" alt=\"url partagé\" /></br>";
 							}else{
 								echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a>";
 							}
                             if (preg_match("/.jpg$/",$donnees["fichier"]) === 1 || preg_match("/.png$/",$donnees["fichier"]) === 1 || preg_match("/.gif$/",$donnees["fichier"]) === 1 ||    preg_match("/.jpeg$/",$donnees["fichier"]) === 1){
-                                    echo "<img src=\"".htmlspecialchars($donnees["fichier"])."\" width=\"100%\" /><br/>";
+                                    echo "<img src=\"".htmlspecialchars($donnees["fichier"])."\" class=\"fichier\" alt=\"fichier partagé\" /><br/>";
                             }else if (!is_null($donnees["fichier"])){
                                 echo "<a href=\"".htmlspecialchars($donnees["fichier"])."\">Télécharge le fichier joint ".htmlspecialchars(basename($donnees["fichier"]))."</a>";
                             }
@@ -80,11 +80,11 @@
 							$_SESSION['url']=$newurl;
 							echo'<form class="myform" method="post" action="traitementlike.php?id='.$donnees["id"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donnees["id"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
+								  <input type="image" name="vote" alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
 								</form>';
 				
 				//on cache avec bootstrap les réponse du post mère
@@ -112,11 +112,11 @@
 					$dislike->execute(['postid' =>$donnee['postid']]);
 						echo'<form class="myform" method="post" action="traitementlike.php?id='.$donnee["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donnee["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
+								  <input type="image" name="vote"   alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
 								</form>';
 					}
 				
@@ -153,7 +153,7 @@
 						echo "
 							<div class=\"media\">
 								<div class=\"media-left\">
-									<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60px\" height=\"60px\" />
+									<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60\" height=\"60\" />
 								</div>
 								<div class=\"media-body\">
 									<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a>
@@ -168,11 +168,11 @@
 							";
 							echo'<form class="myform" method="post" action="traitementlike.php?id='.$donnees["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donnees["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
+								  <input type="image" name="vote" alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
 								</form></div>';
 
 				}

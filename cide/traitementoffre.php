@@ -5,6 +5,7 @@
 <?php
 $mobilite=0;
 $mobilite=1;
+$etranger=0;
 	if(isset($_POST["envoyer"])){
 		if(!empty($_POST["nom"])){
 			$nom = $_POST["nom"];

@@ -3,6 +3,8 @@
     if (isset($_SESSION['id'])) {
 		//ce qui se passe si on est co
 		include("fluxdactu.php");
+	    	echo '</div>';
+        	include("chat/footer.php");
 		
 	}
 	else {
@@ -13,9 +15,8 @@
 				</br>
 				</br>
 				<a class="inscription" href="inscription.php">Pas encore inscrit ? Par ici !</a>
-				</p></div>';
+				</p></div></div>';
 	}
-	echo "	</div>
-			</body>
-		  </html>";
+	echo "	  </body>
+		</html>";
 ?>

@@ -5675,7 +5675,6 @@ button.list-group-item-danger.active:focus {
   margin-bottom: 0;
 }
 .panel-group {
-  margin-bottom: 20px;
 }
 .panel-group .panel {
   margin-bottom: 0;
@@ -6831,7 +6830,7 @@ textarea,input[type="varchar"],input[type="text"]{
 	resize: none;
 	overflow: auto;
 	width:99%;
-	border:0.5 solid rgb(200, 220, 250);
+	border:0.5px solid rgb(200, 220, 250);
 	border-radius:10px;
 }
 
@@ -6842,30 +6841,30 @@ input[type="varchar"]{
 
 input[type="int"]{
 	width:26%;
-	border:0.5 solid rgb(200, 220, 250);
+	border:0.5px solid rgb(200, 220, 250);
 	border-radius:10px;
 }
 
 textarea:hover,input[type="varchar"]:hover,input[type="int"]:hover,input[type="text"]:hover {
-	border:0.5 solid rgb(0, 50, 100);
+	border:0.5px solid rgb(0, 50, 100);
 }
 
 input[type="password"]{
 	width:auto;
-	border:0.5 solid rgb(200, 220, 250);
+	border:0.5px solid rgb(200, 220, 250);
 	border-radius:10px;
 	padding: 0 3px;
 }
 
 .col-sm-2 .media div form input[type="varchar"]{
 	width:100%;
-	border:0.5 solid rgb(200, 220, 250);
+	border:0.5px solid rgb(200, 220, 250);
 	border-radius:10px;
 
 }
 
 .col-sm-2 .media div form input[type="varchar"]:hover,input[type="password"]:hover{
-	border:0.5 solid rgb(0, 50, 100);
+	border:0.5px solid rgb(0, 50, 100);
 }
 
 
@@ -6897,17 +6896,17 @@ input[type="submit"],#liengestion{
 	margin-top:4px;
 	border-right: none;
 	border-left: none;
-	border-top:0.5 solid rgb(0, 50, 100);
-	border-bottom:0.5 solid rgb(0, 50, 100);
+	border-top:0.5px solid rgb(0, 50, 100);
+	border-bottom:0.5px solid rgb(0, 50, 100);
 	padding: 0px 15px 0px 15px;
 	background:  rgb(200, 220, 250);
 	border-radius: 20px;
-	color:rgbrgb(0, 50, 100);
+	color:rgb(0, 50, 100);
 }
 
 input[type="submit"]:hover, #liengestion:hover{
-	border-top:0.5 solid white;
-	border-bottom:0.5 solid white;
+	border-top:0.5px solid white;
+	border-bottom:0.5px solid white;
 	color:white;
 }
 
@@ -6947,7 +6946,7 @@ input[type="submit"]:hover, #liengestion:hover{
 }
 
 #changemdp input[type="password"]{
-	border:0.5 solid rgb(200, 220, 250);
+	border:0.5px solid rgb(200, 220, 250);
 	border-radius:10px;
 	padding: 0 3px;
 	width:20%;
@@ -6955,7 +6954,7 @@ input[type="submit"]:hover, #liengestion:hover{
 }
 
 #changemdp input[type="password"]:hover{
-	border:0.5 solid rgb(0, 50, 100);
+	border:0.5px solid rgb(0, 50, 100);
 }
 
 
@@ -6965,7 +6964,7 @@ input[type="submit"]:hover, #liengestion:hover{
 }
 
 .modal-body select{
-	border:0.5 solid rgb(200, 220, 250);
+	border:0.5px solid rgb(200, 220, 250);
 	border-radius:10px;
 	padding:0 10px;
 }
@@ -6976,8 +6975,7 @@ input[type="submit"]:hover, #liengestion:hover{
 }
 
 .modal-header .modal-footer{
-	background-color:rgb(200, 220, 250);
-	color:red;
+	background-color:rgb(74, 103, 161);
 }
 
 
@@ -7057,5 +7055,114 @@ input[type="submit"]:hover, #liengestion:hover{
 	padding-right:10px
 }
 
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
 
+.clearfix { *zoom: 1; } /* For IE 6/7 */
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after { clear: both; }
+
+.panel-group {
+	bottom: 0;
+	font-size: 12px;
+	position: fixed;
+	width: 300px;
+}
+
+.panel-group header {
+	background: rgb(0,50,100);
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	cursor: pointer;
+	padding: 6px 24px;
+}
+
+.chat-message-counter {
+	background: #e62727;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	display: none;
+	font-size: 12px;
+	font-weight: bold;
+	height: 28px;
+	left: 0;
+	line-height: 28px;
+	margin: -15px 0 0 -15px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 28px;
+}
+
+.chat-close {
+	background: #1b2126;
+	border-radius: 50%;
+	color: #fff;
+	display: block;
+	float: right;
+	font-size: 10px;
+	height: 16px;
+	line-height: 16px;
+	margin: 11.5px 0 0 0;
+	text-align: center;
+	width: 16px;
+}
+
+.panel-collapse {
+    margin:0 auto;
+    background:#EBF4FB;
+    width:300px;
+    border:1px solid #ACD8F0;
+    height: 385px;
+}
+  
+.chatbox {
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    width:250px;
+    border:1px solid #ACD8F0;
+    overflow:auto;
+}
+.chatforms{
+    width: 255px;
+    text-align: center;
+    margin-left: 6px;
+}
+.usermsg {
+    margin: 0;
+    border:1px solid #ACD8F0;
+}
+  
+.submitmsg {
+    margin: 10px;
+}
+
+.chat{
+    height: 400px;
+}
+.chat-disp{
+    display: inline-block;
+    position: fixed;
+}
+.titre-chat{
+    margin: 0;
+}
+.url, .fichier{
+    width: 100%;
+}

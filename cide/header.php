@@ -12,7 +12,8 @@
 
 	<head>
 	<!-- head = entête du site -->
-		<meta charset="utf-8"/>	
+		<meta charset="utf-8"/>
+		<link rel="icon" href="image/c.gif" type="image/gif" />
 		<title>C.I.D.E.</title>
 		<link rel="stylesheet" href="bootstrap.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

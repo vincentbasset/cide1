@@ -40,15 +40,15 @@
                         <label for=\"photo\">Poste un document</label>
                         <input type=\"file\" id=\"photo\" name=\"photo\">
 						<label for=\"lien\"></label> 
-						<input type=\"varchar\" name=\"lien\" placeholder=\"inserre un lien ici\">			
-						<label for=\"message\"></label> 
+						<input type=\"text\" name=\"lien\" id=\"lien\" placeholder=\"inserre un lien ici\">			
+						<label for=\"textgroupe\"></label> 
 						<textarea id=\"textgroupe\" name=\"message\" cols=\"85\" rows=\"4\" placeholder=\"Poste un message pour le groupe\"></textarea><br/>";				
 						while($donneesdroit=$reponse4->fetch()){
 							if($donneesdroit["droit"]!="membre"){
 								echo "
-									<input type=\"checkbox\" name=\"important\" />
+									<input type=\"checkbox\" name=\"important\" id=\"important\" />
 									<label for=\"important\">important</label>
-									<input type=\"checkbox\" name=\"public\" />
+									<input type=\"checkbox\" name=\"public\" id=\"public\" />
 									<label for=\"public\">public</label>";
 							}
 						}
@@ -93,11 +93,11 @@
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donneespost["datepost"])), "j/m/y \à G\hi")."</div>";
 						echo'<form class="myform" method="post" action="traitementlike.php?id='.$donneespost["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40" width="40" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donneespost["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
+								  <input type="image" name="vote"  alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
 								</form>
 								<br>';
 								
@@ -127,11 +127,11 @@
 						</div>";
 						echo'<form class="myform" method="post" action="traitementlike.php?id='.$donneesreponses["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40px" width="40px" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donneesreponses["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40px" width="40px" />
+								  <input type="image" name="vote"  alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
 								</form>
 								<br>';
 					}
@@ -197,11 +197,11 @@
 						";
 						echo'<form class="myform" method="post" action="traitementlike.php?id='.$donneespostutil["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" value="like" alt="j\'aime" src="image/like.gif" height="40" width="40" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donneespostutil["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  value="dislike"  alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
+								  <input type="image" name="vote"  alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
 								</form></div>';
 				}
 			}

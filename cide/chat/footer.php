@@ -1,5 +1,6 @@
 <footer id="footderue">
     <?php
+        $_SESSION['url']=$newurl;
         //gets the rooms in wich the user is engaged
         $reponse = $bdd -> prepare('SELECT * FROM chatdans WHERE idutil = :idu');
         $reponse -> execute(['idu' => $_SESSION['id']]);

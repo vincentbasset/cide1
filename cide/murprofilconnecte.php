@@ -75,14 +75,14 @@
 						}
 						echo "<p>".nl2br(htmlspecialchars($donneespost["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donneespost["datepost"])), "j/m/y \à G\hi")."</div>";
-						$_SESSION['url']=$newurl;
+								$_SESSION['url']=$newurl;
 							echo'<form class="myform" method="post" action="traitementlike.php?id='.$donneespost["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
-								 </form>
-								 <form class="myform" method="post" action="traitementdislike.php?id='.$donneespost["postid"].'">
+									<input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="30" width="30" />
+									</form>
+								<form class="myform" method="post" action="traitementdislike.php?id='.$donneespost["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"  alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
+									<input type="image" name="vote"  alt="je n\'aime pas" src="image/dislike.gif" height="30" width="30" />
 								</form>
 								<br>';
 	
@@ -97,11 +97,11 @@
 				foreach($donneesreponses as $donneerep){
 					if($donneespost["postid"]==$donneerep["idPost"]){
 						$like = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='like' and post.id=:postid");
-					$like->execute(['postid' =>$donneerep['postid']]);
-					$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
-					$dislike->execute(['postid' =>$donneerep['postid']]);
+						$like->execute(['postid' =>$donneerep['postid']]);
+						$dislike = $bdd -> prepare("SELECT * FROM vote inner join post on vote.idPost=post.id where type='dislike' and post.id=:postid");
+						$dislike->execute(['postid' =>$donneerep['postid']]);
 					
-						echo"<hr>
+					echo"<hr>
 						<div class=\"media\">
 							<div class=\"media-left\">
 								<img class=\"img-circle\" src=\"".htmlspecialchars($donneerep["photo"])."\" title=\"".htmlspecialchars($donneerep["prenom"])." ".htmlspecialchars($donneerep["nom"])."\" alt=\"".htmlspecialchars($donneerep["nom"])." ".htmlspecialchars($donneerep["prenom"])."\" width=\"50\" height=\"50\" />
@@ -114,11 +114,11 @@
 						</div>";
 						echo'<form class="myform" method="post" action="traitementlike.php?id='.$donneerep["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="30" width="30" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donneerep["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote" alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
+								  <input type="image" name="vote" alt="je n\'aime pas" src="image/dislike.gif" height="30" width="30" />
 								</form>
 								<br>';
 					}
@@ -147,7 +147,7 @@
 					echo"<p>Statut:<br/>".htmlspecialchars($donneesutil["statut"])."<br/><br/>
 						<a href=\"".htmlspecialchars($donneesutil["cv"])."\" target=\"_blank\">CV de ".htmlspecialchars($donneesutil["prenom"])." ".htmlspecialchars($donneesutil["nom"])."</a><br/><br/>"
 						.htmlspecialchars($donneesutil["description"])."<br/><br/>
-						Date de naissance: <br/>".htmlspecialchars($donneesutil["datenaissance"])."
+						Date de naissance: <br/>".date_format(date_create_from_format("Y-m-j",htmlspecialchars($donneesutil["datenaissance"])), "j/m/y")."
 						
 						</p>
 					</div>

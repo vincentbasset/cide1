@@ -70,5 +70,6 @@ echo"
 
 
 	</div>
+<?php include 'chat/footer.php'; ?>
 </body>
 </html>

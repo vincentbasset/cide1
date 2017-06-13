@@ -70,6 +70,11 @@
 							}else{
 								echo "<a href=".htmlspecialchars($donnees["url"]).">".htmlspecialchars($donnees["url"])."</a>";
 							}
+                            if (preg_match("/.jpg$/",$donnees["fichier"]) === 1 || preg_match("/.png$/",$donnees["fichier"]) === 1 || preg_match("/.gif$/",$donnees["fichier"]) === 1 ||    preg_match("/.jpeg$/",$donnees["fichier"]) === 1){
+                                    echo "<img src=\"".htmlspecialchars($donnees["fichier"])."\" width=\"100%\" /><br/>";
+                            }else if (!is_null($donnees["fichier"])){
+                                echo "<a href=\"".htmlspecialchars($donnees["fichier"])."\">Télécharge le fichier joint ".htmlspecialchars(basename($donnees["fichier"]))."</a>";
+                            }
 							echo "<p>".nl2br(htmlspecialchars($donnees["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnees["datepost"])), "j/m/y \à G\hi")."</div>";
 							$_SESSION['url']=$newurl;

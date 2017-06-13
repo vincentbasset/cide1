@@ -28,7 +28,7 @@
 	echo "<div class=\"col-sm-7 col-perso\">";
 	if (!$reponse4->rowcount()==0){
 		echo "
-		<form method=\"post\" action=\"traitementmurg.php?id=".htmlspecialchars($_GET['id'])."\">";
+		<form method=\"post\" action=\"traitementmurg.php?id=".htmlspecialchars($_GET['id'])."\" enctype=\"multipart/form-data\">";
 			$donneesgroupe=$reponse3->fetch();
 			echo "
 				<div class=\"media\">
@@ -36,9 +36,11 @@
 						<img class=\"img-circle\" src=\"".$donneesgroupe["icone"]."\" title=\"".htmlspecialchars($donneesgroupe["nom"])."\" alt=\"".htmlspecialchars($donneesgroupe["nom"])."\" width=\"90\" height=\"90\" />
 					</div>
 					<div class=\"media-body\">
-						<h3 class=\"media-heading\">".htmlspecialchars($donneesgroupe["nom"])."</h3>						
+						<h3 class=\"media-heading\">".htmlspecialchars($donneesgroupe["nom"])."</h3>	
+                        <label for=\"photo\">Poste un document</label>
+                        <input type=\"file\" id=\"photo\" name=\"photo\">
 						<label for=\"lien\"></label> 
-						<input type=\"varchar\" name=\"lien\" placeholder=\"insére un lien ici\">			
+						<input type=\"varchar\" name=\"lien\" placeholder=\"inserre un lien ici\">			
 						<label for=\"message\"></label> 
 						<textarea id=\"textgroupe\" name=\"message\" cols=\"85\" rows=\"4\" placeholder=\"Poste un message pour le groupe\"></textarea><br/>";				
 						while($donneesdroit=$reponse4->fetch()){
@@ -81,6 +83,11 @@
 							echo "<img src=\"".htmlspecialchars($donneespost["url"])."\" width=\"100%\" /></br>";
 						}else{
 							echo "<a href=".htmlspecialchars($donneespost["url"]).">".htmlspecialchars($donneespost["url"])."</a>";
+						}
+                        if (preg_match("/.jpg$/",$donneespost["fichier"]) === 1 || preg_match("/.png$/",$donneespost["fichier"]) === 1 || preg_match("/.gif$/",$donneespost["fichier"]) === 1 ||    preg_match("/.jpeg$/",$donneespost["fichier"]) === 1){
+							echo "<img src=\"".htmlspecialchars($donneespost["fichier"])."\" width=\"100%\" /><br/>";
+						}else if (!is_null($donneespost["fichier"])){
+							echo "<a href=\"".htmlspecialchars($donneespost["fichier"])."\">Télécharge le fichier joint ".htmlspecialchars(basename($donneespost["fichier"]))."</a>";
 						}
 						echo "<p>".nl2br(htmlspecialchars($donneespost["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donneespost["datepost"])), "j/m/y \à G\hi")."</div>";

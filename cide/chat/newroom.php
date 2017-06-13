@@ -1,6 +1,6 @@
 <div class="panel-group" style="position:absolute;bottom:0;">
 <header class="clearfix">
-    <a data-toggle="collapse" href="#collapsenew"><h4>new room</h4></a>
+    <a data-toggle="collapse" href="#collapsenew"><h4>Nouvelle discussion</h4></a>
     <span class="chat-message-counter">3</span>
 </header>
     

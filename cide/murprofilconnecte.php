@@ -34,7 +34,7 @@
 				<p>
                 <label for=\"photo\">Poste un document</label>
                 <input type=\"file\" id=\"photo\" name=\"photo\">
-                <input type=\"text\" name=\"lien\" placeholder=\"Poste un lien vers une video Youtube, un image ou un site web\">		
+                <input type=\"text\" name=\"lien\" placeholder=\"Poste un lien vers une video Youtube, une image ou un site web\">		
 				<label for=\"textgroupe\"></label> 
 				<textarea id=\"textgroupe\" name=\"message\" cols=\"108\" rows=\"6\" placeholder=\"Laisse un message !\"></textarea><br/>	
 				<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>	
@@ -147,7 +147,7 @@
 					echo"<p>Statut:<br/>".htmlspecialchars($donneesutil["statut"])."<br/><br/>
 						<a href=\"".htmlspecialchars($donneesutil["cv"])."\" target=\"_blank\">CV de ".htmlspecialchars($donneesutil["prenom"])." ".htmlspecialchars($donneesutil["nom"])."</a><br/><br/>"
 						.htmlspecialchars($donneesutil["description"])."<br/><br/>
-						Date de naissance: <br/>".date_format(date_create_from_format("Y-m-j",htmlspecialchars($donneesutil["datenaissance"])), "j/m/y")."
+						Date de naissance: <br/>".htmlspecialchars($donneesutil["datenaissance"])."
 						
 						</p>
 					</div>

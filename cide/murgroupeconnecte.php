@@ -42,7 +42,7 @@
                         <label for=\"photo\">Poste un document</label>
                         <input type=\"file\" id=\"photo\" name=\"photo\">
 						<label for=\"lien\"></label> 
-						<input type=\"text\" name=\"lien\" id=\"lien\" placeholder=\"inserre un lien ici\">			
+						<input type=\"text\" name=\"lien\" id=\"lien\" placeholder=\"insère un lien ici\">			
 						<label for=\"textgroupe\"></label> 
 						<textarea id=\"textgroupe\" name=\"message\" cols=\"85\" rows=\"4\" placeholder=\"Poste un message pour le groupe\"></textarea><br/>";				
 						while($donneesdroit=$reponse4->fetch()){

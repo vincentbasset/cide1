@@ -10,7 +10,7 @@
 <div class=" panel-group" style="position:absolute;bottom:0;">
 <header class="clearfix">
     <a href="#" class="chat-close" data-idroom="<?php echo $room ?>" >x</a>
-    <a data-toggle="collapse" href="#collapse<?php echo $room ?>"><h4 class="titre-chat"><?php echo '<img src='.$name['photo'].' class="img-circle" width=40 height=40 style="margin-right:10px;">'.$name['prenom'].' '.$name['nom'] ?></h4></a>
+    <a data-toggle="collapse" href="#collapse<?php echo $room ?>"><h4 class="titre-chat"><?php echo '<img src="'.$name['photo'].'" alt="'.$name['prenom'].' '.$name['nom'].'" class="img-circle" width=40 height=40 style="margin-right:10px;">'.$name['prenom'].' '.$name['nom'] ?></h4></a>
     <span class="chat-message-counter">3</span>
 </header>
 <div id="collapse<?php echo $room ?>" class="panel-collapse collapse">

@@ -35,13 +35,13 @@
 					<div class="modal-body">
 						<form method="post" action="traitementoffre.php">
 						<br>
-							<input type="varchar" name="nom" placeholder="Nom de l'entreprise" required>
+							<input type="text" name="nom" placeholder="Nom de l'entreprise" required />
 						<br>
 						<br>
-						<input type="varchar" name="metier" placeholder="Métier" required>
+						<input type="text" name="metier" placeholder="Métier" required />
 						<br>
 						<br>
-						<input type="varchar" name="lieu" placeholder="Lieu" required>
+						<input type="text" name="lieu" placeholder="Lieu" required />
 						<br>
 						<br>
 						<input type="checkbox" name="etranger" />
@@ -58,7 +58,7 @@
 						</select>
 						<br>
 						<br>
-						<input type="int" name="duree" placeholder="durée(en semaine)">
+						<input type="number" name="duree" placeholder="durée(en semaine)">
 						<br>
 						<br>
 						<input type="checkbox" name="mobilite" />
@@ -104,13 +104,13 @@
 		<div class=\"media\">";
 		if($favori->rowcount()==0){
 			echo "<div class=\"offre\">
-				<form id=\"myform\" method=\"post\" action=\"traitementfavori.php?id=".htmlspecialchars($donnees['id'])."\">
+				<form class=\"myform\" method=\"post\" action=\"traitementfavori.php?id=".htmlspecialchars($donnees['id'])."\">
 					<input type=\"image\" name=\"favori\" alt=\"favori\" src=\"image/etoile2.png\" height=\"20\" width=\"20\" />
 				</form>";
 		}
 		else{
 			echo "<div class=\"offre\">
-				<form id=\"myform\" method=\"post\" action=\"traitementfavori.php?id=".htmlspecialchars($donnees['id'])."\">
+				<form class=\"myform\" method=\"post\" action=\"traitementfavori.php?id=".htmlspecialchars($donnees['id'])."\">
 					<input type=\"image\" name=\"favori\" alt=\"favori\" src=\"image/etoile.png\" height=\"27\" width=\"27\" />
 				</form>";
 		}
@@ -171,61 +171,61 @@
 		<h3>Filtrer les offres</h3>
 			<br>
 			<form method="post" action="traitementfiltre.php">
-				<input type="checkbox" name="favori" />
+				<input type="checkbox" name="favori" id="favori" />
 				<label for="favori">Mes favoris</label>
 				<br>
 				<br>
-				<input type="checkbox" name="stage" />
+				<input type="checkbox" name="stage" id="stage" />
 				<label for="stage">Stage</label>
 				<br>
-				<input type="checkbox" name="job" />
+				<input type="checkbox" name="job" id="job"/>
 				<label for="job">Job</label>
 				<br>
-				<input type="checkbox" name="cdd" />
+				<input type="checkbox" name="cdd" id="cdd"/>
 				<label for="cdd">CDD</label>
 				<br>
-				<input type="checkbox" name="cdi" />
+				<input type="checkbox" name="cdi" id="cdi"/>
 				<label for="cdi">CDI</label>
 				<br>
-				<input type="checkbox" name="alternance" />
+				<input type="checkbox" name="alternance" id="alternance"/>
 				<label for="alternance">Alternance</label>
 				<br>
 				<br>
-				<input type="checkbox" name="etranger" />
+				<input type="checkbox" name="etranger" id="etranger"/>
 				<label for="etranger">offre à l'étranger</label>
 				<br>
 				<br>
-				<input type="checkbox" name="info" />
+				<input type="checkbox" name="info" id="info"/>
 				<label for="info">Informatique</label>
 				<br>
-				<input type="checkbox" name="auto" />
+				<input type="checkbox" name="auto" id="auto"/>
 				<label for="auto">Automatique</label>
 				<br>
-				<input type="checkbox" name="meca" />
+				<input type="checkbox" name="meca" id="meca"/>
 				<label for="meca">Mecanique</label>
 				<br>
-				<input type="checkbox" name="textile" />
+				<input type="checkbox" name="textile" id="textile"/>
 				<label for="textile">Textile</label>
 				<br>
-				<input type="checkbox" name="master" />
+				<input type="checkbox" name="master" id="master"/>
 				<label for="master">Master</label>
 				<br>
-				<input type="checkbox" name="prepas" />
+				<input type="checkbox" name="prepas" id="prepas"/>
 				<label for="prepas">Prépas</label>
 				<br>
 				<br>
-				<input type="checkbox" name="court" />
+				<input type="checkbox" name="court" id="court"/>
 				<label for="court">1 mois ou moins</label>
 				<br>
-				<input type="checkbox" name="moyen" />
+				<input type="checkbox" name="moyen" id="moyen"/>
 				<label for="moyen">1-2 mois</label>
 				<br>
-				<input type="checkbox" name="long" />
+				<input type="checkbox" name="long" id="long"/>
 				<label for="long">plus de 2 mois</label>
 				<br>
 				<br>
-				<input type="checkbox" name="mobilite" />
-				<label for="mobilite">transport en commun</label>
+				<input type="checkbox" name="mobilite" id="mobilite"/>
+				<label for="mobilite">Transport en commun</label>
 				<br>
 				<br>
 				<input type="submit" name="envoyer" value="filtrer"/>

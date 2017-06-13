@@ -34,7 +34,7 @@
 				<p>
                 <label for=\"photo\">Poste un document</label>
                 <input type=\"file\" id=\"photo\" name=\"photo\">
-                <input type=\"text\" name=\"lien\" placeholder=\"Poste un lien vers une video Youtube, une image ou un site web\">		
+                <input id=\"lien\" type=\"text\" name=\"lien\" placeholder=\"Poste un lien\">		
 				<label for=\"textgroupe\"></label> 
 				<textarea id=\"textgroupe\" name=\"message\" cols=\"108\" rows=\"6\" placeholder=\"Laisse un message !\"></textarea><br/>	
 				<input type=\"submit\" value =\"Envoyer\" name=\"envoyer\"/>	

@@ -1,5 +1,5 @@
-<div class="container-fluid" style="background-color:rgb(43,87,160);color:#fff;height:200px;">
-  <img src="image/logo.jpg" title="Le Cercle d'Ingénieurs de l'ENSISA" alt="C.I.D.E." width="300" height="200" />
+<div class="container-fluid" style="background-color:rgb(74,103,161);color:#fff;height:200px;">
+  <img src="image/logo.jpg" title="Le Cercle d'Ingénieurs de l'ENSISA" alt="C.I.D.E." width="300px" height="200px" />
 </div>
 
 <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="200">

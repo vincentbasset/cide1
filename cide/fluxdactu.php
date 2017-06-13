@@ -42,11 +42,11 @@
 					
 					<div class=\"media\">
 						<div class=\"media-left\">
-							<img class=\"img-circle\" src=\"".htmlspecialchars($donnees6["photo"])."\" title=\"".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."\" alt=\"".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."\" width=\"60\" height=\"60\" />
+							<img class=\"img-circle\" src=\"".htmlspecialchars($donnees6["photo"])."\" title=\"".htmlspecialchars($donnees6["prenom"])." ".htmlspecialchars($donnees6["nom"])."\" alt=\"".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."\" width=\"60\" height=\"60\" />
 
 						</div>
 						<div class=\"media-body\">
-							<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees6["id"])."\">".htmlspecialchars($donnees6["nom"])." ".htmlspecialchars($donnees6["prenom"])."</a>
+							<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees6["id"])."\">".htmlspecialchars($donnees6["prenom"])." ".htmlspecialchars($donnees6["nom"])."</a>
 							<small><i>";
 							if($donnees["idGroupe"]!=0){
 								$reponse4->execute(['idg' =>$donnees["idGroupe"]]);
@@ -56,7 +56,7 @@
 							else{
 								$reponse5->execute(['idu' =>$donnees["idUtilmur"]]);
 								$rep5=$reponse5->fetch();
-								echo" à propos de <a href=\"murprofil.php?id=".$rep5["id"]."\">".$rep5["nom"]." ".$rep5["prenom"]."</a>";
+								echo" à propos de <a href=\"murprofil.php?id=".$rep5["id"]."\">".$rep5["prenom"]." ".$rep5["nom"]."</a>";
 							}
 							echo"
 							</i></small></h4>";
@@ -80,11 +80,11 @@
 							$_SESSION['url']=$newurl;
 							echo'<form class="myform" method="post" action="traitementlike.php?id='.$donnees["id"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="30" width="30" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donnees["id"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote" alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
+								  <input type="image" name="vote" alt="je n\'aime pas" src="image/dislike.gif" height="30" width="30" />
 								</form>';
 				
 				//on cache avec bootstrap les réponse du post mère
@@ -98,10 +98,10 @@
 						echo"<hr>
 						<div class=\"media\">
 							<div class=\"media-left\">
-								<img class=\"img-circle\" src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" alt=\"".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."\" width=\"50\" height=\"50\" />
+								<img class=\"img-circle\" src=\"".htmlspecialchars($donnee["photo"])."\" title=\"".htmlspecialchars($donnee["prenom"])." ".htmlspecialchars($donnee["nom"])."\" alt=\"".htmlspecialchars($donnee["prenom"])." ".htmlspecialchars($donnee["nom"])."\" width=\"50\" height=\"50\" />
 							</div>
 							<div class=\"media-body\">
-								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["nom"])." ".htmlspecialchars($donnee["prenom"])."</a></h4>
+								<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnee["id"])."\">".htmlspecialchars($donnee["prenom"])." ".htmlspecialchars($donnee["nom"])."</a></h4>
 								<p>".nl2br(htmlspecialchars($donnee["message"]))."</p>
 								<div class=\"date\">Posté le ".date_format(date_create_from_format("Y-m-j H:i:s",htmlspecialchars($donnee["datepost"])), "j/m/y \à G\hi")."</div>
 							</div>
@@ -112,11 +112,11 @@
 					$dislike->execute(['postid' =>$donnee['postid']]);
 						echo'<form class="myform" method="post" action="traitementlike.php?id='.$donnee["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height=""30" width="30" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donnee["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote"   alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
+								  <input type="image" name="vote"   alt="je n\'aime pas" src="image/dislike.gif" height="30" width="30" />
 								</form>';
 					}
 				
@@ -156,7 +156,7 @@
 									<img class=\"img-circle\" src=\"".htmlspecialchars($donnees["photo"])."\" title=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" alt=\"".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."\" width=\"60\" height=\"60\" />
 								</div>
 								<div class=\"media-body\">
-									<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["nom"])." ".htmlspecialchars($donnees["prenom"])."</a>
+									<h4 class=\"media-heading\"><a href=\"murprofil.php?id=".htmlspecialchars($donnees["id"])."\">".htmlspecialchars($donnees["prenom"])." ".htmlspecialchars($donnees["nom"])."</a>
 									<small><i>";
 									$reponse4->execute(['idg' =>$donnees["idGroupe"]]);
 									$rep4=$reponse4->fetch();			
@@ -168,11 +168,11 @@
 							";
 							echo'<form class="myform" method="post" action="traitementlike.php?id='.$donnees["postid"].'">
 									'.$like->rowcount().'
-								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="40" width="40" />
+								  <input type="image" name="vote" alt="j\'aime" src="image/like.gif" height="30" width="30" />
 								 </form>
 								 <form class="myform" method="post" action="traitementdislike.php?id='.$donnees["postid"].'">
 									'.$dislike->rowcount().'
-								  <input type="image" name="vote" alt="je n\'aime pas" src="image/dislike.gif" height="40" width="40" />
+								  <input type="image" name="vote" alt="je n\'aime pas" src="image/dislike.gif" height="30" width="30" />
 								</form></div>';
 
 				}

@@ -5675,7 +5675,7 @@ button.list-group-item-danger.active:focus {
   margin-bottom: 0;
 }
 .panel-group {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 .panel-group .panel {
   margin-bottom: 0;
@@ -6826,6 +6826,8 @@ textarea{
 	resize: none;
 	overflow: auto;
 	width:99%;
+	border:0.5px solid rgb(200, 220, 250);
+	border-radius:10px;
 
 }
 

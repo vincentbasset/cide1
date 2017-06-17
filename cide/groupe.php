@@ -5,16 +5,21 @@
 		$donnees=$reponse->fetch();
 		if($donnees["accepte"] == "1"){
 			include("murgroupe.php");
-		}else{	echo '<div class="col-sm-1 col-perso" id="deco">
+			echo '</div>';
+		}
+		else{
+			echo '<div class="col-sm-1 col-perso" id="deco">
 			<p>
 			En attente d\'acceptation
 			</p></div>';
-		        include("chat/footer.php");
+			echo '</div>';
+		    include("chat/footer.php");
 		}
     }
     else {
         if (isset($_SESSION['id'])) {
 			include("groupeconnecte.php");
+			echo '</div>';
 			include("chat/footer.php");
 		}
 		else {
@@ -26,6 +31,7 @@
 				</br>
 				<a class="inscription" href="inscription.php">Pas encore inscrit ? Par ici !</a>
 				</p></div>';
+				echo '</div>';
 		}
 	}
 	echo "</body>
